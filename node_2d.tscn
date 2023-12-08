@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://8gtobl6i40fx"]
+
+[ext_resource type="Script" path="res://InventorySystem.gd" id="1_l8yqx"]
+[ext_resource type="Texture2D" uid="uid://brci7rbthftrn" path="res://Assets/Inventory/Background.png" id="2_q20tn"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_l8yqx")
+
+[node name="Background" type="Sprite2D" parent="."]
+self_modulate = Color(0.6, 0.45098, 0.380392, 0.65098)
+position = Vector2(563, 325.5)
+scale = Vector2(1.14347, 1.19295)
+texture = ExtResource("2_q20tn")
