@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://k0foyxvvwm4u"]
+
+[ext_resource type="Script" path="res://DialogManager.gd" id="1_grdvy"]
+[ext_resource type="PackedScene" uid="uid://dvts6n6ljwpjy" path="res://DialogSnippet.tscn" id="2_nv5xj"]
+[ext_resource type="Script" path="res://customdialog.gd" id="3_hdqbm"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 74.0
+offset_top = 439.0
+offset_right = -79.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_grdvy")
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
+offset_top = 58.0
+offset_right = 923.0
+offset_bottom = 195.0
+
+[node name="Node" parent="ItemList" instance=ExtResource("2_nv5xj")]
+dialog = "welcome to this very world of green and blue glibberishes"
+dialogOption = "shouldnt be appearing"
+key = "base"
+
+[node name="Node" parent="ItemList/Node" instance=ExtResource("2_nv5xj")]
+script = ExtResource("3_hdqbm")
+dialog = "heeelooo"
+dialogOption = "i dont know what potatoes are"
+
+[node name="Node" parent="ItemList/Node/Node" instance=ExtResource("2_nv5xj")]
+dialog = "hello"
+dialogOption = "is anything real"
+
+[node name="Node2" parent="ItemList/Node/Node" instance=ExtResource("2_nv5xj")]
+dialog = "I am jumping to base"
+dialogOption = "Jump to base"
+jumps = true
+jumpKey = "base"
+
+[node name="Node2" parent="ItemList/Node" instance=ExtResource("2_nv5xj")]
+dialog = "my nose is yellow"
+dialogOption = "jumpping is for weakling"
+
+[node name="Node" parent="ItemList/Node/Node2" instance=ExtResource("2_nv5xj")]
+
+[node name="Node2" parent="ItemList/Node/Node2/Node" instance=ExtResource("2_nv5xj")]
+dialog = "I am jumping to base"
+dialogOption = "Jump to base"
+jumps = true
+jumpKey = "base"
+
+[node name="Node3" parent="ItemList/Node" instance=ExtResource("2_nv5xj")]
+dialog = "i like grenadiers"
+dialogOption = "Potates are lame"
+
+[node name="Node2" parent="ItemList/Node/Node3" instance=ExtResource("2_nv5xj")]
+dialog = "I am jumping to base"
+dialogOption = "Jump to base"
+jumps = true
+jumpKey = "base"
+
+[node name="active" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -77.0
+offset_right = 918.0
+offset_bottom = 50.0
+text = "asdff"

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b33gxvlbos83x"]
+[gd_scene load_steps=7 format=3 uid="uid://b33gxvlbos83x"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_qt5fh"]
 [ext_resource type="PackedScene" uid="uid://cjj1w71tvqbu3" path="res://Inventory.tscn" id="2_by6dr"]
 [ext_resource type="PackedScene" uid="uid://bg0iu2xvgfl1o" path="res://item.tscn" id="3_4dhel"]
 [ext_resource type="PackedScene" uid="uid://b2yoqiafa7tqj" path="res://InventoryRepresentation.tscn" id="3_cv482"]
 [ext_resource type="Texture2D" uid="uid://duiie6d52di2h" path="res://Assets/Inventory/Wooden_Sword_JE2_BE2.png" id="5_dij83"]
+[ext_resource type="PackedScene" uid="uid://k0foyxvvwm4u" path="res://DialogManager.tscn" id="6_1cs50"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_qt5fh")
@@ -21,3 +22,9 @@ offset_bottom = -1.0
 
 [node name="itemrep" parent="Item" instance=ExtResource("3_cv482")]
 texture = ExtResource("5_dij83")
+
+[node name="Dialog" parent="." instance=ExtResource("6_1cs50")]
+offset_left = 158.0
+offset_top = 437.0
+offset_right = 158.0
+offset_bottom = 437.0
