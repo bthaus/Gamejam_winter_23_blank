@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b33gxvlbos83x"]
+[gd_scene load_steps=9 format=3 uid="uid://b33gxvlbos83x"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_qt5fh"]
 [ext_resource type="PackedScene" uid="uid://cjj1w71tvqbu3" path="res://Inventory.tscn" id="2_by6dr"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b2yoqiafa7tqj" path="res://InventoryRepresentation.tscn" id="3_cv482"]
 [ext_resource type="Texture2D" uid="uid://duiie6d52di2h" path="res://Assets/Inventory/Wooden_Sword_JE2_BE2.png" id="5_dij83"]
 [ext_resource type="PackedScene" uid="uid://k0foyxvvwm4u" path="res://DialogManager.tscn" id="6_1cs50"]
+[ext_resource type="PackedScene" uid="uid://dvts6n6ljwpjy" path="res://DialogSnippet.tscn" id="7_tgfcs"]
+[ext_resource type="Script" path="res://customdialog.gd" id="8_syw4k"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_qt5fh")
@@ -28,3 +30,45 @@ offset_left = 158.0
 offset_top = 437.0
 offset_right = 158.0
 offset_bottom = 437.0
+
+[node name="Node" parent="Dialog" instance=ExtResource("7_tgfcs")]
+dialog = "welcome to this very world of green and blue glibberishes"
+dialogOption = "shouldnt be appearing"
+key = "base"
+
+[node name="Node" parent="Dialog/Node" instance=ExtResource("7_tgfcs")]
+script = ExtResource("8_syw4k")
+dialog = "heeelooo"
+dialogOption = "i dont know what potatoes are"
+
+[node name="Node" parent="Dialog/Node/Node" instance=ExtResource("7_tgfcs")]
+dialog = "hello"
+dialogOption = "is anything real"
+
+[node name="Node2" parent="Dialog/Node/Node" instance=ExtResource("7_tgfcs")]
+dialog = "I am jumping to base"
+dialogOption = "Jump to base"
+jumps = true
+jumpKey = "base"
+
+[node name="Node2" parent="Dialog/Node" instance=ExtResource("7_tgfcs")]
+dialog = "my nose is yellow"
+dialogOption = "jumpping is for weakling"
+
+[node name="Node" parent="Dialog/Node/Node2" instance=ExtResource("7_tgfcs")]
+
+[node name="Node2" parent="Dialog/Node/Node2/Node" instance=ExtResource("7_tgfcs")]
+dialog = "I am jumping to base"
+dialogOption = "Jump to base"
+jumps = true
+jumpKey = "base"
+
+[node name="Node3" parent="Dialog/Node" instance=ExtResource("7_tgfcs")]
+dialog = "i like grenadiers"
+dialogOption = "Potates are lame"
+
+[node name="Node2" parent="Dialog/Node/Node3" instance=ExtResource("7_tgfcs")]
+dialog = "I am jumping to base"
+dialogOption = "Jump to base"
+jumps = true
+jumpKey = "base"

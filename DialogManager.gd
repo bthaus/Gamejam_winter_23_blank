@@ -6,11 +6,14 @@ var open=false;
 var index=0;
 var activeSnippet:DialogSnippet;
 var nodes=[]
+var start;
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	activeSnippet=$ItemList.get_child(0,false);
+	var children=get_children(false);
+	activeSnippet=children[2]
+	start=activeSnippet;
 	load_active_snippet();
 	
 	pass # Replace with function body.
@@ -49,7 +52,8 @@ func chose_selected_dialog_option():
 	activeSnippet=nodes[index];
 	activeSnippet.select_option();
 	if(activeSnippet.jumps):
-		var all=get_all_children($ItemList)
+		var all=get_all_children(start)
+		all.append(start)
 		for n in all:
 			if(n.key==activeSnippet.jumpKey):
 				activeSnippet=n;
@@ -57,7 +61,7 @@ func chose_selected_dialog_option():
 	load_active_snippet()
 	pass
 	
-	
+
 func get_all_children(node):
 	var nodes=[];
 	for n in node.get_children():
@@ -84,6 +88,7 @@ func move_index(val):
 	
 		
 	pass
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(!open):
@@ -101,3 +106,10 @@ func _process(delta):
 	if(Input.is_action_just_pressed("activate_item")):
 		chose_selected_dialog_option();
 	pass
+
+
+func _on_item_list_item_clicked(index, at_position, mouse_button_index):
+	self.index=index;
+	select_item()
+	chose_selected_dialog_option()
+	pass # Replace with function body.

@@ -28,5 +28,3 @@ offset_top = -77.0
 offset_right = 918.0
 offset_bottom = 50.0
 text = "asdff"
-
-[connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
