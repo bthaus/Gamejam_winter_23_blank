@@ -11,10 +11,10 @@ func _ready():
 func _process(delta):
 	if (Input.is_action_pressed("open_menu")):
 		print("menu opened")
-		$Inventory.open_inventory();
+		$Dialog.open_dialog();
 		
 	if (Input.is_action_pressed("close_menu")):
-		$Inventory.close_inventory();
+		$Dialog.close_dialog();
 	if(Input.is_action_just_pressed("pick_up_item")):
 		$Inventory.add_item($Item)
 	
