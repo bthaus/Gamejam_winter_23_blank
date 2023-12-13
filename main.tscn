@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b33gxvlbos83x"]
+[gd_scene load_steps=10 format=3 uid="uid://b33gxvlbos83x"]
 
 [ext_resource type="Script" path="res://input.gd" id="1_qt5fh"]
 [ext_resource type="PackedScene" uid="uid://cjj1w71tvqbu3" path="res://Inventory.tscn" id="2_by6dr"]
@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://duiie6d52di2h" path="res://Assets/Inventory/Wooden_Sword_JE2_BE2.png" id="5_dij83"]
 [ext_resource type="PackedScene" uid="uid://k0foyxvvwm4u" path="res://DialogManager.tscn" id="6_1cs50"]
 [ext_resource type="PackedScene" uid="uid://dvts6n6ljwpjy" path="res://DialogSnippet.tscn" id="7_tgfcs"]
-[ext_resource type="Script" path="res://customdialog.gd" id="8_syw4k"]
+[ext_resource type="PackedScene" uid="uid://da6snba8r210j" path="res://camera_2d.tscn" id="9_qfjed"]
+[ext_resource type="Texture2D" uid="uid://ccmxbk4iswbea" path="res://Assets/Inventory/Diamond_Sword_JE3_BE3.png" id="10_khgxq"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_qt5fh")
@@ -26,10 +27,11 @@ offset_bottom = -1.0
 texture = ExtResource("5_dij83")
 
 [node name="Dialog" parent="." instance=ExtResource("6_1cs50")]
-offset_left = 158.0
-offset_top = 437.0
-offset_right = 158.0
-offset_bottom = 437.0
+visible = false
+offset_left = -360.0
+offset_top = 119.0
+offset_right = -360.0
+offset_bottom = 119.0
 
 [node name="Node" parent="Dialog" instance=ExtResource("7_tgfcs")]
 dialog = "welcome to this very world of green and blue glibberishes"
@@ -37,9 +39,6 @@ dialogOption = "shouldnt be appearing"
 key = "base"
 
 [node name="Node" parent="Dialog/Node" instance=ExtResource("7_tgfcs")]
-script = ExtResource("8_syw4k")
-dialog = "heeelooo"
-dialogOption = "i dont know what potatoes are"
 
 [node name="Node" parent="Dialog/Node/Node" instance=ExtResource("7_tgfcs")]
 dialog = "hello"
@@ -72,3 +71,11 @@ dialog = "I am jumping to base"
 dialogOption = "Jump to base"
 jumps = true
 jumpKey = "base"
+
+[node name="Camera2D" parent="." instance=ExtResource("9_qfjed")]
+position = Vector2(31, -6)
+scale = Vector2(1, 1)
+zoom = Vector2(0.92, 0.92)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("10_khgxq")

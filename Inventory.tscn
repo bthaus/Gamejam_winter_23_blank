@@ -18,3 +18,5 @@ offset_left = 19.0
 offset_top = 146.0
 offset_right = 301.0
 offset_bottom = 576.0
+
+[connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]

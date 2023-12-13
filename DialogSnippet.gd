@@ -5,6 +5,8 @@ extends Node
 @export var key:String="for jumps"
 @export var jumps:bool=false;
 @export var jumpKey:String="-1";
+@export var visible=true;
+@export var isExiting=false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

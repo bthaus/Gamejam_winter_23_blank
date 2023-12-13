@@ -97,3 +97,10 @@ func _process(delta):
 	if(Input.is_action_just_pressed("activate_item")):
 		activate_current_item();
 	pass
+
+
+func _on_item_list_item_clicked(index, at_position, mouse_button_index):
+	self.index=index;
+	select_item()
+	
+	pass # Replace with function body.
