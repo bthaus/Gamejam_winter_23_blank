@@ -27,7 +27,6 @@ offset_bottom = -1.0
 texture = ExtResource("5_dij83")
 
 [node name="Dialog" parent="." instance=ExtResource("6_1cs50")]
-visible = false
 offset_left = -360.0
 offset_top = 119.0
 offset_right = -360.0
@@ -74,7 +73,6 @@ jumpKey = "base"
 
 [node name="Camera2D" parent="." instance=ExtResource("9_qfjed")]
 position = Vector2(31, -6)
-scale = Vector2(1, 1)
 zoom = Vector2(0.92, 0.92)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

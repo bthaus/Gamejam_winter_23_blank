@@ -10,6 +10,7 @@ var start;
 @export var autoclosing=false;
 @export var closeOption:String="go away"
 signal dialog_closed
+signal dialog_advanced
 var defaultClosingSnippet;
 
 
@@ -51,8 +52,8 @@ func load_active_snippet():
 func chose_selected_dialog_option():
 	activeSnippet=nodes[index];
 	activeSnippet.select_option();
+	dialog_advanced.emit(activeSnippet)
 	if(activeSnippet.isExiting):
-		print("i should be exitingß")
 		close_dialog()
 		return;
 	
