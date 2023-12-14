@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dvts6n6ljwpjy"]
 
-[ext_resource type="Script" path="res://DialogSnippet.gd" id="1_n6d7o"]
+[ext_resource type="Script" path="res://Preperations/DialogSnippet.gd" id="1_n6d7o"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_n6d7o")

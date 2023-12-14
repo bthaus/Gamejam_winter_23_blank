@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://da6snba8r210j"]
 
-[ext_resource type="Script" path="res://Cinecam.gd" id="1_4mkfh"]
+[ext_resource type="Script" path="res://Preperations/Cinecam.gd" id="1_4mkfh"]
 
 [sub_resource type="Environment" id="Environment_gmpsp"]
 background_mode = 3

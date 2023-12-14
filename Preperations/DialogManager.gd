@@ -20,7 +20,7 @@ func _ready():
 	activeSnippet=children[2]
 	start=activeSnippet;
 	load_active_snippet();
-	defaultClosingSnippet=load("res://DialogSnippet.tscn").instantiate()
+	defaultClosingSnippet=load("res://Preperations/DialogSnippet.tscn").instantiate()
 	defaultClosingSnippet.dialogOption=closeOption;
 	defaultClosingSnippet.isExiting=true;
 	
