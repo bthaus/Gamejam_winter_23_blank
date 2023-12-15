@@ -1,6 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://b33gxvlbos83x"]
+[gd_scene load_steps=6 format=3 uid="uid://b33gxvlbos83x"]
 
 [ext_resource type="Script" path="res://Preperations/input.gd" id="1_qt5fh"]
+[ext_resource type="PackedScene" uid="uid://r5fm0eo8ggmo" path="res://Player/Player.tscn" id="2_tqew3"]
+[ext_resource type="Script" path="res://test.gd" id="3_1lk4i"]
+[ext_resource type="Texture2D" uid="uid://ccmxbk4iswbea" path="res://Assets/Inventory/Diamond_Sword_JE3_BE3.png" id="4_hchup"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mncpv"]
+radius = 103.0
+height = 256.0
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_qt5fh")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_tqew3")]
+position = Vector2(93, 519)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("3_1lk4i")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(376, 318)
+polygon = PackedVector2Array(-832, 222, -575, 110, -353, 218, 296, 144, 471, -91, 1092, -151, 1427, -208, 1410, 252, 940, 387, -783, 330)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D"]
+position = Vector2(733.366, 273.08)
+rotation = -0.785397
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D"]
+shape = SubResource("CapsuleShape2D_mncpv")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/StaticBody2D/CollisionShape2D"]
+position = Vector2(4.04015, 3.92723)
+texture = ExtResource("4_hchup")
