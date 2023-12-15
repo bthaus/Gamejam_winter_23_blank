@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://b4kpxq4n2nyal" path="res://Assets/Player/sword.png" id="3_qc6v2"]
 [ext_resource type="Texture2D" uid="uid://dirfobpxjormw" path="res://Assets/Player/schwertunteratm.png" id="4_q5m3j"]
 [ext_resource type="Texture2D" uid="uid://fiirmaayadfd" path="res://Assets/Player/face.png" id="4_wy0jj"]
-[ext_resource type="Texture2D" uid="uid://u3vrnyt3t1yj" path="res://Assets/Player/dresstop.png" id="4_xei1r"]
 [ext_resource type="Texture2D" uid="uid://crtx6l7a3wxfo" path="res://Assets/Player/foot.png" id="5_6j7ic"]
 [ext_resource type="Texture2D" uid="uid://jxw41g30orxq" path="res://Assets/Player/schwertoberarm.png" id="5_oyin7"]
 [ext_resource type="Texture2D" uid="uid://fkge2syrb7q4" path="res://Assets/Player/tigh.png" id="6_gtmmm"]
@@ -17,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cj1lr7lv1uesa" path="res://Assets/Player/dressbottom.png" id="8_6ekpc"]
 [ext_resource type="Texture2D" uid="uid://c381ir8nfg6vj" path="res://Assets/Player/opening/3.png" id="8_jsfto"]
 [ext_resource type="Texture2D" uid="uid://d15spgdbib77t" path="res://Assets/Player/opening/4.png" id="9_c7saa"]
+[ext_resource type="Texture2D" uid="uid://mipdhuhtxj85" path="res://Assets/Player/dress.png" id="13_55orw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n8aiy"]
 radius = 56.0
@@ -163,6 +163,7 @@ tracks/4/keys = {
 [sub_resource type="Animation" id="Animation_id48g"]
 resource_name = "opening"
 length = 2.0
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -254,7 +255,7 @@ position = Vector2(6, -115)
 rest = Transform2D(1, 0, 0, 1, 6, -115)
 
 [node name="shoulders" type="Bone2D" parent="Skeleton2D/hips"]
-position = Vector2(-2, -40)
+position = Vector2(-2, -38)
 rest = Transform2D(1, 0, 0, 1, -2, -40)
 
 [node name="LeftUpperArm" type="Bone2D" parent="Skeleton2D/hips/shoulders"]
@@ -264,7 +265,6 @@ rest = Transform2D(1, 0, 0, 1, -14, 6)
 [node name="LeftLowerArm" type="Bone2D" parent="Skeleton2D/hips/shoulders/LeftUpperArm"]
 position = Vector2(-5.24406, 23.5983)
 rotation = 0.785398
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -5.24406, 23.5983)
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm"]
@@ -341,7 +341,7 @@ metadata/_edit_lock_ = true
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hips/shoulders"]
 position = Vector2(-2, 3)
 scale = Vector2(0.160832, 0.160831)
-texture = ExtResource("4_xei1r")
+texture = ExtResource("13_55orw")
 metadata/_edit_lock_ = true
 
 [node name="RightQuad" type="Bone2D" parent="Skeleton2D/hips"]
@@ -411,6 +411,7 @@ texture = ExtResource("7_g7bi5")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hips"]
+visible = false
 position = Vector2(-4, -35)
 scale = Vector2(0.174508, 0.174508)
 texture = ExtResource("8_6ekpc")
