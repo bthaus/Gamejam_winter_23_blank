@@ -1,17 +1,15 @@
 [gd_scene load_steps=2 format=3 uid="uid://ug2qkrjtxfxm"]
 
-[ext_resource type="Texture2D" uid="uid://brci7rbthftrn" path="res://Assets/Inventory/Background.png" id="1_02s87"]
+[ext_resource type="Texture2D" uid="uid://c4cfjtv7ia2xu" path="res://Pictures/IMG_0819.png" id="1_oobof"]
 
 [node name="Level02" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(575, 321)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-modulate = Color(0.243137, 1, 1, 1)
-position = Vector2(576.25, 588)
-scale = Vector2(1.24218, 0.257261)
-texture = ExtResource("1_02s87")
+texture = ExtResource("1_oobof")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(8.37915, 528.521)
-polygon = PackedVector2Array(25.6208, 0.479004, 1145.62, -1.521, 1141.62, 118.479, -8.37915, 120.479, -9.37915, 0.479004)
+position = Vector2(-554.95, 284.339)
+polygon = PackedVector2Array(39.9496, -20.3392, 354.95, -22.3392, 356.95, -59.3392, 405.95, -57.3392, 410.95, -23.3392, 1128.95, -27.3392, 1130.95, 42.6608, 737.95, 42.6608, -20.0504, 40.6608, -20.0504, -22.3392)
