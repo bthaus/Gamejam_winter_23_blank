@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://r5fm0eo8ggmo"]
+[gd_scene load_steps=25 format=3 uid="uid://r5fm0eo8ggmo"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_5k5x2"]
 [ext_resource type="Texture2D" uid="uid://c8qb36va0pefv" path="res://Assets/Player/Player.png" id="2_ldieh"]
@@ -11,12 +11,36 @@
 [ext_resource type="Texture2D" uid="uid://crtx6l7a3wxfo" path="res://Assets/Player/foot.png" id="5_6j7ic"]
 [ext_resource type="Texture2D" uid="uid://jxw41g30orxq" path="res://Assets/Player/schwertoberarm.png" id="5_oyin7"]
 [ext_resource type="Texture2D" uid="uid://fkge2syrb7q4" path="res://Assets/Player/tigh.png" id="6_gtmmm"]
+[ext_resource type="Texture2D" uid="uid://biud2ok8i50l5" path="res://Assets/Player/opening/1.png" id="6_p6dup"]
+[ext_resource type="Texture2D" uid="uid://d1btriyufm0tk" path="res://Assets/Player/opening/2.png" id="7_01uug"]
 [ext_resource type="Texture2D" uid="uid://cm07l35f6c0wb" path="res://Assets/Player/quad.png" id="7_g7bi5"]
 [ext_resource type="Texture2D" uid="uid://cj1lr7lv1uesa" path="res://Assets/Player/dressbottom.png" id="8_6ekpc"]
+[ext_resource type="Texture2D" uid="uid://c381ir8nfg6vj" path="res://Assets/Player/opening/3.png" id="8_jsfto"]
+[ext_resource type="Texture2D" uid="uid://d15spgdbib77t" path="res://Assets/Player/opening/4.png" id="9_c7saa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n8aiy"]
 radius = 56.0
 height = 258.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rqanq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_p6dup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_01uug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jsfto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_c7saa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_2wy5u"]
 resource_name = "Walking"
@@ -99,12 +123,113 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5.24406, 23.5983)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.785398]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/sword/AnimatedSprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_id48g"]
+resource_name = "opening"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.7, 1, 1.3, 1.5, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.7, 1, 1.3, 1.5, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5.24406, 23.5983)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.785398]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/sword/AnimatedSprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.6, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4uqux"]
 _data = {
 "AttackFull": SubResource("Animation_wcm3t"),
 "RESET": SubResource("Animation_h0f3d"),
-"Walking": SubResource("Animation_2wy5u")
+"Walking": SubResource("Animation_2wy5u"),
+"opening": SubResource("Animation_id48g")
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
@@ -113,6 +238,7 @@ script = ExtResource("1_5k5x2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(19, -131)
+rotation = -0.261799
 shape = SubResource("CapsuleShape2D_n8aiy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -137,6 +263,8 @@ rest = Transform2D(1, 0, 0, 1, -14, 6)
 
 [node name="LeftLowerArm" type="Bone2D" parent="Skeleton2D/hips/shoulders/LeftUpperArm"]
 position = Vector2(-5.24406, 23.5983)
+rotation = 0.785398
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -5.24406, 23.5983)
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm"]
@@ -154,16 +282,17 @@ texture = ExtResource("3_hjs85")
 metadata/_edit_lock_ = true
 
 [node name="rightupperarm" type="Bone2D" parent="Skeleton2D/hips/shoulders"]
-position = Vector2(13, 3)
+position = Vector2(12, 1)
+rotation = 0.107523
 scale = Vector2(1, 1)
 rest = Transform2D(0.994225, 0.107316, -0.107316, 0.994225, 12, 1)
 
 [node name="rightLowerArm" type="Bone2D" parent="Skeleton2D/hips/shoulders/rightupperarm"]
-position = Vector2(15.2859, 20.4778)
+position = Vector2(10.2074, 20.0202)
 rest = Transform2D(1, 7.45058e-09, -7.45058e-09, 1, 10.2074, 20.0202)
 
 [node name="sword" type="Bone2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm"]
-position = Vector2(28.6463, -14.156)
+position = Vector2(21.1217, -9.32053)
 rotation = -0.820999
 scale = Vector2(1, 1)
 rest = Transform2D(0.681491, -0.731827, 0.731827, 0.681491, 21.1217, -9.32053)
@@ -173,6 +302,12 @@ position = Vector2(17.073, -9.0284)
 scale = Vector2(0.127383, 0.127383)
 texture = ExtResource("3_qc6v2")
 metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/sword"]
+position = Vector2(18.3258, -10.1404)
+scale = Vector2(0.131962, 0.131962)
+sprite_frames = SubResource("SpriteFrames_rqanq")
+frame = 1
 
 [node name="Area2D" type="Area2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/sword"]
 position = Vector2(5.0872, 0.226743)
