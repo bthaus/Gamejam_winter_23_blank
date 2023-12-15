@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b33gxvlbos83x"]
 
 [ext_resource type="Script" path="res://Preperations/input.gd" id="1_qt5fh"]
-[ext_resource type="PackedScene" uid="uid://r5fm0eo8ggmo" path="res://Player/Player.tscn" id="2_tqew3"]
 [ext_resource type="Script" path="res://test.gd" id="3_1lk4i"]
+[ext_resource type="PackedScene" uid="uid://ctf502tckktb8" path="res://rigidPlayer.tscn" id="4_dooom"]
 [ext_resource type="Texture2D" uid="uid://ccmxbk4iswbea" path="res://Assets/Inventory/Diamond_Sword_JE3_BE3.png" id="4_hchup"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mncpv"]
@@ -11,9 +11,6 @@ height = 256.0
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_qt5fh")
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_tqew3")]
-position = Vector2(541, 437)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 scale = Vector2(1.00377, 0.981196)
@@ -33,3 +30,6 @@ shape = SubResource("CapsuleShape2D_mncpv")
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/StaticBody2D/CollisionShape2D"]
 position = Vector2(4.04015, 3.92723)
 texture = ExtResource("4_hchup")
+
+[node name="RigidBody2D" parent="." instance=ExtResource("4_dooom")]
+position = Vector2(246, 460)
