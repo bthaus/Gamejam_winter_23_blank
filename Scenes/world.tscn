@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://eywsjsi8bmic"]
+
+[ext_resource type="Script" path="res://Scenes/world.gd" id="1_jw8lx"]
+[ext_resource type="PackedScene" uid="uid://r5fm0eo8ggmo" path="res://Player/Player.tscn" id="1_kygsu"]
+[ext_resource type="Texture2D" uid="uid://brci7rbthftrn" path="res://Assets/Inventory/Background.png" id="3_3okck"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8a11"]
+size = Vector2(97, 652.5)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_jw8lx")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_kygsu")]
+position = Vector2(476, 422)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 322)
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-49, 322)
+shape = SubResource("RectangleShape2D_b8a11")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Top" type="Sprite2D" parent="HUD"]
+modulate = Color(0.960784, 0.121569, 0.184314, 1)
+position = Vector2(578.375, 30)
+scale = Vector2(1.25054, 0.127593)
+texture = ExtResource("3_3okck")
+
+[node name="Bottom" type="Sprite2D" parent="HUD"]
+modulate = Color(0.960784, 0.121569, 0.184314, 1)
+position = Vector2(577.375, 619)
+scale = Vector2(1.24838, 0.127593)
+texture = ExtResource("3_3okck")
