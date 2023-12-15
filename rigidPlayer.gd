@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends RigidBody2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,6 +8,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#constant_linear_velocity.x=-10;
-	
+	if(Input.is_action_pressed("down")):
+		linear_velocity.x=1000;
+		print("here")
+		
 	pass
