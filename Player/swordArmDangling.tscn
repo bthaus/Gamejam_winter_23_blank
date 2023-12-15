@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://1kjg8q45d2xw"]
+
+[ext_resource type="Texture2D" uid="uid://jxw41g30orxq" path="res://Assets/Player/schwertoberarm.png" id="1_enxcy"]
+[ext_resource type="Texture2D" uid="uid://dirfobpxjormw" path="res://Assets/Player/schwertunteratm.png" id="2_pival"]
+[ext_resource type="Texture2D" uid="uid://d1btriyufm0tk" path="res://Assets/Player/opening/2.png" id="3_2yk3r"]
+[ext_resource type="Texture2D" uid="uid://b4kpxq4n2nyal" path="res://Assets/Player/sword.png" id="4_j4jip"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mnw4v"]
+height = 48.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pi70e"]
+height = 52.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rxsvp"]
+height = 76.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iu6pn"]
+
+[node name="joint" type="RigidBody2D"]
+position = Vector2(7, 3)
+collision_layer = 0
+metadata/_edit_horizontal_guides_ = [-32.0]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(18.5051, 50.454)
+node_a = NodePath("../thing")
+node_b = NodePath("../RigidBody2D2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2.50511, -6.54602)
+scale = Vector2(0.164103, 0.164103)
+texture = ExtResource("3_2yk3r")
+
+[node name="thing" type="RigidBody2D" parent="."]
+position = Vector2(23.0102, 17.9079)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="thing"]
+position = Vector2(-3.5051, 11.546)
+shape = SubResource("CapsuleShape2D_mnw4v")
+
+[node name="Sprite2D" type="Sprite2D" parent="thing"]
+position = Vector2(20.9898, 51.0921)
+rotation = 0.785398
+scale = Vector2(0.375274, 0.375274)
+texture = ExtResource("1_enxcy")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2(30.889, 76.3525)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2"]
+position = Vector2(-2.38391, -1.89854)
+rotation = 1.8326
+scale = Vector2(0.351204, 0.351204)
+texture = ExtResource("2_pival")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+position = Vector2(-10.3839, -0.898544)
+shape = SubResource("CapsuleShape2D_pi70e")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(19.424, 103.056)
+node_a = NodePath("../RigidBody2D2")
+node_b = NodePath("../RigidBody2D3")
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+position = Vector2(-0.494904, -3.54603)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+position = Vector2(28.5051, 141.454)
+rotation = -0.261799
+shape = SubResource("CapsuleShape2D_rxsvp")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D3"]
+position = Vector2(32.5051, 141.454)
+rotation = 1.8326
+scale = Vector2(0.221554, 0.221554)
+texture = ExtResource("4_j4jip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(19, 0)
+shape = SubResource("CircleShape2D_iu6pn")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(19, 8)
+node_a = NodePath("..")
+node_b = NodePath("../thing")

@@ -13,9 +13,10 @@ height = 256.0
 script = ExtResource("1_qt5fh")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_tqew3")]
-position = Vector2(93, 519)
+position = Vector2(541, 437)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(1.00377, 0.981196)
 script = ExtResource("3_1lk4i")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]

@@ -9,5 +9,5 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#constant_linear_velocity.x=-10;
-	position.x=position.x-1
+	
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://r5fm0eo8ggmo"]
+[gd_scene load_steps=26 format=3 uid="uid://r5fm0eo8ggmo"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_5k5x2"]
 [ext_resource type="Texture2D" uid="uid://c8qb36va0pefv" path="res://Assets/Player/Player.png" id="2_ldieh"]
@@ -17,10 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://c381ir8nfg6vj" path="res://Assets/Player/opening/3.png" id="8_jsfto"]
 [ext_resource type="Texture2D" uid="uid://d15spgdbib77t" path="res://Assets/Player/opening/4.png" id="9_c7saa"]
 [ext_resource type="Texture2D" uid="uid://mipdhuhtxj85" path="res://Assets/Player/dress.png" id="13_55orw"]
+[ext_resource type="PackedScene" uid="uid://1kjg8q45d2xw" path="res://Player/swordArmDangling.tscn" id="14_c38jl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n8aiy"]
-radius = 56.0
-height = 258.0
+radius = 13.0
+height = 202.604
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rqanq"]
 animations = [{
@@ -41,34 +42,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="Animation" id="Animation_2wy5u"]
-resource_name = "Walking"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Skeleton2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
 
 [sub_resource type="Animation" id="Animation_wcm3t"]
 resource_name = "AttackFull"
@@ -160,6 +133,34 @@ tracks/4/keys = {
 "values": [1]
 }
 
+[sub_resource type="Animation" id="Animation_2wy5u"]
+resource_name = "Walking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_id48g"]
 resource_name = "opening"
 length = 2.0
@@ -234,12 +235,11 @@ _data = {
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(-9, -16)
 script = ExtResource("1_5k5x2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(19, -131)
-rotation = -0.261799
+position = Vector2(3, -103)
 shape = SubResource("CapsuleShape2D_n8aiy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -284,7 +284,6 @@ metadata/_edit_lock_ = true
 [node name="rightupperarm" type="Bone2D" parent="Skeleton2D/hips/shoulders"]
 position = Vector2(12, 1)
 rotation = 0.107523
-scale = Vector2(1, 1)
 rest = Transform2D(0.994225, 0.107316, -0.107316, 0.994225, 12, 1)
 
 [node name="rightLowerArm" type="Bone2D" parent="Skeleton2D/hips/shoulders/rightupperarm"]
@@ -294,7 +293,6 @@ rest = Transform2D(1, 7.45058e-09, -7.45058e-09, 1, 10.2074, 20.0202)
 [node name="sword" type="Bone2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm"]
 position = Vector2(21.1217, -9.32053)
 rotation = -0.820999
-scale = Vector2(1, 1)
 rest = Transform2D(0.681491, -0.731827, 0.731827, 0.681491, 21.1217, -9.32053)
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/sword"]
@@ -343,6 +341,10 @@ position = Vector2(-2, 3)
 scale = Vector2(0.160832, 0.160831)
 texture = ExtResource("13_55orw")
 metadata/_edit_lock_ = true
+
+[node name="swordarmdangling" parent="Skeleton2D/hips/shoulders" instance=ExtResource("14_c38jl")]
+position = Vector2(8, -6)
+rotation = -0.523599
 
 [node name="RightQuad" type="Bone2D" parent="Skeleton2D/hips"]
 position = Vector2(1.23958, 7.56574)
