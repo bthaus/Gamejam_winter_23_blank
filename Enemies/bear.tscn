@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://4d4d0avb1u0d"]
+
+[ext_resource type="Texture2D" uid="uid://c36ok7negqsn1" path="res://Pictures/Bear coloured.png" id="1_kq30a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3r8gm"]
+size = Vector2(84, 161)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_010tt"]
+size = Vector2(84, 162)
+
+[node name="Bear" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, -40)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_kq30a")
+
+[node name="PhysicsArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PhysicsArea"]
+position = Vector2(3, -1.5)
+shape = SubResource("RectangleShape2D_3r8gm")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(3, -2)
+shape = SubResource("RectangleShape2D_010tt")
