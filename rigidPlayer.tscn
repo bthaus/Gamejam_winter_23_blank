@@ -533,7 +533,6 @@ texture = ExtResource("16_tsv2s")
 metadata/_edit_lock_ = true
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Skeleton2D/hips"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton2D/hips/RigidBody2D"]
 position = Vector2(-4.37263, -35.9158)
@@ -550,9 +549,9 @@ libraries = {
 }
 
 [node name="DanglingParts" type="Node2D" parent="."]
-visible = false
 
 [node name="rightarm" type="Node2D" parent="DanglingParts"]
+visible = false
 
 [node name="rightupperp" type="RigidBody2D" parent="DanglingParts/rightarm"]
 collision_layer = 0
@@ -624,6 +623,7 @@ rotation = 1.57079
 mass = 0.01
 
 [node name="leftarm" type="Node2D" parent="DanglingParts"]
+visible = false
 position = Vector2(-241, -355)
 rotation = 0.523598
 
@@ -678,6 +678,7 @@ rotation = 1.0472
 mass = 0.01
 
 [node name="leftlef" type="Node2D" parent="DanglingParts"]
+visible = false
 
 [node name="leftquad" type="RigidBody2D" parent="DanglingParts/leftlef"]
 mass = 0.01
@@ -748,6 +749,7 @@ rotation = 1.57079
 mass = 0.01
 
 [node name="leftlef2" type="Node2D" parent="DanglingParts"]
+visible = false
 position = Vector2(84, -29)
 rotation = -0.785397
 
@@ -851,6 +853,8 @@ shape = SubResource("CapsuleShape2D_ktpiy")
 metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("19_vl1pw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -886,6 +890,12 @@ attachment = NodePath("../../Skeleton2D/hips/LeftQuad/leftTigh/leftFoot")
 position = Vector2(54.4082, -353.992)
 script = ExtResource("10_ybvur")
 attachment = NodePath("../../Skeleton2D/hips/RightQuad/righttight/rightfoot")
+
+[node name="acenter" type="Node2D" parent="StaticBody2D" node_paths=PackedStringArray("attachment")]
+z_index = -1
+position = Vector2(2.53485, -376.589)
+script = ExtResource("10_ybvur")
+attachment = NodePath("../../Skeleton2D/hips")
 
 [connection signal="area_entered" from="feet" to="." method="_on_feet_area_entered"]
 [connection signal="area_exited" from="feet" to="." method="_on_feet_area_exited"]

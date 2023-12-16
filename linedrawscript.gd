@@ -7,7 +7,7 @@ func _ready():
 
 func _draw():
 	
-	draw_line(Vector2(0,0),-(global_position-attachment.global_position),Color.WHITE,2)
+	draw_line(Vector2(0,0),-(global_position-attachment.global_position),Color.WHITE,0.5,true)
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
