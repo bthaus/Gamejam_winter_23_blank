@@ -24,4 +24,4 @@ func _process(delta):
 	queue_redraw()
 		
 func _draw():
-	draw_line(Vector2(22, 8), Vector2(200, position.y - 2000), Color.SADDLE_BROWN, 15) 
+	draw_line(Vector2(0, 0), Vector2(200, position.y - 2000), Color.SADDLE_BROWN, 15) 
