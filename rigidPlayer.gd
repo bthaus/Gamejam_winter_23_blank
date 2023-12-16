@@ -62,6 +62,14 @@ func breakrightleg():
 	pass;
 
 func hit(type):
+	if(type=="trap"):
+		if(!leftlegbroken):
+			breakleftLeg();
+		elif(!rightlegbroken):
+			breakrightleg()
+		else:
+			die()
+			
 	if(blocking):
 		return;
 	$gettinghit.play()

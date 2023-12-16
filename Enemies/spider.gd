@@ -54,7 +54,7 @@ func _draw():
 	if !dead:
 		draw_line(Vector2(0, position.y - global_position.y - 5000), Vector2(0, 0), Color.WHITE, 3)
 	
-func hit():
+func hit(type):
 	dead = true
 	queue_redraw()
 	$String.show()
