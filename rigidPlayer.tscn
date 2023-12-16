@@ -606,7 +606,7 @@ rest = Transform2D(0.994225, 0.107316, -0.107316, 0.994225, 12, 1)
 
 [node name="rightLowerArm" type="Bone2D" parent="Skeleton2D/hips/shoulders/rightupperarm"]
 position = Vector2(10.2074, 20.0202)
-scale = Vector2(0.999996, 0.999996)
+scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 7.45058e-09, -7.45058e-09, 1, 10.2074, 20.0202)
 auto_calculate_length_and_angle = false
 length = 23.0867
