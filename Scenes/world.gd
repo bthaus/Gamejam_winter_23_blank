@@ -35,3 +35,13 @@ func _process(delta):
 		add_child(level)
 
 
+
+
+func _on_player_died():
+	$dietimer.start()
+	pass # Replace with function body.
+
+
+func _on_dietimer_timeout():
+	$Camera2D/menu.toggle(false)
+	pass # Replace with function body.

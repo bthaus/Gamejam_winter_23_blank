@@ -7,6 +7,7 @@ var twohandbroken=false;
 var leftlegbroken=false;
 var rightlegbroken=false;
 var alive=true;
+signal died;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,6 +27,7 @@ func breakOneHand():
 	pass;
 func die():
 	playstringrip()
+	died.emit()
 	$StaticBody2D/acenter.visible=false;
 	lock_rotation=false;
 	alive=false;

@@ -89,4 +89,9 @@ centered = false
 stream = ExtResource("9_b2nqm")
 autoplay = true
 
+[node name="dietimer" type="Timer" parent="."]
+wait_time = 4.0
+
 [connection signal="startgame" from="Camera2D/menu" to="." method="_on_menu_startgame"]
+[connection signal="died" from="Player" to="." method="_on_player_died"]
+[connection signal="timeout" from="dietimer" to="." method="_on_dietimer_timeout"]
