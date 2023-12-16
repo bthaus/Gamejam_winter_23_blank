@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://test.gd" id="3_1lk4i"]
 [ext_resource type="PackedScene" uid="uid://ctf502tckktb8" path="res://rigidPlayer.tscn" id="4_dooom"]
 [ext_resource type="Texture2D" uid="uid://ccmxbk4iswbea" path="res://Assets/Inventory/Diamond_Sword_JE3_BE3.png" id="4_hchup"]
-[ext_resource type="PackedScene" uid="uid://b10p8cmn5knos" path="res://piano.tscn" id="5_jqb0r"]
+[ext_resource type="PackedScene" path="res://piano.tscn" id="5_jqb0r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mncpv"]
 radius = 103.0

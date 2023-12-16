@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://eywsjsi8bmic"]
+[gd_scene load_steps=10 format=3 uid="uid://eywsjsi8bmic"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_jw8lx"]
-[ext_resource type="Texture2D" uid="uid://cu21gjck74jpx" path="res://Pictures/Curtain korrekt.png" id="2_at5a5"]
+[ext_resource type="Texture2D" uid="uid://f6g7afda1mih" path="res://Pictures/Curtain korrekt.png" id="2_at5a5"]
 [ext_resource type="PackedScene" uid="uid://ctf502tckktb8" path="res://rigidPlayer.tscn" id="3_ewpa6"]
+[ext_resource type="Texture2D" uid="uid://bdi0412y5exht" path="res://Pictures/Background/ebene0.png" id="4_hnuxe"]
+[ext_resource type="Texture2D" uid="uid://2q7c2rjtvl0b" path="res://Pictures/Background/ebene1.png" id="5_bldv2"]
+[ext_resource type="Texture2D" uid="uid://ceqwi2chbr5gr" path="res://Pictures/Background/ebene2.png" id="6_5mj85"]
+[ext_resource type="Texture2D" uid="uid://b381m4smdecnu" path="res://Pictures/Background/ebene3.png" id="7_8cyal"]
+[ext_resource type="Texture2D" uid="uid://cm1gnmsic5w5b" path="res://Pictures/Background/ebene4.png" id="8_8x8fg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8a11"]
 size = Vector2(97, 652.5)
@@ -27,6 +32,45 @@ scale = Vector2(0.564489, 0.514988)
 texture = ExtResource("2_at5a5")
 
 [node name="Player" parent="." instance=ExtResource("3_ewpa6")]
-position = Vector2(84, 446)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/sky"]
+texture = ExtResource("4_hnuxe")
+centered = false
+
+[node name="mountain" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1151, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/mountain"]
+texture = ExtResource("5_bldv2")
+centered = false
+
+[node name="clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1151, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/clouds"]
+texture = ExtResource("6_5mj85")
+centered = false
+
+[node name="tree" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.4, 1.4)
+motion_mirroring = Vector2(1151, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/tree"]
+position = Vector2(0, 45)
+texture = ExtResource("7_8cyal")
+centered = false
+
+[node name="bush" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.4, 1.4)
+motion_mirroring = Vector2(1151, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/bush"]
+position = Vector2(0, 35)
+texture = ExtResource("8_8x8fg")
+centered = false
