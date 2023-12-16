@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://4d4d0avb1u0d"]
+[gd_scene load_steps=5 format=3 uid="uid://4d4d0avb1u0d"]
 
+[ext_resource type="Script" path="res://Enemies/bear.gd" id="1_b3lu3"]
 [ext_resource type="Texture2D" uid="uid://c36ok7negqsn1" path="res://Pictures/Bear coloured.png" id="1_kq30a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3r8gm"]
@@ -9,6 +10,7 @@ size = Vector2(84, 161)
 size = Vector2(84, 162)
 
 [node name="Bear" type="Node2D"]
+script = ExtResource("1_b3lu3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(5, -40)

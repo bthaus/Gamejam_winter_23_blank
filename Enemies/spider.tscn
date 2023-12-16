@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bnw5fidg2djvy"]
 
-[ext_resource type="Texture2D" uid="uid://dq1s38fokk60h" path="res://Pictures/Spider korrekt.png" id="2_3ih4k"]
 [ext_resource type="Script" path="res://Enemies/spider.gd" id="2_7dflx"]
+[ext_resource type="Texture2D" uid="uid://dvw4suxku0eti" path="res://Pictures/Spider coloured.png" id="2_boede"]
 [ext_resource type="AudioStream" uid="uid://by7momhanjeev" path="res://Sounds/spider.mp3" id="3_weva0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mcke2"]
@@ -13,7 +13,7 @@ script = ExtResource("2_7dflx")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-32.5944, -58.4124)
 scale = Vector2(0.18, 0.18)
-texture = ExtResource("2_3ih4k")
+texture = ExtResource("2_boede")
 
 [node name="AttackArea" type="Area2D" parent="."]
 
