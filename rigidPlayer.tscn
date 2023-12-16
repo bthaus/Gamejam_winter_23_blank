@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ctf502tckktb8"]
+[gd_scene load_steps=33 format=3 uid="uid://ctf502tckktb8"]
 
 [ext_resource type="Texture2D" uid="uid://c8qb36va0pefv" path="res://Assets/Player/Player.png" id="1_7uggp"]
 [ext_resource type="Script" path="res://rigidPlayer.gd" id="1_bv1m3"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://crtx6l7a3wxfo" path="res://Assets/Player/foot.png" id="14_efq0q"]
 [ext_resource type="Texture2D" uid="uid://fkge2syrb7q4" path="res://Assets/Player/tigh.png" id="15_oi275"]
 [ext_resource type="Texture2D" uid="uid://cm07l35f6c0wb" path="res://Assets/Player/quad.png" id="16_tsv2s"]
-[ext_resource type="Texture2D" uid="uid://cj1lr7lv1uesa" path="res://Assets/Player/dressbottom.png" id="17_q4hgx"]
 [ext_resource type="PackedScene" uid="uid://cty82udbgxsvv" path="res://string.tscn" id="20_pmvlw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3i56f"]
@@ -269,6 +268,7 @@ script = ExtResource("1_bv1m3")
 [node name="uppercollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -98)
 shape = SubResource("CapsuleShape2D_3i56f")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -283,11 +283,10 @@ position = Vector2(6, -115)
 rest = Transform2D(1, 0, 0, 1, 6, -115)
 
 [node name="shoulders" type="Bone2D" parent="Skeleton2D/hips"]
-position = Vector2(-2, -38)
+position = Vector2(-2, -40)
 rest = Transform2D(1, 0, 0, 1, -2, -40)
 
 [node name="LeftUpperArm" type="Bone2D" parent="Skeleton2D/hips/shoulders"]
-visible = false
 position = Vector2(-14, 6)
 rest = Transform2D(1, 0, 0, 1, -14, 6)
 
@@ -311,19 +310,21 @@ texture = ExtResource("3_ekh04")
 metadata/_edit_lock_ = true
 
 [node name="rightupperarm" type="Bone2D" parent="Skeleton2D/hips/shoulders"]
-visible = false
 position = Vector2(12, 1)
-rotation = -1.0472
+rotation = 0.107523
 rest = Transform2D(0.994225, 0.107316, -0.107316, 0.994225, 12, 1)
 
 [node name="rightLowerArm" type="Bone2D" parent="Skeleton2D/hips/shoulders/rightupperarm"]
 position = Vector2(10.2074, 20.0202)
-rotation = 0.523598
 rest = Transform2D(1, 7.45058e-09, -7.45058e-09, 1, 10.2074, 20.0202)
+auto_calculate_length_and_angle = false
+length = 23.0867
+bone_angle = -23.8108
 
 [node name="sword" type="Bone2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm"]
-position = Vector2(21.1217, -9.32053)
-rotation = -0.820999
+position = Vector2(20.4495, -6.23055)
+rotation = -1.0472
+scale = Vector2(1, 1)
 rest = Transform2D(0.681491, -0.731827, 0.731827, 0.681491, 21.1217, -9.32053)
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/sword"]
@@ -337,12 +338,14 @@ position = Vector2(18.5938, -9.60097)
 scale = Vector2(0.131962, 0.131962)
 sprite_frames = SubResource("SpriteFrames_f0cup")
 frame = 1
+metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/sword"]
 position = Vector2(5.0872, 0.226743)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/sword/Area2D"]
 polygon = PackedVector2Array(35.9261, -17.0898, 0.643814, -2.42144, -9.01549, 2.84142, -6.14484, 8.11013, 4.9498, 5.48162)
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm"]
 position = Vector2(9.19104, -8.03274)
@@ -374,7 +377,6 @@ texture = ExtResource("12_xxw3k")
 metadata/_edit_lock_ = true
 
 [node name="RightQuad" type="Bone2D" parent="Skeleton2D/hips"]
-visible = false
 position = Vector2(1.23958, 7.56574)
 rest = Transform2D(1, 0, 0, 1, 1.23958, 7.56574)
 
@@ -407,7 +409,6 @@ texture = ExtResource("16_tsv2s")
 metadata/_edit_lock_ = true
 
 [node name="LeftQuad" type="Bone2D" parent="Skeleton2D/hips"]
-visible = false
 position = Vector2(-19.3581, 32.3595)
 rest = Transform2D(1, 0, 0, 1, -19.3581, 32.3595)
 
@@ -441,13 +442,6 @@ scale = Vector2(0.177607, 0.177607)
 texture = ExtResource("16_tsv2s")
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hips"]
-visible = false
-position = Vector2(-4, -35)
-scale = Vector2(0.174508, 0.174508)
-texture = ExtResource("17_q4hgx")
-metadata/_edit_lock_ = true
-
 [node name="RigidBody2D" type="RigidBody2D" parent="Skeleton2D/hips"]
 visible = false
 
@@ -466,6 +460,7 @@ libraries = {
 }
 
 [node name="DanglingParts" type="Node2D" parent="."]
+visible = false
 
 [node name="rightarm" type="Node2D" parent="DanglingParts"]
 
@@ -761,8 +756,9 @@ node_b = NodePath("../leftarm/stringlefthand")
 position = Vector2(-3.09286, -4.74811)
 
 [node name="feet" type="CollisionShape2D" parent="feet"]
-position = Vector2(3.09286, -18.2519)
+position = Vector2(3.09286, -17.2519)
 shape = SubResource("CapsuleShape2D_ktpiy")
+metadata/_edit_lock_ = true
 
 [connection signal="area_entered" from="feet" to="." method="_on_feet_area_entered"]
 [connection signal="area_exited" from="feet" to="." method="_on_feet_area_exited"]
