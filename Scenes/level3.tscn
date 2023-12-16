@@ -8,14 +8,13 @@
 [node name="Level3" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(0, -41)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(577, 388)
+position = Vector2(577, 351)
 texture = ExtResource("1_1oor8")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(76.1685, 647.401)
+position = Vector2(76.1685, 609.401)
 polygon = PackedVector2Array(-74.1685, 2.59937, 426.832, 0.599365, 426.832, -40.4006, 481.832, -40.4006, 482.832, -93.4006, 538.832, -92.4006, 538.832, -5.40063, 540.832, 0.599365, 1075.83, -0.400635, 1076.83, 63.5994, -76.1685, 64.5994)
 
 [node name="Spider" parent="." instance=ExtResource("3_p1qhe")]
