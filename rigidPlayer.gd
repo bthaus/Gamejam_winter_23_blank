@@ -1,13 +1,16 @@
 extends RigidBody2D
 var maxSpeed = 120
-
+var rightHand:Vector2;
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AnimationPlayer.play("walk")
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	
 	
 	if(Input.is_action_pressed("ui_right") and linear_velocity.x < maxSpeed):
 		apply_impulse(Vector2(200,0),Vector2(0,0))
@@ -19,6 +22,7 @@ func _process(delta):
 	pass
 
 
+	
 func computecontact(val):
 	floorcontacts=floorcontacts+val;
 	pass;
