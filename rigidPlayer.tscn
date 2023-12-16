@@ -470,6 +470,8 @@ libraries = {
 [node name="rightarm" type="Node2D" parent="DanglingParts"]
 
 [node name="rightupperp" type="RigidBody2D" parent="DanglingParts/rightarm"]
+collision_layer = 0
+collision_mask = 0
 mass = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/rightarm/rightupperp"]
@@ -665,6 +667,8 @@ position = Vector2(84, -29)
 rotation = -0.785397
 
 [node name="leftquad" type="RigidBody2D" parent="DanglingParts/leftlef2"]
+collision_layer = 0
+collision_mask = 0
 mass = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftlef2/leftquad"]
@@ -753,13 +757,11 @@ position = Vector2(-12.2429, -111.83)
 node_a = NodePath("../leftarm/leftforearmp")
 node_b = NodePath("../leftarm/stringlefthand")
 
-[node name="PinJoint2D5" type="PinJoint2D" parent="DanglingParts"]
-
 [node name="feet" type="Area2D" parent="."]
 position = Vector2(-3.09286, -4.74811)
 
 [node name="feet" type="CollisionShape2D" parent="feet"]
-position = Vector2(4.09286, -14.2519)
+position = Vector2(3.09286, -18.2519)
 shape = SubResource("CapsuleShape2D_ktpiy")
 
 [connection signal="area_entered" from="feet" to="." method="_on_feet_area_entered"]
