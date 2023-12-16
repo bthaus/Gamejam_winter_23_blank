@@ -18,7 +18,7 @@ func _process(delta):
 	if $Camera2D.position.x - levelPosX > 600:
 		if levels.size() > 2:
 			remove_child(levels.pop_front())
-		var level = load("res://Scenes/level"+ str(rand.randi_range(1,2)) +".tscn").instantiate()
+		var level = load("res://Scenes/level"+ str(rand.randi_range(1,1)) +".tscn").instantiate()
 		level.position.x = $Camera2D.position.x + 350
 		levelPosX = level.position.x
 		levels.push_back(level)

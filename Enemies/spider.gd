@@ -1,6 +1,10 @@
 extends Sprite2D
 
-signal player_hit
+@onready var player = get_tree().get_first_node_in_group("player")
+var triggered = false
+var speed = 100
+var goDown = true
+var hit = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,9 +13,21 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if player.global_position.x >= global_position.x:
+		triggered = true
+		
+	if goDown and hit:
+		goDown = false
+		hit = false
+	elif !goDown and position.y < 10:
+		goDown = true
+		triggered = false
 
-
-func _on_attack_area_area_entered(area):
-	player_hit.emit()
-	pass # Replace with function body.
+	if triggered:
+		if goDown:
+			position.y += speed * delta
+		else:
+			position.y -= speed * delta
+	
+func _on_attack_area_body_entered(body):
+	hit = true

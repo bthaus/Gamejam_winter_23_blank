@@ -10,7 +10,7 @@ size = Vector2(97, 652.5)
 [node name="World" type="Node2D"]
 script = ExtResource("1_jw8lx")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_kygsu")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_kygsu")]
 position = Vector2(476, 422)
 
 [node name="Camera2D" type="Camera2D" parent="."]
