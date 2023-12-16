@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dck0pxvdxqkun"
-path="res://.godot/imported/ebene2.png-5b1b69d5a7cd37dfbe34c0d11965e28b.ctex"
+uid="uid://bd66pqm17okjo"
+path="res://.godot/imported/piano.png-dd7d33eca859d2c12d3fac0215f33d46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pictures/Background/ebene2.png"
-dest_files=["res://.godot/imported/ebene2.png-5b1b69d5a7cd37dfbe34c0d11965e28b.ctex"]
+source_file="res://Assets/Piano/piano.png"
+dest_files=["res://.godot/imported/piano.png-dd7d33eca859d2c12d3fac0215f33d46.ctex"]
 
 [params]
 

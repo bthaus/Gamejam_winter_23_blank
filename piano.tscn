@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b10p8cmn5knos"]
+
+[ext_resource type="Texture2D" uid="uid://bd66pqm17okjo" path="res://Assets/Piano/piano.png" id="1_72chi"]
+[ext_resource type="Texture2D" uid="uid://c0jhpg2sqovy6" path="res://Assets/Piano/pianotop.png" id="2_0c46o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8acn"]
+size = Vector2(279, 202)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3l6p"]
+size = Vector2(232, 119)
+
+[node name="piano" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(48.5, -91)
+shape = SubResource("RectangleShape2D_k8acn")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(49, -143)
+texture = ExtResource("1_72chi")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+position = Vector2(40, -217.5)
+shape = SubResource("RectangleShape2D_k3l6p")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2"]
+position = Vector2(37, -239)
+rotation = -0.785398
+texture = ExtResource("2_0c46o")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(-70, -167)
+node_a = NodePath("../RigidBody2D")
+node_b = NodePath("../RigidBody2D2")
+angular_limit_lower = -1.5708
