@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnw5fidg2djvy"]
+[gd_scene load_steps=7 format=3 uid="uid://bnw5fidg2djvy"]
 
 [ext_resource type="Script" path="res://Enemies/spider.gd" id="2_7dflx"]
-[ext_resource type="Texture2D" uid="uid://c0rbae03vh5av" path="res://Pictures/Spider coloured.png" id="2_boede"]
-[ext_resource type="AudioStream" uid="uid://b62wnj0u8qgto" path="res://Sounds/spider.mp3" id="3_weva0"]
+[ext_resource type="Texture2D" uid="uid://dvw4suxku0eti" path="res://Pictures/Spider coloured.png" id="2_boede"]
+[ext_resource type="AudioStream" uid="uid://by7momhanjeev" path="res://Sounds/spider.mp3" id="3_weva0"]
+[ext_resource type="Texture2D" uid="uid://b6oo3l0nlth2r" path="res://Pictures/String.png" id="4_inpnu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mcke2"]
 radius = 29.0
@@ -34,5 +35,19 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_ab58t")
+
+[node name="String" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="String"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_inpnu")
+
+[node name="Label" type="Label" parent="String"]
+offset_left = 14.0
+offset_top = -18.0
+offset_right = 54.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 25
+text = "+1"
 
 [connection signal="body_entered" from="PhysicsArea" to="." method="_on_physics_area_body_entered"]
