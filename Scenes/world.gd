@@ -15,7 +15,7 @@ func _ready():
 func _process(delta):
 	$Camera2D.position.x += levelSpeed * delta
 	$Wall.position.x += levelSpeed * delta
-	if $Camera2D.position.x - levelPosX > 600:
+	if $Camera2D.position.x - levelPosX > 550:
 		if levels.size() > 2:
 			remove_child(levels.pop_front())
 		var level = load("res://Scenes/level"+ str(rand.randi_range(1,1)) +".tscn").instantiate()

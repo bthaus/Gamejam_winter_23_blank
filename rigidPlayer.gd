@@ -60,7 +60,8 @@ func _process(delta):
 		apply_impulse(Vector2(-200,0),Vector2(0,0))	
 	if(Input.is_action_pressed("ui_up")and abs(linear_velocity.y)<5) and floorcontacts>0 and !jumping:
 		jumping=true;
-		apply_impulse(Vector2(0,-500),Vector2(0,0))	
+		$AnimationPlayer.play("jump")
+		apply_impulse(Vector2(0,-1000),Vector2(0,0))	
 	pass
 
 
