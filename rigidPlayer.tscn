@@ -1975,6 +1975,7 @@ position = Vector2(0, -40)
 rest = Transform2D(1, 0, 0, 1, 0, -40)
 
 [node name="LeftUpperArm" type="Bone2D" parent="Skeleton2D/hips/shoulders"]
+z_index = 1
 position = Vector2(-11, 2)
 rest = Transform2D(1, 0, 0, 1, -11, 2)
 
@@ -2071,6 +2072,7 @@ texture = ExtResource("12_xxw3k")
 metadata/_edit_lock_ = true
 
 [node name="RightQuad" type="Bone2D" parent="Skeleton2D/hips"]
+z_index = -1
 position = Vector2(4, -2.38419e-06)
 scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 4, -2.38419e-06)
@@ -2106,6 +2108,7 @@ texture = ExtResource("16_tsv2s")
 metadata/_edit_lock_ = true
 
 [node name="LeftQuad" type="Bone2D" parent="Skeleton2D/hips"]
+z_index = -1
 position = Vector2(-4, -0.999996)
 rotation = -0.398185
 scale = Vector2(1, 1)
