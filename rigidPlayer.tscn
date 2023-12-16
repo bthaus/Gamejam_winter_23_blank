@@ -2515,6 +2515,15 @@ attachment = NodePath("../../Skeleton2D/hips")
 position = Vector2(0, -98)
 shape = SubResource("CapsuleShape2D_7lylw")
 
+[node name="centerstring" parent="." instance=ExtResource("20_pmvlw")]
+visible = false
+position = Vector2(8, -163)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(2.19392, -163.986)
+node_a = NodePath("../centerstring")
+node_b = NodePath("..")
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="feet" to="." method="_on_feet_area_entered"]
 [connection signal="area_exited" from="feet" to="." method="_on_feet_area_exited"]

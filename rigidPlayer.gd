@@ -1,10 +1,12 @@
 extends RigidBody2D
 var maxSpeed = 120
+var jumpfactor=1;
 var umbrellaOpen=true;
 var onehandbroken=false;
 var twohandbroken=false;
 var leftlegbroken=false;
 var rightlegbroken=false;
+var alive=true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +21,13 @@ func breakOneHand():
 	onehandbroken=true;
 	
 	pass;
+func die():
+	$StaticBody2D/acenter.visible=false;
+	lock_rotation=false;
+	alive=false;
+	
+	$centerstring.visible=true;
+	pass;
 func breakTwoHand():
 	$Skeleton2D/hips/shoulders/rightupperarm.visible=false;
 	$StaticBody2D/arighthand.visible=false;
@@ -32,6 +41,8 @@ func breakleftLeg():
 	$StaticBody2D/aleftfoot.visible=false;
 	$DanglingParts/leftlef.visible=true;
 	leftlegbroken=true;
+	maxSpeed=maxSpeed*0.5;
+	jumpfactor=jumpfactor*0.8;
 	pass;
 func breakrightleg():
 	print("right broken")
@@ -39,6 +50,8 @@ func breakrightleg():
 	$DanglingParts/leftlef2.visible=true;
 	$StaticBody2D/arightfoot.visible=false;
 	rightlegbroken=true;
+	maxSpeed=maxSpeed*0.5;
+	jumpfactor=jumpfactor*0.8;
 	pass;
 func closeumbrella():
 	
@@ -49,9 +62,17 @@ func hit():
 	pass;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
+	if(!alive):
+		return;
+	if($Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame>1)and !twohandbroken and linear_velocity.y>10 :
+		print("im floating")
+		gravity_scale=0.2
+	else:
+		gravity_scale=1;
 	
 	if(Input.is_action_just_pressed("activate_item")):
+		if(rightlegbroken):
+			die();
 		if(leftlegbroken):
 					breakrightleg()
 		if(twohandbroken):
@@ -82,7 +103,7 @@ func _process(delta):
 	if(Input.is_action_pressed("ui_up")and abs(linear_velocity.y)<5) and floorcontacts>0 and !jumping:
 		jumping=true;
 		$AnimationPlayer.play("jump")
-		apply_impulse(Vector2(0,-1000),Vector2(0,0))	
+		apply_impulse(Vector2(0,-1000*jumpfactor),Vector2(0,0))	
 	pass
 
 
