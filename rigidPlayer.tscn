@@ -1435,6 +1435,117 @@ _data = {
 "run": SubResource("Animation_aeve0")
 }
 
+[sub_resource type="Animation" id="Animation_y7032"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/hitbox/hitboxshape:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17.2851, 18.1446)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.309]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(21.1217, -9.32053)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.261799]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5.24406, 23.5983)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.0472]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-11, 2)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.309]
+}
+
 [sub_resource type="Animation" id="Animation_jvvm4"]
 resource_name = "attack"
 tracks/0/type = "value"
@@ -1560,111 +1671,100 @@ tracks/9/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_y7032"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_ysy60"]
+resource_name = "block"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/hitbox/hitboxshape:disabled")
+tracks/0/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(17.2851, 18.1446)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm:position")
+tracks/1/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(17.2851, 18.1446)]
+"values": [-1.309]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm:rotation")
+tracks/2/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-1.309]
+"values": [Vector2(21.1217, -9.32053)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly:position")
+tracks/3/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(21.1217, -9.32053)]
+"values": [0.261799]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly:rotation")
+tracks/4/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.261799]
+"values": [Vector2(-5.24406, 23.5983)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm:position")
+tracks/5/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-5.24406, 23.5983)]
+"values": [-0.261799]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm:rotation")
+tracks/6/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-1.0472]
+"values": [Vector2(-11, 2)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm:position")
+tracks/7/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-11, 2)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -1868,106 +1968,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_ysy60"]
-resource_name = "block"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(17.2851, 18.1446)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-1.309]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(21.1217, -9.32053)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.261799]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-5.24406, 23.5983)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.261799]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-11, 2)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Skeleton2D/hips/shoulders/LeftUpperArm:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-1.309]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qar5k"]
@@ -2202,7 +2202,6 @@ rest = Transform2D(1, 0, 0, 1, -11, 2)
 [node name="LeftLowerArm" type="Bone2D" parent="Skeleton2D/hips/shoulders/LeftUpperArm"]
 position = Vector2(-5.24406, 23.5983)
 rotation = -1.0472
-scale = Vector2(1, 1)
 rest = Transform2D(0.707107, 0.707107, -0.707107, 0.707107, -5.24406, 23.5983)
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm"]
@@ -2237,7 +2236,6 @@ bone_angle = -23.8108
 [node name="swordskelly" type="Bone2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm"]
 position = Vector2(21.1217, -9.32053)
 rotation = 0.261799
-scale = Vector2(1, 1)
 rest = Transform2D(0.68149, -0.731827, 0.731827, 0.68149, 21.1217, -9.32053)
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly"]
@@ -2336,7 +2334,6 @@ metadata/_edit_lock_ = true
 z_index = -1
 position = Vector2(-4, -0.999996)
 rotation = -0.398185
-scale = Vector2(1, 1)
 rest = Transform2D(0.921766, -0.387746, 0.387746, 0.921766, -4, -0.999996)
 
 [node name="leftTigh" type="Bone2D" parent="Skeleton2D/hips/LeftQuad"]
@@ -2753,6 +2750,8 @@ volume_db = 1.26
 [node name="stringrip" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_62m6n")
 volume_db = 3.775
+
+[node name="openumbrella" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="area_entered" from="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

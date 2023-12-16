@@ -60,9 +60,7 @@ func breakrightleg():
 	maxSpeed=maxSpeed*0.5;
 	jumpfactor=jumpfactor*0.8;
 	pass;
-func closeumbrella():
-	
-	pass;
+
 func hit(type):
 	if(blocking):
 		return;

@@ -1,6 +1,6 @@
 extends Node2D
 
-var level1 = preload("res://Scenes/level1.tscn").instantiate()
+var level1 = preload("res://Scenes/level2.tscn").instantiate()
 var levelSpeed = 10
 var levelPosX = 0
 var levels = []
@@ -13,7 +13,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
+	if(Input.is_action_just_pressed("open_menu")):
+		get_tree().reload_current_scene()
 	$Camera2D.position.x += levelSpeed * delta
 	$Wall.position.x += levelSpeed * delta
 	if $Camera2D.position.x - levelPosX > 550:
