@@ -9,8 +9,9 @@ func _ready():
 	process_mode=Node.PROCESS_MODE_ALWAYS;
 
 	pass # Replace with function body.
-
-func toggle():
+var justopened=false;
+func toggle(first):
+	justopened=first;
 	open=!open;
 	pass;
 func execute():
@@ -23,6 +24,7 @@ func execute():
 		
 	if(counter==2):
 		startgame.emit()
+		get_tree().paused=false;
 		$stargame/highlighted.visible=true
 		open=false;
 	
@@ -34,7 +36,7 @@ func _process(delta):
 		return;#
 	visible=true;
 	
-	
+
 	if(Input.is_action_just_pressed("ui_up")):
 		counter=counter+1;
 		counter=counter%3;

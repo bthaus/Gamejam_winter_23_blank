@@ -1,6 +1,6 @@
 extends Node2D
 
-var level1 = preload("res://Scenes/level2.tscn").instantiate()
+var level1 = preload("res://Scenes/level0.tscn").instantiate()
 var levelSpeed = 200
 var levelPosX = 0
 var levels = []
@@ -14,7 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(Input.is_action_just_pressed("menu")):
-		$menu.toggle()
+		$Camera2D/menu.toggle(true)
 		get_tree().paused=true;
 		
 		
