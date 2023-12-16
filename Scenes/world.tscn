@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://f6g7afda1mih" path="res://Pictures/Curtain korrekt.png" id="2_at5a5"]
 [ext_resource type="PackedScene" uid="uid://ctf502tckktb8" path="res://rigidPlayer.tscn" id="3_ewpa6"]
 [ext_resource type="Texture2D" uid="uid://bdi0412y5exht" path="res://Pictures/Background/ebene0.png" id="4_hnuxe"]
-[ext_resource type="Texture2D" uid="uid://bg48y23yp6i1j" path="res://Pictures/Background/ebene1.png" id="5_bldv2"]
-[ext_resource type="Texture2D" uid="uid://dck0pxvdxqkun" path="res://Pictures/Background/ebene2.png" id="6_5mj85"]
-[ext_resource type="Texture2D" uid="uid://roel6qtbnby7" path="res://Pictures/Background/ebene3.png" id="7_8cyal"]
-[ext_resource type="Texture2D" uid="uid://dend2am16po7n" path="res://Pictures/Background/ebene4.png" id="8_8x8fg"]
+[ext_resource type="Texture2D" uid="uid://2q7c2rjtvl0b" path="res://Pictures/Background/ebene1.png" id="5_bldv2"]
+[ext_resource type="Texture2D" uid="uid://ceqwi2chbr5gr" path="res://Pictures/Background/ebene2.png" id="6_5mj85"]
+[ext_resource type="Texture2D" uid="uid://b381m4smdecnu" path="res://Pictures/Background/ebene3.png" id="7_8cyal"]
+[ext_resource type="Texture2D" uid="uid://cm1gnmsic5w5b" path="res://Pictures/Background/ebene4.png" id="8_8x8fg"]
 [ext_resource type="AudioStream" uid="uid://dguh4sho8gsl1" path="res://Sounds/audio_gameplay.wav" id="9_b2nqm"]
-[ext_resource type="PackedScene" uid="uid://2qd36b3gct3p" path="res://menu.tscn" id="10_rrxjj"]
+[ext_resource type="PackedScene" path="res://menu.tscn" id="10_rrxjj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8a11"]
 size = Vector2(97, 652.5)
@@ -62,6 +62,7 @@ centered = false
 motion_mirroring = Vector2(1151, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/clouds"]
+modulate = Color(0.576471, 0.576471, 0.576471, 1)
 texture = ExtResource("6_5mj85")
 centered = false
 
@@ -70,6 +71,7 @@ motion_scale = Vector2(1.4, 1.4)
 motion_mirroring = Vector2(1151, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/tree"]
+modulate = Color(0.572549, 0.572549, 0.572549, 1)
 position = Vector2(0, 45)
 texture = ExtResource("7_8cyal")
 centered = false
@@ -79,6 +81,7 @@ motion_scale = Vector2(1.4, 1.4)
 motion_mirroring = Vector2(1151, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/bush"]
+modulate = Color(0.533333, 0.533333, 0.533333, 1)
 position = Vector2(0, 35)
 texture = ExtResource("8_8x8fg")
 centered = false
