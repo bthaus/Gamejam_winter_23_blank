@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("player")
 var triggered = false
@@ -35,5 +35,5 @@ func _on_attack_area_body_entered(body):
 	hit = true
 	
 func _draw():
-	draw_line(Vector2(0, position.y - global_position.y - 5000), Vector2(0, 0), Color.WHITE, 50)
+	draw_line(Vector2(0, position.y - global_position.y - 5000), Vector2(0, -50), Color.WHITE, 3)
 	
