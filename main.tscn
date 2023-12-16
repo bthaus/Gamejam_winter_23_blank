@@ -1,17 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://b33gxvlbos83x"]
+[gd_scene load_steps=8 format=3 uid="uid://b33gxvlbos83x"]
 
-[ext_resource type="Script" path="res://Preperations/input.gd" id="1_qt5fh"]
+[ext_resource type="Script" path="res://menuopener.gd" id="1_6ijur"]
 [ext_resource type="Script" path="res://test.gd" id="3_1lk4i"]
 [ext_resource type="PackedScene" uid="uid://ctf502tckktb8" path="res://rigidPlayer.tscn" id="4_dooom"]
 [ext_resource type="Texture2D" uid="uid://ccmxbk4iswbea" path="res://Assets/Inventory/Diamond_Sword_JE3_BE3.png" id="4_hchup"]
 [ext_resource type="PackedScene" uid="uid://b10p8cmn5knos" path="res://piano.tscn" id="5_jqb0r"]
+[ext_resource type="PackedScene" uid="uid://b1geq8lptqefq" path="res://menu.tscn" id="6_62g35"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mncpv"]
 radius = 103.0
 height = 256.0
 
 [node name="main" type="Node2D"]
-script = ExtResource("1_qt5fh")
+script = ExtResource("1_6ijur")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 scale = Vector2(1.00377, 0.981196)
@@ -38,3 +39,5 @@ position = Vector2(105, 463)
 
 [node name="piano" parent="." instance=ExtResource("5_jqb0r")]
 position = Vector2(310, 172)
+
+[node name="menu" parent="." instance=ExtResource("6_62g35")]
