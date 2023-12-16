@@ -12,6 +12,6 @@ func _draw():
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(attachment.global_position)
+
 	queue_redraw()
 	pass

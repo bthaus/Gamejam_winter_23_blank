@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bnw5fidg2djvy"]
 
-[ext_resource type="Texture2D" uid="uid://sm3biooadk3h" path="res://Pictures/Spider korrekt.png" id="2_3ih4k"]
+[ext_resource type="Texture2D" uid="uid://m2b3xo27lbld" path="res://Pictures/Spider korrekt.png" id="2_3ih4k"]
 [ext_resource type="Script" path="res://Enemies/spider.gd" id="2_7dflx"]
 [ext_resource type="AudioStream" uid="uid://b62wnj0u8qgto" path="res://Sounds/spider.mp3" id="3_weva0"]
 
