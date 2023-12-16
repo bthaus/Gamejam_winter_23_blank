@@ -1,47 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2rt836wty1st"]
+[gd_scene load_steps=3 format=3 uid="uid://3023gj35t2ds"]
 
-[ext_resource type="Texture2D" uid="uid://brci7rbthftrn" path="res://Assets/Inventory/Background.png" id="1_2i0ef"]
-[ext_resource type="PackedScene" uid="uid://bnw5fidg2djvy" path="res://Enemies/spider.tscn" id="2_xk45w"]
-[ext_resource type="PackedScene" uid="uid://dcfs348m62xho" path="res://Enemies/bat.tscn" id="3_1rbhs"]
+[ext_resource type="Texture2D" uid="uid://uyeggvyus42n" path="res://Pictures/level/lv04.png" id="1_nndn4"]
+[ext_resource type="PackedScene" path="res://Enemies/bat.tscn" id="2_ooutw"]
 
-[sub_resource type="GDScript" id="GDScript_w602b"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
-
-[node name="Level01" type="Node2D"]
-script = SubResource("GDScript_w602b")
+[node name="Node2D" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(2.6671, 557.5)
-polygon = PackedVector2Array(138.333, -0.499878, 519.333, 0.500122, 521.333, -86.5, 699.333, -87.4999, 698.333, -0.499878, 1146.33, 0.500122, 1147.33, 87.5001, 504.333, 90.5001, -1.6671, 92.5001, -0.667099, -1.49988)
-
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D"]
-modulate = Color(1, 0.47451, 1, 1)
-position = Vector2(612, 518)
-scale = Vector2(0.194175, 0.201245)
-texture = ExtResource("1_2i0ef")
-
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-modulate = Color(1, 0.47451, 1, 1)
-z_index = -1
-position = Vector2(576, 602.5)
-scale = Vector2(1.24056, 0.188797)
-texture = ExtResource("1_2i0ef")
+position = Vector2(575, 350)
+texture = ExtResource("1_nndn4")
 
-[node name="Spider" parent="." instance=ExtResource("2_xk45w")]
-position = Vector2(606, 8)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(163.896, 624.886)
+polygon = PackedVector2Array(-162.896, -10.8859, 183.104, -11.8859, 183.104, -54.8859, 238.104, -54.8859, 238.104, -13.8859, 357.104, -13.8859, 357.104, 49.1141, -163.896, 49.1141)
 
-[node name="Bat" parent="." instance=ExtResource("3_1rbhs")]
-position = Vector2(1257, 136)
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(678, 612, 1150, 609, 1152, 675, 677, 675)
+
+[node name="Bat" parent="." instance=ExtResource("2_ooutw")]
+position = Vector2(1273, 149)
