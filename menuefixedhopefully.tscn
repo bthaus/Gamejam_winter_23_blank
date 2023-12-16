@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvvel23pa04cm"]
+[gd_scene load_steps=19 format=3 uid="uid://dvvel23pa04cm"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_lf3f1"]
 [ext_resource type="Texture2D" uid="uid://f6g7afda1mih" path="res://Pictures/Curtain korrekt.png" id="2_y8547"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://j7757uxd5mnw" path="res://Pictures/Curtain Open 1.png" id="4_ufmi5"]
 [ext_resource type="Texture2D" uid="uid://du5f8v3n6u148" path="res://Pictures/Curtain closed.png" id="5_f1fo8"]
 [ext_resource type="Texture2D" uid="uid://cum817bimwlnx" path="res://menu/Menu/LeaveSelected.png" id="6_mmd73"]
+[ext_resource type="Texture2D" uid="uid://cb5kmq0va4fo3" path="res://Pictures/Publikum.png" id="6_pd6b5"]
 [ext_resource type="Texture2D" uid="uid://bgh5a7thjodcw" path="res://menu/Menu/LeaveUnselected.png" id="7_dt7vw"]
 [ext_resource type="Texture2D" uid="uid://cs8w2xppp3doy" path="res://menu/Menu/OptionsSelected.png" id="8_yniuf"]
 [ext_resource type="Texture2D" uid="uid://bp3swi3muvpb0" path="res://menu/Menu/OptionsUnselected.png" id="9_tcd8g"]
@@ -50,8 +51,66 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_d0jn2"]
+resource_name = "moveaway"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pubnlikum:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(583, 598), Vector2(586, 725)]
+}
+
+[sub_resource type="Animation" id="Animation_amjw0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pubnlikum:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(583, 598)]
+}
+
+[sub_resource type="Animation" id="Animation_ugr54"]
+resource_name = "movein"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pubnlikum:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(586, 725), Vector2(583, 598)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0jsxy"]
+_data = {
+"RESET": SubResource("Animation_amjw0"),
+"moveaway": SubResource("Animation_d0jn2"),
+"movein": SubResource("Animation_ugr54")
+}
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_lf3f1")
+
+[node name="test" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_y8547")
 
 [node name="test2" type="Node2D" parent="."]
 
@@ -61,12 +120,20 @@ scale = Vector2(0.561162, 0.568945)
 sprite_frames = SubResource("SpriteFrames_344bk")
 animation = &"open"
 
-[node name="test" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("2_y8547")
+[node name="pubnlikum" type="Sprite2D" parent="test2"]
+z_index = 2
+position = Vector2(583, 598)
+scale = Vector2(1.03968, 1.03968)
+texture = ExtResource("6_pd6b5")
+
+[node name="Publikummover" type="AnimationPlayer" parent="test2"]
+libraries = {
+"": SubResource("AnimationLibrary_0jsxy")
+}
 
 [node name="leave" type="Node2D" parent="."]
-position = Vector2(13, 32)
+position = Vector2(135, 125)
+scale = Vector2(0.745, 0.745)
 
 [node name="hightlighted" type="Sprite2D" parent="leave"]
 visible = false
@@ -80,7 +147,8 @@ scale = Vector2(0.506, 0.506)
 texture = ExtResource("7_dt7vw")
 
 [node name="options2" type="Node2D" parent="."]
-position = Vector2(13, -148)
+position = Vector2(135, -55)
+scale = Vector2(0.745, 0.745)
 
 [node name="highlighted" type="Sprite2D" parent="options2"]
 visible = false
@@ -94,7 +162,8 @@ scale = Vector2(0.506, 0.506)
 texture = ExtResource("9_tcd8g")
 
 [node name="stargame" type="Node2D" parent="."]
-position = Vector2(13, -323)
+position = Vector2(135, -230)
+scale = Vector2(0.745, 0.745)
 
 [node name="highlighted" type="Sprite2D" parent="stargame"]
 visible = false

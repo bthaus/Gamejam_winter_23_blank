@@ -5,12 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://dvvel23pa04cm" path="res://menuefixedhopefully.tscn" id="2_ijn2i"]
 [ext_resource type="PackedScene" uid="uid://ctf502tckktb8" path="res://rigidPlayer.tscn" id="3_ewpa6"]
 [ext_resource type="Texture2D" uid="uid://bdi0412y5exht" path="res://Pictures/Background/ebene0.png" id="4_hnuxe"]
-[ext_resource type="Texture2D" uid="uid://2q7c2rjtvl0b" path="res://Pictures/Background/ebene1.png" id="5_bldv2"]
-[ext_resource type="Texture2D" uid="uid://ceqwi2chbr5gr" path="res://Pictures/Background/ebene2.png" id="6_5mj85"]
-[ext_resource type="Texture2D" uid="uid://b381m4smdecnu" path="res://Pictures/Background/ebene3.png" id="7_8cyal"]
-[ext_resource type="Texture2D" uid="uid://cm1gnmsic5w5b" path="res://Pictures/Background/ebene4.png" id="8_8x8fg"]
+[ext_resource type="Texture2D" uid="uid://bg48y23yp6i1j" path="res://Pictures/Background/ebene1.png" id="5_bldv2"]
+[ext_resource type="Texture2D" uid="uid://dck0pxvdxqkun" path="res://Pictures/Background/ebene2.png" id="6_5mj85"]
+[ext_resource type="Texture2D" uid="uid://roel6qtbnby7" path="res://Pictures/Background/ebene3.png" id="7_8cyal"]
+[ext_resource type="Texture2D" uid="uid://dend2am16po7n" path="res://Pictures/Background/ebene4.png" id="8_8x8fg"]
 [ext_resource type="AudioStream" uid="uid://dguh4sho8gsl1" path="res://Sounds/audio_gameplay.wav" id="9_b2nqm"]
-
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8a11"]
 size = Vector2(97, 652.5)
@@ -89,3 +88,5 @@ centered = false
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_b2nqm")
 autoplay = true
+
+[connection signal="startgame" from="Camera2D/menu" to="." method="_on_menu_startgame"]

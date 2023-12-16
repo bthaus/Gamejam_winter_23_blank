@@ -18,6 +18,7 @@ func _ready():
 var died=false;
 var alives=true;
 func toggle(alive):
+	$test2/Publikummover.play("movein")
 	$music.play()
 	alives=alive;
 	open=!open;
@@ -38,6 +39,7 @@ func execute():
 		$test2/curtain.play("open")
 		get_tree().paused=false;
 		$stargame/highlighted.visible=true
+		$test2/Publikummover.play("moveaway")
 		$music.stop()
 		open=false;
 	
