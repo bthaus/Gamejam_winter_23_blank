@@ -56,12 +56,32 @@ func breakrightleg():
 func closeumbrella():
 	
 	pass;
-func hit():
-	print("umbrella closed")
-	umbrellaOpen=true;
+func hit(type):
+	if(type=="piano"):
+		breakiteratively();
+	print("ive been hit")
 	pass;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+func breakiteratively():
+	if(rightlegbroken&&leftlegbroken&&twohandbroken):
+		die();
+		return;
+	if(!onehandbroken):
+		breakOneHand();
+		return;
+	if(!twohandbroken):
+		breakTwoHand();
+		return;
+	if(!leftlegbroken):
+		breakleftLeg()
+		return;
+	if(!rightlegbroken):
+		breakrightleg();
+		return;
+		
+	
 func _process(delta):
+	
 	if(!alive):
 		return;
 	if($Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame>1)and !twohandbroken and linear_velocity.y>10 :
@@ -71,15 +91,7 @@ func _process(delta):
 		gravity_scale=1;
 	
 	if(Input.is_action_just_pressed("activate_item")):
-		if(rightlegbroken):
-			die();
-		if(leftlegbroken):
-					breakrightleg()
-		if(twohandbroken):
-				breakleftLeg()
-		if(onehandbroken):
-			breakTwoHand()
-		breakOneHand();
+		breakiteratively()
 	
 	if(Input.is_action_just_pressed("switch")):
 		print(umbrellaOpen)
