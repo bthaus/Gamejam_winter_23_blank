@@ -13,8 +13,11 @@ func _ready():
 	$AnimationPlayer.play("idle")
 	
 	pass # Replace with function body.
-
+func playstringrip():
+	$stringrip.play()
+	pass;
 func breakOneHand():
+	playstringrip()
 	$Skeleton2D/hips/shoulders/LeftUpperArm.visible=false;
 	$StaticBody2D/alefthand.visible=false;
 	$DanglingParts/leftarm.visible=true;
@@ -22,6 +25,7 @@ func breakOneHand():
 	
 	pass;
 func die():
+	playstringrip()
 	$StaticBody2D/acenter.visible=false;
 	lock_rotation=false;
 	alive=false;
@@ -29,6 +33,7 @@ func die():
 	$centerstring.visible=true;
 	pass;
 func breakTwoHand():
+	playstringrip()
 	$Skeleton2D/hips/shoulders/rightupperarm.visible=false;
 	$StaticBody2D/arighthand.visible=false;
 	$DanglingParts/rightarm.visible=true;
@@ -37,6 +42,7 @@ func breakTwoHand():
 	pass;
 	
 func breakleftLeg():
+	playstringrip()
 	$Skeleton2D/hips/LeftQuad.visible=false;
 	$StaticBody2D/aleftfoot.visible=false;
 	$DanglingParts/leftlef.visible=true;
@@ -45,6 +51,7 @@ func breakleftLeg():
 	jumpfactor=jumpfactor*0.8;
 	pass;
 func breakrightleg():
+	playstringrip()
 	print("right broken")
 	$Skeleton2D/hips/RightQuad.visible=false;
 	$DanglingParts/leftlef2.visible=true;
@@ -59,6 +66,7 @@ func closeumbrella():
 func hit(type):
 	if(blocking):
 		return;
+	$gettinghit.play()
 	if(type=="piano"):
 		breakiteratively();
 	print("ive been hit")

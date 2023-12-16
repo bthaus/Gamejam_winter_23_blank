@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ctf502tckktb8"]
+[gd_scene load_steps=56 format=3 uid="uid://ctf502tckktb8"]
 
 [ext_resource type="Texture2D" uid="uid://c8qb36va0pefv" path="res://Assets/Player/Player.png" id="1_7uggp"]
 [ext_resource type="Script" path="res://rigidPlayer.gd" id="1_bv1m3"]
@@ -21,6 +21,8 @@
 [ext_resource type="Script" path="res://crossHight.gd" id="19_vl1pw"]
 [ext_resource type="PackedScene" uid="uid://cty82udbgxsvv" path="res://string.tscn" id="20_pmvlw"]
 [ext_resource type="Texture2D" uid="uid://c2wxhw3i2o3m8" path="res://Assets/Player/kreuz2.png" id="20_y7itx"]
+[ext_resource type="AudioStream" uid="uid://cohhlw56wcvg7" path="res://Sounds/autsch.mp3" id="22_dqqg0"]
+[ext_resource type="AudioStream" uid="uid://htn7vh8lxljf" path="res://Sounds/string.mp3" id="23_62m6n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3i56f"]
 radius = 14.0
@@ -2164,6 +2166,8 @@ radius = 18.0
 height = 182.0
 
 [node name="body" type="RigidBody2D" groups=["player"]]
+collision_layer = 9
+collision_mask = 9
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_bv1m3")
@@ -2741,6 +2745,14 @@ position = Vector2(8, -163)
 position = Vector2(2.19392, -163.986)
 node_a = NodePath("../centerstring")
 node_b = NodePath("..")
+
+[node name="gettinghit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_dqqg0")
+volume_db = 1.26
+
+[node name="stringrip" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_62m6n")
+volume_db = 3.775
 
 [connection signal="area_entered" from="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

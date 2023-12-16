@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b10p8cmn5knos"]
+[gd_scene load_steps=8 format=3 uid="uid://b10p8cmn5knos"]
 
 [ext_resource type="Script" path="res://pianohit.gd" id="1_8tmdu"]
 [ext_resource type="Texture2D" uid="uid://bd66pqm17okjo" path="res://Assets/Piano/piano.png" id="1_72chi"]
 [ext_resource type="Texture2D" uid="uid://c0jhpg2sqovy6" path="res://Assets/Piano/pianotop.png" id="2_0c46o"]
+[ext_resource type="AudioStream" uid="uid://bvaio7kwhxjuu" path="res://Sounds/piano.mp3" id="4_pl2ix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8acn"]
 size = Vector2(201, 167)
@@ -29,7 +30,7 @@ texture = ExtResource("1_72chi")
 
 [node name="Area2D" type="Area2D" parent="RigidBody2D"]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
 position = Vector2(10, -67.5)
@@ -53,4 +54,9 @@ rotation = -0.785398
 scale = Vector2(0.736075, 0.736075)
 texture = ExtResource("2_0c46o")
 
+[node name="crash" type="AudioStreamPlayer2D" parent="RigidBody2D"]
+stream = ExtResource("4_pl2ix")
+
+[connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody2D/Area2D" to="RigidBody2D" method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="RigidBody2D/Area2D" to="RigidBody2D" method="_on_area_2d_body_entered"]

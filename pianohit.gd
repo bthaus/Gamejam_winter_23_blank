@@ -21,9 +21,21 @@ func hit():
 	$RigidBody2D2.collision_mask=0
 var hitted=false;
 func _on_area_2d_area_entered(area):
+	$crash.play()
 	if(hitted):
 		return
-	hitted=true;
+	
 	if(area.get_parent().has_method("hit")):
+		hitted=true;
 		area.get_parent().hit("piano")
+	pass # Replace with function body.
+
+
+func _on_body_entered(body):
+	
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_entered(body):
+	$crash.play()
 	pass # Replace with function body.
