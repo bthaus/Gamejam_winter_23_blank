@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c0jhpg2sqovy6" path="res://Assets/Piano/pianotop.png" id="2_0c46o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8acn"]
-size = Vector2(279, 202)
+size = Vector2(201, 167)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3l6p"]
 size = Vector2(232, 119)
@@ -14,26 +14,28 @@ size = Vector2(232, 119)
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(48.5, -91)
+position = Vector2(9.5, -73.5)
 shape = SubResource("RectangleShape2D_k8acn")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-position = Vector2(49, -143)
+position = Vector2(10, -127)
+scale = Vector2(0.775711, 0.859568)
 texture = ExtResource("1_72chi")
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
-position = Vector2(40, -217.5)
+position = Vector2(30, -201)
 shape = SubResource("RectangleShape2D_k3l6p")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2"]
-position = Vector2(37, -239)
+position = Vector2(-4.99999, -200)
 rotation = -0.785398
+scale = Vector2(0.736075, 0.736075)
 texture = ExtResource("2_0c46o")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(-70, -167)
+position = Vector2(-81, -151)
 node_a = NodePath("../RigidBody2D")
 node_b = NodePath("../RigidBody2D2")
 angular_limit_lower = -1.5708

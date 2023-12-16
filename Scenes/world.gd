@@ -13,6 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	return
 	$Camera2D.position.x += levelSpeed * delta
 	$Wall.position.x += levelSpeed * delta
 	if $Camera2D.position.x - levelPosX > 550:

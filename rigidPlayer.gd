@@ -80,7 +80,7 @@ func _process(delta):
 		if(onehandbroken):
 			breakTwoHand()
 		breakOneHand();
-		
+	
 	if(Input.is_action_just_pressed("switch")):
 		print(umbrellaOpen)
 		if($Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame>1) :
@@ -91,8 +91,11 @@ func _process(delta):
 			$AnimationPlayer2.play("openumbrella")
 			umbrellaOpen=false;
 				
-	if(Input.is_action_just_pressed("attack") and $Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame<2):
-		$AnimationPlayer2.play("attack")			
+	if(Input.is_action_pressed("attack") ):
+		if( $Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame<2):
+			$AnimationPlayer2.play("attack")	
+		else:
+			$AnimationPlayer2.play("block")		
 	if(Input.is_action_pressed("ui_right") and linear_velocity.x < maxSpeed):
 		apply_impulse(Vector2(200,0),Vector2(0,0))
 		print("run")
@@ -107,6 +110,9 @@ func _process(delta):
 	pass
 
 
+func testdisabled():
+	print($Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/hitbox/hitboxshape.disabled)
+	pass
 	
 func computecontact(val):
 	floorcontacts=floorcontacts+val;
@@ -133,4 +139,12 @@ func _on_feet_body_exited(body):
 func _on_animation_player_animation_finished(anim_name):
 	print("finished")
 	$AnimationPlayer.play("idle")
+	pass # Replace with function body.
+
+
+func _on_hitbox_area_entered(area):
+	print("area entered")
+	if(area.get_parent().has_method("hit")):
+		print("call hit")
+		area.get_parent().hit();
 	pass # Replace with function body.

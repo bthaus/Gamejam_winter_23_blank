@@ -27,7 +27,7 @@ func _process(delta):
 		
 	if goDown and hitSomething:
 		goDown = false
-		hit()
+		
 		hitSomething = false
 	elif !goDown and position.y < 10:
 		goDown = true
@@ -45,7 +45,9 @@ func _draw():
 		draw_line(Vector2(0, position.y - global_position.y - 5000), Vector2(0, 0), Color.WHITE, 3)
 	
 func hit():
+	
 	dead = true
+	queue_redraw()
 	
 func _on_physics_area_body_entered(body):
 	hitSomething = true
