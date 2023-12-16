@@ -8,6 +8,8 @@ var leftlegbroken=false;
 var rightlegbroken=false;
 var alive=true;
 signal died;
+var damages=[]
+var direction="right";
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +20,7 @@ func playstringrip():
 	$stringrip.play()
 	pass;
 func breakOneHand():
+	damages.append("lefthand")
 	playstringrip()
 	$Skeleton2D/hips/shoulders/LeftUpperArm.visible=false;
 	$StaticBody2D/alefthand.visible=false;
@@ -35,6 +38,7 @@ func die():
 	$centerstring.visible=true;
 	pass;
 func breakTwoHand():
+	damages.append("righthand")
 	playstringrip()
 	$Skeleton2D/hips/shoulders/rightupperarm.visible=false;
 	$StaticBody2D/arighthand.visible=false;
@@ -44,6 +48,7 @@ func breakTwoHand():
 	pass;
 	
 func breakleftLeg():
+	damages.append("leftleg")
 	playstringrip()
 	$Skeleton2D/hips/LeftQuad.visible=false;
 	$StaticBody2D/aleftfoot.visible=false;
@@ -53,6 +58,7 @@ func breakleftLeg():
 	jumpfactor=jumpfactor*0.8;
 	pass;
 func breakrightleg():
+	damages.append("rightleg")
 	playstringrip()
 	print("right broken")
 	$Skeleton2D/hips/RightQuad.visible=false;
@@ -62,7 +68,39 @@ func breakrightleg():
 	maxSpeed=maxSpeed*0.5;
 	jumpfactor=jumpfactor*0.8;
 	pass;
-
+func repair():
+	var repair=damages.pop_back()
+	if(repair=="lefthand"):
+		$Skeleton2D/hips/shoulders/LeftUpperArm.visible=true;
+		$StaticBody2D/alefthand.visible=true;
+		$DanglingParts/leftarm.visible=false;
+		onehandbroken=false;
+		return;
+	if(repair=="righthand"):
+		$Skeleton2D/hips/shoulders/rightupperarm.visible=true;
+		$StaticBody2D/arighthand.visible=true;
+		$DanglingParts/rightarm.visible=false;
+		$DanglingParts/rightarm/sword/danglingumbrellasprite.frame=$Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame
+		twohandbroken=false;
+		return;
+	if(repair=="leftleg"):
+		$Skeleton2D/hips/LeftQuad.visible=true;
+		$StaticBody2D/aleftfoot.visible=true;
+		$DanglingParts/leftlef.visible=false;
+		leftlegbroken=false;
+		maxSpeed=maxSpeed*2;
+		jumpfactor=jumpfactor*1.2;
+		return;
+	if(repair=="rightleg"):
+		$Skeleton2D/hips/RightQuad.visible=true;
+		$DanglingParts/leftlef2.visible=false;
+		$StaticBody2D/arightfoot.visible=true;
+		rightlegbroken=false;
+		maxSpeed=maxSpeed*2;
+		jumpfactor=jumpfactor*1.2;
+		return;
+		
+	pass;
 func hit(type):
 	if(type=="trap"):
 		if(!leftlegbroken):
@@ -71,6 +109,8 @@ func hit(type):
 			breakrightleg()
 		else:
 			die()
+	if(type=="spider"):
+		breakiteratively();
 			
 	if(blocking):
 		return;
@@ -99,15 +139,16 @@ func breakiteratively():
 		
 var blocking=false;	
 func _process(delta):
+	
 	blocking=false;
 	if(!alive):
 		return;
 	
 	gravity_scale=1;
 	
-	if(Input.is_action_just_pressed("activate_item")):
-		breakiteratively()
 	
+	if(Input.is_action_just_pressed("pick_up_item")):
+		repair();
 	if(Input.is_action_just_pressed("switch")):
 		print(umbrellaOpen)
 		if($Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame>1) :
@@ -127,10 +168,13 @@ func _process(delta):
 			blocking=true;
 	if(Input.is_action_pressed("ui_right") and linear_velocity.x < maxSpeed):
 		apply_impulse(Vector2(200,0),Vector2(0,0))
-		print("run")
+		direction="right"
+		
 		$AnimationPlayer.play("run")
 	if(Input.is_action_pressed("ui_left") and linear_velocity.x > -maxSpeed):
 		apply_impulse(Vector2(-200,0),Vector2(0,0))	
+		direction="left"
+		
 		$AnimationPlayer.play("run")
 	if(Input.is_action_pressed("ui_up")and abs(linear_velocity.y)<5) and floorcontacts>0 and !jumping:
 		jumping=true;
@@ -175,5 +219,5 @@ func _on_hitbox_area_entered(area):
 	print("area entered")
 	if(area.get_parent().has_method("hit")):
 		print("call hit")
-		area.get_parent().hit();
+		area.get_parent().hit("spider");
 	pass # Replace with function body.

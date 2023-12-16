@@ -1,7 +1,7 @@
 extends Node2D
 @export var curtain:AnimatedSprite2D;
 
-var counter=0;
+var counter=2;
 var open=true;
 signal closegame;
 signal startgame;
@@ -62,7 +62,7 @@ func _process(delta):
 	if(Input.is_action_just_pressed("ui_down")):
 		counter=counter-1;
 		counter=counter%3;
-	if(Input.is_action_just_pressed("activate_item")):
+	if(Input.is_action_just_pressed("attack")):
 		execute();
 	if(counter<0):
 		counter=2

@@ -60,6 +60,7 @@ func hit(type):
 	$String.show()
 	$String.call_deferred("set", "disabled", true)
 	$String.hide()
+	player.repair()
 	
 func _on_physics_area_body_entered(body):
 	hitSomething = true
