@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddsnc7x8hu3bd"]
+[gd_scene load_steps=5 format=3 uid="uid://ddsnc7x8hu3bd"]
 
 [ext_resource type="Texture2D" uid="uid://c36ok7negqsn1" path="res://Pictures/Bear coloured.png" id="1_5pm2a"]
 [ext_resource type="Script" path="res://Enemies/bear.gd" id="1_60ec5"]
+[ext_resource type="AudioStream" uid="uid://co76ijbrfaylr" path="res://Sounds/bear.mp3" id="3_bsqpt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_om76f"]
 size = Vector2(81, 160)
@@ -19,3 +20,6 @@ texture = ExtResource("1_5pm2a")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1.5, 2)
 shape = SubResource("RectangleShape2D_om76f")
+
+[node name="bearSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bsqpt")
