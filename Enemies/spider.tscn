@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bnw5fidg2djvy"]
 
-[ext_resource type="Texture2D" uid="uid://m2b3xo27lbld" path="res://Pictures/Spider korrekt.png" id="2_3ih4k"]
 [ext_resource type="Script" path="res://Enemies/spider.gd" id="2_7dflx"]
-[ext_resource type="AudioStream" uid="uid://b62wnj0u8qgto" path="res://Sounds/spider.mp3" id="3_weva0"]
+[ext_resource type="Texture2D" uid="uid://bwj47a6cmikx1" path="res://Pictures/Spider coloured.png" id="2_ya181"]
+[ext_resource type="AudioStream" uid="uid://by7momhanjeev" path="res://Sounds/spider.mp3" id="3_weva0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbwsh"]
 size = Vector2(89.5, 88.1875)
@@ -13,15 +13,25 @@ script = ExtResource("2_7dflx")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-46.5944, -86.4124)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_3ih4k")
+texture = ExtResource("2_ya181")
 
-[node name="AttackArea" type="Area2D" parent="."]
+[node name="PhysicArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PhysicArea"]
+position = Vector2(0, -4.90625)
+shape = SubResource("RectangleShape2D_kbwsh")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, -4.90625)
 shape = SubResource("RectangleShape2D_kbwsh")
 
 [node name="spiderSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_weva0")
 
-[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="PhysicArea" to="." method="_on_physic_area_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_attack_area_body_entered"]
