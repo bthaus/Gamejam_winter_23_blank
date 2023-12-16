@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b33gxvlbos83x"]
+[gd_scene load_steps=6 format=3 uid="uid://b33gxvlbos83x"]
 
 [ext_resource type="Script" path="res://Preperations/input.gd" id="1_qt5fh"]
 [ext_resource type="Script" path="res://test.gd" id="3_1lk4i"]
 [ext_resource type="PackedScene" uid="uid://ctf502tckktb8" path="res://rigidPlayer.tscn" id="4_dooom"]
 [ext_resource type="Texture2D" uid="uid://ccmxbk4iswbea" path="res://Assets/Inventory/Diamond_Sword_JE3_BE3.png" id="4_hchup"]
-[ext_resource type="PackedScene" path="res://piano.tscn" id="5_jqb0r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mncpv"]
 radius = 103.0
@@ -34,6 +33,3 @@ rotation = 1.57079
 texture = ExtResource("4_hchup")
 
 [node name="body" parent="." instance=ExtResource("4_dooom")]
-
-[node name="piano" parent="." instance=ExtResource("5_jqb0r")]
-position = Vector2(310, 172)
