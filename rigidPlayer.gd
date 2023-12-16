@@ -57,6 +57,8 @@ func closeumbrella():
 	
 	pass;
 func hit(type):
+	if(blocking):
+		return;
 	if(type=="piano"):
 		breakiteratively();
 	print("ive been hit")
@@ -79,9 +81,9 @@ func breakiteratively():
 		breakrightleg();
 		return;
 		
-	
+var blocking=false;	
 func _process(delta):
-	
+	blocking=false;
 	if(!alive):
 		return;
 	if($Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame>1)and !twohandbroken and linear_velocity.y>10 :
@@ -108,6 +110,7 @@ func _process(delta):
 			$AnimationPlayer2.play("attack")	
 		else:
 			$AnimationPlayer2.play("block")		
+			blocking=true;
 	if(Input.is_action_pressed("ui_right") and linear_velocity.x < maxSpeed):
 		apply_impulse(Vector2(200,0),Vector2(0,0))
 		print("run")
