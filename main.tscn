@@ -33,4 +33,3 @@ rotation = 1.57079
 texture = ExtResource("4_hchup")
 
 [node name="body" parent="." instance=ExtResource("4_dooom")]
-position = Vector2(105, 463)
