@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://ctf502tckktb8"]
+[gd_scene load_steps=53 format=3 uid="uid://ctf502tckktb8"]
 
 [ext_resource type="Texture2D" uid="uid://c8qb36va0pefv" path="res://Assets/Player/Player.png" id="1_7uggp"]
 [ext_resource type="Script" path="res://rigidPlayer.gd" id="1_bv1m3"]
@@ -1948,6 +1948,10 @@ _data = {
 "flipcross": SubResource("Animation_6s87m")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7lylw"]
+radius = 18.0
+height = 182.0
+
 [node name="body" type="RigidBody2D" groups=["player"]]
 can_sleep = false
 lock_rotation = true
@@ -2220,7 +2224,7 @@ position = Vector2(61, -159)
 rotation = 0.523598
 shape = SubResource("CapsuleShape2D_hhaga")
 
-[node name="umbrella" type="AnimatedSprite2D" parent="DanglingParts/rightarm/sword"]
+[node name="danglingumbrellasprite" type="AnimatedSprite2D" parent="DanglingParts/rightarm/sword"]
 position = Vector2(65, -170)
 rotation = -0.523598
 scale = Vector2(0.131962, 0.131962)
@@ -2504,6 +2508,12 @@ z_index = -1
 position = Vector2(2.53485, -376.589)
 script = ExtResource("10_ybvur")
 attachment = NodePath("../../Skeleton2D/hips")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -98)
+shape = SubResource("CapsuleShape2D_7lylw")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="feet" to="." method="_on_feet_area_entered"]

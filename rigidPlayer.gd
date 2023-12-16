@@ -23,6 +23,7 @@ func breakTwoHand():
 	$Skeleton2D/hips/shoulders/rightupperarm.visible=false;
 	$StaticBody2D/arighthand.visible=false;
 	$DanglingParts/rightarm.visible=true;
+	$DanglingParts/rightarm/sword/danglingumbrellasprite.frame=$Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame
 	twohandbroken=true;
 	pass;
 	
