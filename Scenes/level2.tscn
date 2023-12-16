@@ -1,15 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://ug2qkrjtxfxm"]
+[gd_scene load_steps=4 format=3 uid="uid://tsitolro2xyk"]
 
-[ext_resource type="Texture2D" uid="uid://c1c2ufgfdk8o8" path="res://Pictures/IMG_0819.png" id="1_oobof"]
+[ext_resource type="Texture2D" uid="uid://soa1wfqurt8t" path="res://Pictures/level/lv10.png" id="1_i5uds"]
+[ext_resource type="PackedScene" uid="uid://bnw5fidg2djvy" path="res://Enemies/spider.tscn" id="2_vay60"]
+[ext_resource type="Texture2D" uid="uid://7qlojx6rxgmv" path="res://Pictures/Spiderweb coloured.png" id="3_uwwht"]
 
-[node name="Level02" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(575, 321)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("1_oobof")
+position = Vector2(576, 351)
+texture = ExtResource("1_i5uds")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(-554.95, 284.339)
-polygon = PackedVector2Array(39.9496, -20.3392, 354.95, -22.3392, 356.95, -59.3392, 405.95, -57.3392, 410.95, -23.3392, 1128.95, -27.3392, 1130.95, 42.6608, 737.95, 42.6608, -20.0504, 40.6608, -20.0504, -22.3392)
+polygon = PackedVector2Array(2, 613, 392, 612, 583, 413, 718, 413, 718, 604, 1152, 606, 1152, 677, -1, 676)
+
+[node name="Spider" parent="." instance=ExtResource("2_vay60")]
+position = Vector2(250, 0)
+
+[node name="SpiderwebColoured" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(264, 20)
+scale = Vector2(0.13601, 0.144484)
+texture = ExtResource("3_uwwht")

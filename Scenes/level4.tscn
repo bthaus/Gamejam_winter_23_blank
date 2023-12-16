@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://q8pj1vy54pib"]
+
+[ext_resource type="Texture2D" uid="uid://bpw5r1reb0vuv" path="res://Pictures/level/lv01.png" id="1_iwovs"]
+[ext_resource type="PackedScene" path="res://Enemies/trap.tscn" id="2_ktopu"]
+[ext_resource type="PackedScene" path="res://Enemies/bat.tscn" id="3_a7we0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(577, 352)
+texture = ExtResource("1_iwovs")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 617, 503, 616, 502, 572, 558, 573, 558, 611, 1151, 611, 1152, 678, 0, 677)
+
+[node name="Trap" parent="." instance=ExtResource("2_ktopu")]
+position = Vector2(224, 600)
+
+[node name="Bat" parent="." instance=ExtResource("3_a7we0")]
+position = Vector2(1285, 113)
