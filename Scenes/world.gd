@@ -7,6 +7,7 @@ var levels = []
 var rand = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_tree().paused=true;
 	rand.randomize()
 	add_child(level1)
 	levels.push_front(level1)
@@ -14,8 +15,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(Input.is_action_just_pressed("menu")):
-		$Camera2D/menu.toggle(true)
 		get_tree().paused=true;
+		$Camera2D/menu.toggle($Player.alive)
+		
 		
 		
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1geq8lptqefq"]
+[gd_scene load_steps=13 format=3 uid="uid://b1geq8lptqefq"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_mclc3"]
 [ext_resource type="Texture2D" uid="uid://cum817bimwlnx" path="res://menu/Menu/LeaveSelected.png" id="2_m20ft"]
@@ -7,16 +7,63 @@
 [ext_resource type="Texture2D" uid="uid://bp3swi3muvpb0" path="res://menu/Menu/OptionsUnselected.png" id="5_fbruv"]
 [ext_resource type="Texture2D" uid="uid://b2vy2ydu0famt" path="res://menu/Menu/StartGameSelected.png" id="6_7gjuf"]
 [ext_resource type="Texture2D" uid="uid://buttyevum7pq0" path="res://menu/Menu/StartGameUnselected.png" id="7_evkyr"]
+[ext_resource type="Texture2D" uid="uid://f6g7afda1mih" path="res://Pictures/Curtain korrekt.png" id="8_036bt"]
+[ext_resource type="Texture2D" uid="uid://ng55is70tnei" path="res://Pictures/Curtain  Open 2.png" id="9_v1i06"]
+[ext_resource type="Texture2D" uid="uid://j7757uxd5mnw" path="res://Pictures/Curtain Open 1.png" id="10_mfrbt"]
+[ext_resource type="Texture2D" uid="uid://du5f8v3n6u148" path="res://Pictures/Curtain closed.png" id="11_ycebb"]
 
-[node name="Control" type="Control"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_h78tc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_036bt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v1i06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mfrbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ycebb")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ycebb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mfrbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v1i06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_036bt")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="Control" type="Node2D" node_paths=PackedStringArray("curtain")]
 z_index = 6
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("1_mclc3")
+curtain = NodePath("test2/curtain")
+
+[node name="test2" type="Node2D" parent="."]
+
+[node name="curtain" type="AnimatedSprite2D" parent="test2"]
+position = Vector2(565, 358)
+scale = Vector2(0.565327, 0.517986)
+sprite_frames = SubResource("SpriteFrames_h78tc")
+animation = &"close"
+
+[node name="test" type="Sprite2D" parent="."]
+texture = ExtResource("8_036bt")
 
 [node name="leave" type="Node2D" parent="."]
 position = Vector2(13, 32)

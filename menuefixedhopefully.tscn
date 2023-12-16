@@ -1,0 +1,113 @@
+[gd_scene load_steps=14 format=3 uid="uid://dvvel23pa04cm"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_lf3f1"]
+[ext_resource type="Texture2D" uid="uid://f6g7afda1mih" path="res://Pictures/Curtain korrekt.png" id="2_y8547"]
+[ext_resource type="Texture2D" uid="uid://ng55is70tnei" path="res://Pictures/Curtain  Open 2.png" id="3_82vhh"]
+[ext_resource type="Texture2D" uid="uid://j7757uxd5mnw" path="res://Pictures/Curtain Open 1.png" id="4_ufmi5"]
+[ext_resource type="Texture2D" uid="uid://du5f8v3n6u148" path="res://Pictures/Curtain closed.png" id="5_f1fo8"]
+[ext_resource type="Texture2D" uid="uid://cum817bimwlnx" path="res://menu/Menu/LeaveSelected.png" id="6_mmd73"]
+[ext_resource type="Texture2D" uid="uid://bgh5a7thjodcw" path="res://menu/Menu/LeaveUnselected.png" id="7_dt7vw"]
+[ext_resource type="Texture2D" uid="uid://cs8w2xppp3doy" path="res://menu/Menu/OptionsSelected.png" id="8_yniuf"]
+[ext_resource type="Texture2D" uid="uid://bp3swi3muvpb0" path="res://menu/Menu/OptionsUnselected.png" id="9_tcd8g"]
+[ext_resource type="Texture2D" uid="uid://b2vy2ydu0famt" path="res://menu/Menu/StartGameSelected.png" id="10_qofjq"]
+[ext_resource type="Texture2D" uid="uid://buttyevum7pq0" path="res://menu/Menu/StartGameUnselected.png" id="11_cf2lt"]
+[ext_resource type="AudioStream" uid="uid://cg2bcfhypbn58" path="res://Sounds/audio_menu.wav" id="12_gq1k1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_344bk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y8547")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_82vhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ufmi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f1fo8")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_f1fo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ufmi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_82vhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y8547")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_lf3f1")
+
+[node name="test2" type="Node2D" parent="."]
+
+[node name="curtain" type="AnimatedSprite2D" parent="test2"]
+position = Vector2(575, 303)
+scale = Vector2(0.561162, 0.568945)
+sprite_frames = SubResource("SpriteFrames_344bk")
+animation = &"open"
+
+[node name="test" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_y8547")
+
+[node name="leave" type="Node2D" parent="."]
+position = Vector2(13, 32)
+
+[node name="hightlighted" type="Sprite2D" parent="leave"]
+visible = false
+position = Vector2(548, 490)
+scale = Vector2(0.506, 0.506)
+texture = ExtResource("6_mmd73")
+
+[node name="unhighlighted" type="Sprite2D" parent="leave"]
+position = Vector2(548, 490)
+scale = Vector2(0.506, 0.506)
+texture = ExtResource("7_dt7vw")
+
+[node name="options2" type="Node2D" parent="."]
+position = Vector2(13, -148)
+
+[node name="highlighted" type="Sprite2D" parent="options2"]
+visible = false
+position = Vector2(548, 490)
+scale = Vector2(0.506, 0.506)
+texture = ExtResource("8_yniuf")
+
+[node name="unhighlighted" type="Sprite2D" parent="options2"]
+position = Vector2(548, 490)
+scale = Vector2(0.506, 0.506)
+texture = ExtResource("9_tcd8g")
+
+[node name="stargame" type="Node2D" parent="."]
+position = Vector2(13, -323)
+
+[node name="highlighted" type="Sprite2D" parent="stargame"]
+visible = false
+position = Vector2(548, 490)
+scale = Vector2(0.506, 0.506)
+texture = ExtResource("10_qofjq")
+
+[node name="unhighlighted" type="Sprite2D" parent="stargame"]
+position = Vector2(548, 490)
+scale = Vector2(0.506, 0.506)
+texture = ExtResource("11_cf2lt")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_gq1k1")
+
+[connection signal="animation_finished" from="test2/curtain" to="." method="_on_curtain_animation_finished"]

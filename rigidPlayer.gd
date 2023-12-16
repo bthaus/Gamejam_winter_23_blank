@@ -11,7 +11,7 @@ var alive=true;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("idle")
-	
+	global_position=Vector2(128,502)
 	pass # Replace with function body.
 func playstringrip():
 	$stringrip.play()

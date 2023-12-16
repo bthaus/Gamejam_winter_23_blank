@@ -1,18 +1,29 @@
-extends Control
+extends Node2D
+@export var curtain:AnimatedSprite2D;
 
 var counter=0;
-var open=false;
+var open=true;
 signal closegame;
 signal startgame;
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$music.play()
+	for n in get_children():
+		print(n)
+	print($test2/curtain)
+	
 	process_mode=Node.PROCESS_MODE_ALWAYS;
 
 	pass # Replace with function body.
-var justopened=false;
-func toggle(first):
-	justopened=first;
+var died=false;
+var alives=true;
+func toggle(alive):
+	$music.play()
+	alives=alive;
 	open=!open;
+	if(open):
+		$test2/curtain.play("open")
+		$test2/curtain.play("close")
 	pass;
 func execute():
 	if(counter==0):
@@ -24,18 +35,24 @@ func execute():
 		
 	if(counter==2):
 		startgame.emit()
+		$test2/curtain.play("open")
 		get_tree().paused=false;
 		$stargame/highlighted.visible=true
+		$music.stop()
 		open=false;
 	
 	pass;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(!open):
-		visible=false;
+		$leave.visible=false;
+		$options2.visible=false;
+		$stargame.visible=false;
 		return;#
-	visible=true;
-	
+		
+	$leave.visible=true;
+	$options2.visible=true;
+	$stargame.visible=true;
 
 	if(Input.is_action_just_pressed("ui_up")):
 		counter=counter+1;
@@ -62,3 +79,9 @@ func _process(delta):
 	print(counter)
 	
 	pass
+
+
+func _on_curtain_animation_finished():
+	if(!alives):
+		get_tree().reload_current_scene();
+	pass # Replace with function body.
