@@ -28,8 +28,9 @@ rotation = -0.785397
 shape = SubResource("CapsuleShape2D_mncpv")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/StaticBody2D/CollisionShape2D"]
-position = Vector2(4.04015, 3.92723)
+position = Vector2(-578.409, -209.351)
+rotation = 1.57079
 texture = ExtResource("4_hchup")
 
 [node name="RigidBody2D" parent="." instance=ExtResource("4_dooom")]
-position = Vector2(246, 460)
+position = Vector2(240, 431)
