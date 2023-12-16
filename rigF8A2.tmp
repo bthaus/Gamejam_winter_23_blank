@@ -294,7 +294,7 @@ tracks/19/keys = {
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite:frame")
+tracks/20/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/AnimatedSprite2D:frame")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
@@ -306,7 +306,7 @@ tracks/20/keys = {
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite:rotation")
+tracks/21/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/AnimatedSprite2D:rotation")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
@@ -318,7 +318,7 @@ tracks/21/keys = {
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite:position")
+tracks/22/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/AnimatedSprite2D:position")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -502,7 +502,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite:frame")
+tracks/8/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/AnimatedSprite2D:frame")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -514,7 +514,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite:rotation")
+tracks/9/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/AnimatedSprite2D:rotation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -526,7 +526,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite:position")
+tracks/10/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/AnimatedSprite2D:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -1534,7 +1534,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/hitbox/CollisionPolygon2D:disabled")
+tracks/8/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/Area2D/CollisionPolygon2D:disabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -1549,7 +1549,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/hitbox/CollisionPolygon2D:disabled")
+tracks/0/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/Area2D/CollisionPolygon2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1557,6 +1557,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_5j2qw"]
@@ -1660,7 +1672,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite:frame")
+tracks/8/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/AnimatedSprite2D:frame")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -1672,7 +1684,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite:rotation")
+tracks/9/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/AnimatedSprite2D:rotation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -1684,7 +1696,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite:position")
+tracks/10/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/AnimatedSprite2D:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -1748,7 +1760,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite:frame")
+tracks/0/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2022,17 +2034,17 @@ scale = Vector2(0.127383, 0.127383)
 texture = ExtResource("4_gk5ta")
 metadata/_edit_lock_ = true
 
-[node name="swordsprite" type="AnimatedSprite2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly"]
 position = Vector2(18.5938, -9.60097)
 scale = Vector2(0.131962, 0.131962)
 sprite_frames = SubResource("SpriteFrames_f0cup")
-frame = 2
+frame = 1
 metadata/_edit_lock_ = true
 
-[node name="hitbox" type="Area2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly"]
+[node name="Area2D" type="Area2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly"]
 position = Vector2(10.4339, -2.67106)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/hitbox"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/Area2D"]
 polygon = PackedVector2Array(35.9261, -17.0898, 0.643814, -2.42144, -9.01549, 2.84142, -6.14484, 8.11013, 4.9498, 5.48162)
 disabled = true
 metadata/_edit_lock_ = true
