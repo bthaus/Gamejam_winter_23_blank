@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://cuwhvj7p3kepw"]
 
 [ext_resource type="Texture2D" uid="uid://cbpcteu14686g" path="res://Pictures/level/lv08.png" id="1_2bfla"]
-[ext_resource type="PackedScene" path="res://Enemies/bat.tscn" id="2_yjdyd"]
+[ext_resource type="PackedScene" uid="uid://be0rsn611ywle" path="res://Enemies/bat.tscn" id="2_yjdyd"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(576, 352)
+position = Vector2(577, 351)
 texture = ExtResource("1_2bfla")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
