@@ -37,7 +37,7 @@ func _process(delta):
 func _on_attack_area_body_entered(body):
 	print("hit")
 	hit = true
-	
+
 func _draw():
 	draw_line(Vector2(0, position.y - global_position.y - 5000), Vector2(0, -50), Color.WHITE, 3)
 	
