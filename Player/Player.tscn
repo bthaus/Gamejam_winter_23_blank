@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://r5fm0eo8ggmo"]
+[gd_scene load_steps=39 format=3 uid="uid://r5fm0eo8ggmo"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_5k5x2"]
 [ext_resource type="Texture2D" uid="uid://c8qb36va0pefv" path="res://Assets/Player/Player.png" id="2_ldieh"]
@@ -17,6 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://c381ir8nfg6vj" path="res://Assets/Player/opening/3.png" id="8_jsfto"]
 [ext_resource type="Texture2D" uid="uid://d15spgdbib77t" path="res://Assets/Player/opening/4.png" id="9_c7saa"]
 [ext_resource type="Texture2D" uid="uid://mipdhuhtxj85" path="res://Assets/Player/dress.png" id="13_55orw"]
+[ext_resource type="Script" path="res://rightholder.gd" id="18_1lpko"]
+[ext_resource type="Texture2D" uid="uid://blv3moq17vmbx" path="res://Assets/Player/string.png" id="19_x0hng"]
+[ext_resource type="PackedScene" uid="uid://cty82udbgxsvv" path="res://string.tscn" id="20_q1iqt"]
+[ext_resource type="Script" path="res://Player/bodyclonerigid.gd" id="21_7q3aq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n8aiy"]
 radius = 13.0
@@ -233,6 +237,57 @@ _data = {
 "opening": SubResource("Animation_id48g")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bf4dr"]
+radius = 5.0
+height = 25.4558
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_huprr"]
+radius = 4.625
+height = 32.4625
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l7iu5"]
+radius = 4.11346
+height = 40.3287
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b2cqk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_p6dup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_01uug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jsfto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_c7saa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5w58c"]
+radius = 5.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bver4"]
+radius = 4.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_48xpf"]
+radius = 5.29977
+height = 32.0564
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vxk16"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pptb5"]
+height = 239.763
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8sems"]
+radius = 17.0
+height = 200.0
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(-9, -16)
 script = ExtResource("1_5k5x2")
@@ -418,3 +473,302 @@ metadata/_edit_lock_ = true
 libraries = {
 "": SubResource("AnimationLibrary_4uqux")
 }
+
+[node name="DanglingParts" type="Node2D" parent="."]
+
+[node name="rightarm" type="Node2D" parent="DanglingParts"]
+
+[node name="rightupperp" type="RigidBody2D" parent="DanglingParts/rightarm"]
+mass = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/rightarm/rightupperp"]
+position = Vector2(19, -140)
+rotation = -0.785397
+shape = SubResource("CapsuleShape2D_bf4dr")
+
+[node name="Sprite2D" type="Sprite2D" parent="DanglingParts/rightarm/rightupperp"]
+position = Vector2(42, -136)
+scale = Vector2(0.198648, 0.198648)
+texture = ExtResource("5_oyin7")
+
+[node name="rightshoulderjoint" type="PinJoint2D" parent="DanglingParts/rightarm"]
+position = Vector2(11, -145)
+node_a = NodePath("../../..")
+node_b = NodePath("../rightupperp")
+
+[node name="rightforearm" type="RigidBody2D" parent="DanglingParts/rightarm"]
+mass = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/rightarm/rightforearm"]
+position = Vector2(39, -136)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_huprr")
+
+[node name="Sprite2D" type="Sprite2D" parent="DanglingParts/rightarm/rightforearm"]
+position = Vector2(37, -138)
+rotation = -0.261799
+scale = Vector2(0.18928, 0.18928)
+texture = ExtResource("4_q5m3j")
+
+[node name="rightellbow" type="PinJoint2D" parent="DanglingParts/rightarm"]
+position = Vector2(27, -132)
+node_a = NodePath("../rightupperp")
+node_b = NodePath("../rightforearm")
+
+[node name="sword" type="RigidBody2D" parent="DanglingParts/rightarm"]
+mass = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/rightarm/sword"]
+position = Vector2(61, -159)
+rotation = 0.523598
+shape = SubResource("CapsuleShape2D_l7iu5")
+
+[node name="umbrella" type="AnimatedSprite2D" parent="DanglingParts/rightarm/sword"]
+position = Vector2(65, -170)
+rotation = -0.523598
+scale = Vector2(0.131962, 0.131962)
+sprite_frames = SubResource("SpriteFrames_b2cqk")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="DanglingParts/rightarm"]
+position = Vector2(50.8207, -143.774)
+node_a = NodePath("../rightforearm")
+node_b = NodePath("../sword")
+
+[node name="leftarm" type="Node2D" parent="DanglingParts"]
+visible = false
+position = Vector2(-241, -355)
+rotation = 0.523598
+
+[node name="leftupperp" type="RigidBody2D" parent="DanglingParts/leftarm"]
+position = Vector2(170.718, 121.662)
+rotation = 1.0472
+mass = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftarm/leftupperp"]
+position = Vector2(19, -140)
+rotation = -0.785397
+shape = SubResource("CapsuleShape2D_bf4dr")
+
+[node name="Sprite2D" type="Sprite2D" parent="DanglingParts/leftarm/leftupperp"]
+position = Vector2(42, -136)
+scale = Vector2(0.198648, 0.198648)
+texture = ExtResource("5_oyin7")
+
+[node name="leftshoulderjoint" type="PinJoint2D" parent="DanglingParts/leftarm"]
+position = Vector2(303.65, 57.9374)
+rotation = 1.0472
+node_a = NodePath("../../..")
+node_b = NodePath("../leftupperp")
+
+[node name="leftforearmp" type="RigidBody2D" parent="DanglingParts/leftarm"]
+position = Vector2(170.718, 121.662)
+rotation = 1.0472
+mass = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftarm/leftforearmp"]
+position = Vector2(39, -136)
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_huprr")
+
+[node name="Sprite2D" type="Sprite2D" parent="DanglingParts/leftarm/leftforearmp"]
+position = Vector2(37, -138)
+rotation = -0.261799
+scale = Vector2(0.18928, 0.18928)
+texture = ExtResource("4_q5m3j")
+
+[node name="leftellbow" type="PinJoint2D" parent="DanglingParts/leftarm"]
+position = Vector2(297.293, 78.9277)
+rotation = 1.0472
+node_a = NodePath("../leftupperp")
+node_b = NodePath("../leftforearmp")
+
+[node name="leftlef" type="Node2D" parent="DanglingParts"]
+
+[node name="leftquad" type="RigidBody2D" parent="DanglingParts/leftlef"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftlef/leftquad"]
+position = Vector2(-7, -92)
+rotation = 0.523598
+shape = SubResource("CapsuleShape2D_5w58c")
+
+[node name="Sprite2D" type="Sprite2D" parent="DanglingParts/leftlef/leftquad"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="DanglingParts/leftlef/leftquad"]
+position = Vector2(-29, -74)
+rotation = 0.523599
+scale = Vector2(0.177607, 0.177607)
+texture = ExtResource("7_g7bi5")
+
+[node name="lefthip" type="PinJoint2D" parent="DanglingParts/leftlef"]
+position = Vector2(-0.0364799, -105.129)
+node_a = NodePath("../../..")
+node_b = NodePath("../leftquad")
+
+[node name="leftcalvp" type="RigidBody2D" parent="DanglingParts/leftlef"]
+visible = false
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftlef/leftcalvp"]
+position = Vector2(-20, -70)
+rotation = 0.523598
+shape = SubResource("CapsuleShape2D_bver4")
+
+[node name="Sprite2D" type="Sprite2D" parent="DanglingParts/leftlef/leftcalvp"]
+position = Vector2(-26, -76)
+rotation = 0.523599
+scale = Vector2(0.163663, 0.163663)
+texture = ExtResource("6_gtmmm")
+
+[node name="leftfootp" type="RigidBody2D" parent="DanglingParts/leftlef"]
+visible = false
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftlef/leftfootp"]
+position = Vector2(-30, -44)
+rotation = 0.261799
+shape = SubResource("CapsuleShape2D_48xpf")
+
+[node name="Sprite2D" type="Sprite2D" parent="DanglingParts/leftlef/leftfootp"]
+position = Vector2(-32, -82)
+rotation = 0.261799
+scale = Vector2(0.198486, 0.198486)
+texture = ExtResource("5_6j7ic")
+
+[node name="leftknee" type="PinJoint2D" parent="DanglingParts/leftlef"]
+position = Vector2(-14.4404, -81.3588)
+node_a = NodePath("../leftquad")
+node_b = NodePath("../leftcalvp")
+
+[node name="leftankle" type="PinJoint2D" parent="DanglingParts/leftlef"]
+position = Vector2(-26.0523, -57.0113)
+node_a = NodePath("../leftcalvp")
+node_b = NodePath("../leftfootp")
+
+[node name="leftlef2" type="Node2D" parent="DanglingParts"]
+visible = false
+position = Vector2(84, -29)
+rotation = -0.785397
+
+[node name="leftquad" type="RigidBody2D" parent="DanglingParts/leftlef2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftlef2/leftquad"]
+position = Vector2(-7, -92)
+rotation = 0.523598
+shape = SubResource("CapsuleShape2D_5w58c")
+
+[node name="Sprite2D" type="Sprite2D" parent="DanglingParts/leftlef2/leftquad"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="DanglingParts/leftlef2/leftquad"]
+position = Vector2(-29, -74)
+rotation = 0.523599
+scale = Vector2(0.177607, 0.177607)
+texture = ExtResource("7_g7bi5")
+
+[node name="lefthip" type="PinJoint2D" parent="DanglingParts/leftlef2"]
+position = Vector2(-0.0364799, -105.129)
+node_a = NodePath("../../..")
+node_b = NodePath("../leftquad")
+
+[node name="leftcalvp" type="RigidBody2D" parent="DanglingParts/leftlef2"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftlef2/leftcalvp"]
+position = Vector2(-20, -70)
+rotation = 0.523598
+shape = SubResource("CapsuleShape2D_bver4")
+
+[node name="Sprite2D" type="Sprite2D" parent="DanglingParts/leftlef2/leftcalvp"]
+position = Vector2(-26, -76)
+rotation = 0.523599
+scale = Vector2(0.163663, 0.163663)
+texture = ExtResource("6_gtmmm")
+
+[node name="leftfootp" type="RigidBody2D" parent="DanglingParts/leftlef2"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftlef2/leftfootp"]
+position = Vector2(-30, -44)
+rotation = 0.261799
+shape = SubResource("CapsuleShape2D_48xpf")
+
+[node name="Sprite2D" type="Sprite2D" parent="DanglingParts/leftlef2/leftfootp"]
+position = Vector2(-32, -82)
+rotation = 0.261799
+scale = Vector2(0.198486, 0.198486)
+texture = ExtResource("5_6j7ic")
+
+[node name="leftknee" type="PinJoint2D" parent="DanglingParts/leftlef2"]
+position = Vector2(-14.4404, -81.3588)
+node_a = NodePath("../leftquad")
+node_b = NodePath("../leftcalvp")
+
+[node name="leftankle" type="PinJoint2D" parent="DanglingParts/leftlef2"]
+position = Vector2(-26.0523, -57.0113)
+node_a = NodePath("../leftcalvp")
+node_b = NodePath("../leftfootp")
+
+[node name="rightholder" type="RigidBody2D" parent="DanglingParts"]
+script = ExtResource("18_1lpko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/rightholder"]
+position = Vector2(123, -387)
+shape = SubResource("CircleShape2D_vxk16")
+
+[node name="Sprite2D2" type="Sprite2D" parent="DanglingParts/rightholder"]
+position = Vector2(106, -435)
+scale = Vector2(0.275941, 0.275941)
+texture = ExtResource("5_6j7ic")
+
+[node name="rightstring" type="RigidBody2D" parent="DanglingParts"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/rightstring"]
+position = Vector2(96, -282)
+rotation = 0.261799
+shape = SubResource("CapsuleShape2D_pptb5")
+
+[node name="Sprite2D" type="Sprite2D" parent="DanglingParts/rightstring"]
+position = Vector2(143, -456)
+rotation = 0.261799
+scale = Vector2(-0.2, 0.582833)
+texture = ExtResource("19_x0hng")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="DanglingParts"]
+position = Vector2(122.013, -387.661)
+node_a = NodePath("../rightholder")
+node_b = NodePath("../rightstring")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="DanglingParts"]
+position = Vector2(65.8894, -172.709)
+node_a = NodePath("../rightstring")
+node_b = NodePath("../rightarm/sword")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="DanglingParts"]
+position = Vector2(185.027, -338.387)
+node_a = NodePath("../../ceiling")
+node_b = NodePath("../stringstart")
+
+[node name="stringstart" parent="DanglingParts" instance=ExtResource("20_q1iqt")]
+position = Vector2(185, -333)
+rotation = 1.57079
+
+[node name="bodyclonerigid" type="RigidBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+mass = 0.01
+gravity_scale = -13.69
+script = ExtResource("21_7q3aq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bodyclonerigid"]
+position = Vector2(1, -102)
+shape = SubResource("CapsuleShape2D_8sems")
+
+[node name="Sprite2D" type="Sprite2D" parent="bodyclonerigid"]
+position = Vector2(89, -152)
+scale = Vector2(0.377462, 0.377462)
+texture = ExtResource("13_55orw")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ctf502tckktb8"]
+[gd_scene load_steps=34 format=3 uid="uid://ctf502tckktb8"]
 
 [ext_resource type="Texture2D" uid="uid://c8qb36va0pefv" path="res://Assets/Player/Player.png" id="1_7uggp"]
 [ext_resource type="Script" path="res://rigidPlayer.gd" id="1_bv1m3"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://fkge2syrb7q4" path="res://Assets/Player/tigh.png" id="15_oi275"]
 [ext_resource type="Texture2D" uid="uid://cm07l35f6c0wb" path="res://Assets/Player/quad.png" id="16_tsv2s"]
 [ext_resource type="Texture2D" uid="uid://cj1lr7lv1uesa" path="res://Assets/Player/dressbottom.png" id="17_q4hgx"]
+[ext_resource type="PackedScene" uid="uid://cty82udbgxsvv" path="res://string.tscn" id="20_pmvlw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3i56f"]
 radius = 14.0
@@ -41,6 +42,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vl6m"]
+radius = 16.3729
 
 [sub_resource type="Animation" id="Animation_wcm3t"]
 resource_name = "AttackFull"
@@ -255,6 +259,8 @@ radius = 4.0
 radius = 5.29977
 height = 32.0564
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ktpiy"]
+
 [node name="body" type="RigidBody2D"]
 can_sleep = false
 lock_rotation = true
@@ -307,11 +313,12 @@ metadata/_edit_lock_ = true
 [node name="rightupperarm" type="Bone2D" parent="Skeleton2D/hips/shoulders"]
 visible = false
 position = Vector2(12, 1)
-rotation = 0.107523
+rotation = -1.0472
 rest = Transform2D(0.994225, 0.107316, -0.107316, 0.994225, 12, 1)
 
 [node name="rightLowerArm" type="Bone2D" parent="Skeleton2D/hips/shoulders/rightupperarm"]
 position = Vector2(10.2074, 20.0202)
+rotation = 0.523598
 rest = Transform2D(1, 7.45058e-09, -7.45058e-09, 1, 10.2074, 20.0202)
 
 [node name="sword" type="Bone2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm"]
@@ -326,7 +333,7 @@ texture = ExtResource("4_gk5ta")
 metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/sword"]
-position = Vector2(18.3258, -10.1404)
+position = Vector2(18.5938, -9.60097)
 scale = Vector2(0.131962, 0.131962)
 sprite_frames = SubResource("SpriteFrames_f0cup")
 frame = 1
@@ -441,6 +448,18 @@ scale = Vector2(0.174508, 0.174508)
 texture = ExtResource("17_q4hgx")
 metadata/_edit_lock_ = true
 
+[node name="RigidBody2D" type="RigidBody2D" parent="Skeleton2D/hips"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton2D/hips/RigidBody2D"]
+position = Vector2(-4.37263, -35.9158)
+shape = SubResource("CircleShape2D_1vl6m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/hips/RigidBody2D"]
+position = Vector2(-4, -36)
+scale = Vector2(0.160832, 0.160831)
+texture = ExtResource("12_xxw3k")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4uqux")
@@ -464,11 +483,14 @@ scale = Vector2(0.198648, 0.198648)
 texture = ExtResource("10_vmtf6")
 
 [node name="rightshoulderjoint" type="PinJoint2D" parent="DanglingParts/rightarm"]
-position = Vector2(12, -145)
+position = Vector2(11, -145)
 node_a = NodePath("../../..")
 node_b = NodePath("../rightupperp")
+angular_limit_upper = 1.9635
 
 [node name="rightforearm" type="RigidBody2D" parent="DanglingParts/rightarm"]
+collision_layer = 0
+collision_mask = 0
 mass = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/rightarm/rightforearm"]
@@ -488,6 +510,8 @@ node_a = NodePath("../rightupperp")
 node_b = NodePath("../rightforearm")
 
 [node name="sword" type="RigidBody2D" parent="DanglingParts/rightarm"]
+collision_layer = 0
+collision_mask = 0
 mass = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/rightarm/sword"]
@@ -506,6 +530,11 @@ frame = 1
 position = Vector2(50.8207, -143.774)
 node_a = NodePath("../rightforearm")
 node_b = NodePath("../sword")
+
+[node name="stringrighthand" parent="DanglingParts/rightarm" instance=ExtResource("20_pmvlw")]
+position = Vector2(66, -162)
+rotation = 1.57079
+mass = 0.01
 
 [node name="leftarm" type="Node2D" parent="DanglingParts"]
 position = Vector2(-241, -355)
@@ -535,6 +564,8 @@ node_b = NodePath("../leftupperp")
 [node name="leftforearmp" type="RigidBody2D" parent="DanglingParts/leftarm"]
 position = Vector2(170.718, 121.662)
 rotation = 1.0472
+collision_layer = 0
+collision_mask = 0
 mass = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftarm/leftforearmp"]
@@ -554,9 +585,15 @@ rotation = 1.0472
 node_a = NodePath("../leftupperp")
 node_b = NodePath("../leftforearmp")
 
+[node name="stringlefthand" parent="DanglingParts/leftarm" instance=ExtResource("20_pmvlw")]
+position = Vector2(322.954, 103.373)
+rotation = 1.0472
+mass = 0.01
+
 [node name="leftlef" type="Node2D" parent="DanglingParts"]
 
 [node name="leftquad" type="RigidBody2D" parent="DanglingParts/leftlef"]
+mass = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftlef/leftquad"]
 position = Vector2(-7, -92)
@@ -579,6 +616,7 @@ node_b = NodePath("../leftquad")
 [node name="leftcalvp" type="RigidBody2D" parent="DanglingParts/leftlef"]
 collision_layer = 0
 collision_mask = 0
+mass = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftlef/leftcalvp"]
 position = Vector2(-20, -70)
@@ -594,6 +632,7 @@ texture = ExtResource("15_oi275")
 [node name="leftfootp" type="RigidBody2D" parent="DanglingParts/leftlef"]
 collision_layer = 0
 collision_mask = 0
+mass = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftlef/leftfootp"]
 position = Vector2(-30, -44)
@@ -616,11 +655,17 @@ position = Vector2(-26.0523, -57.0113)
 node_a = NodePath("../leftcalvp")
 node_b = NodePath("../leftfootp")
 
+[node name="stringleftfoot" parent="DanglingParts/leftlef" instance=ExtResource("20_pmvlw")]
+position = Vector2(-32, -28)
+rotation = 1.57079
+mass = 0.01
+
 [node name="leftlef2" type="Node2D" parent="DanglingParts"]
 position = Vector2(84, -29)
 rotation = -0.785397
 
 [node name="leftquad" type="RigidBody2D" parent="DanglingParts/leftlef2"]
+mass = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftlef2/leftquad"]
 position = Vector2(-7, -92)
@@ -643,6 +688,7 @@ node_b = NodePath("../leftquad")
 [node name="leftcalvp" type="RigidBody2D" parent="DanglingParts/leftlef2"]
 collision_layer = 0
 collision_mask = 0
+mass = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftlef2/leftcalvp"]
 position = Vector2(-20, -70)
@@ -658,6 +704,7 @@ texture = ExtResource("15_oi275")
 [node name="leftfootp" type="RigidBody2D" parent="DanglingParts/leftlef2"]
 collision_layer = 0
 collision_mask = 0
+mass = 0.01
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DanglingParts/leftlef2/leftfootp"]
 position = Vector2(-30, -44)
@@ -679,3 +726,47 @@ node_b = NodePath("../leftcalvp")
 position = Vector2(-26.0523, -57.0113)
 node_a = NodePath("../leftcalvp")
 node_b = NodePath("../leftfootp")
+
+[node name="stringrightfoot" parent="DanglingParts/leftlef2" instance=ExtResource("20_pmvlw")]
+position = Vector2(-38.1838, -26.87)
+rotation = 2.35619
+scale = Vector2(1, 1)
+mass = 0.01
+
+[node name="PinJoint2D" type="PinJoint2D" parent="DanglingParts"]
+position = Vector2(66.0783, -169.324)
+node_a = NodePath("../rightarm/stringrighthand")
+node_b = NodePath("../rightarm/sword")
+
+[node name="rightfootstringjoint" type="PinJoint2D" parent="DanglingParts"]
+position = Vector2(36.9496, -29.0015)
+node_a = NodePath("../leftlef2/stringrightfoot")
+node_b = NodePath("../leftlef2/leftfootp")
+
+[node name="leftfootjoint" type="PinJoint2D" parent="DanglingParts"]
+position = Vector2(-31.8123, -34.7408)
+node_a = NodePath("../leftlef/leftfootp")
+node_b = NodePath("../leftlef/stringleftfoot")
+
+[node name="lefthandstringjoint" type="PinJoint2D" parent="DanglingParts"]
+position = Vector2(-12.2429, -111.83)
+node_a = NodePath("../leftarm/leftforearmp")
+node_b = NodePath("../leftarm/stringlefthand")
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="DanglingParts"]
+
+[node name="feet" type="Area2D" parent="."]
+position = Vector2(-3.09286, -4.74811)
+
+[node name="feet" type="CollisionShape2D" parent="feet"]
+position = Vector2(4.09286, -14.2519)
+shape = SubResource("CapsuleShape2D_ktpiy")
+
+[connection signal="area_entered" from="feet" to="." method="_on_feet_area_entered"]
+[connection signal="area_exited" from="feet" to="." method="_on_feet_area_exited"]
+[connection signal="area_shape_entered" from="feet" to="." method="_on_feet_area_shape_entered"]
+[connection signal="area_shape_exited" from="feet" to="." method="_on_feet_area_shape_exited"]
+[connection signal="body_entered" from="feet" to="." method="_on_feet_body_entered"]
+[connection signal="body_exited" from="feet" to="." method="_on_feet_body_exited"]
+[connection signal="body_shape_entered" from="feet" to="." method="_on_feet_body_shape_entered"]
+[connection signal="body_shape_exited" from="feet" to="." method="_on_feet_body_shape_exited"]

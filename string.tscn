@@ -1,0 +1,138 @@
+[gd_scene load_steps=3 format=3 uid="uid://cty82udbgxsvv"]
+
+[ext_resource type="Texture2D" uid="uid://blv3moq17vmbx" path="res://Assets/Player/string.png" id="1_f4m88"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ehx32"]
+radius = 5.0
+height = 10.0
+
+[node name="stringstart" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ehx32")
+
+[node name="1" type="RigidBody2D" parent="."]
+mass = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="1"]
+position = Vector2(5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ehx32")
+
+[node name="Sprite2D" type="Sprite2D" parent="1"]
+position = Vector2(4.893, 4.00734e-06)
+rotation = -1.5708
+scale = Vector2(0.2, -0.00885429)
+texture = ExtResource("1_f4m88")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(9.51217, -0.0548072)
+node_a = NodePath("../1")
+node_b = NodePath("../2")
+
+[node name="2" type="RigidBody2D" parent="."]
+position = Vector2(9, 0)
+mass = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2"]
+position = Vector2(5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ehx32")
+
+[node name="Sprite2D" type="Sprite2D" parent="2"]
+position = Vector2(5.02558, 3.52739e-06)
+rotation = -1.5708
+scale = Vector2(0.2, -0.00911477)
+texture = ExtResource("1_f4m88")
+
+[node name="3" type="RigidBody2D" parent="."]
+position = Vector2(18, 0)
+mass = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3"]
+position = Vector2(5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ehx32")
+
+[node name="Sprite2D" type="Sprite2D" parent="3"]
+position = Vector2(5.02558, 3.52739e-06)
+rotation = -1.5708
+scale = Vector2(0.2, -0.00911477)
+texture = ExtResource("1_f4m88")
+
+[node name="4" type="RigidBody2D" parent="."]
+position = Vector2(27, 0)
+mass = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="4"]
+position = Vector2(5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ehx32")
+
+[node name="Sprite2D" type="Sprite2D" parent="4"]
+position = Vector2(5.02558, 3.52739e-06)
+rotation = -1.5708
+scale = Vector2(0.2, -0.00911477)
+texture = ExtResource("1_f4m88")
+
+[node name="5" type="RigidBody2D" parent="."]
+position = Vector2(36, 0)
+mass = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="5"]
+position = Vector2(5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ehx32")
+
+[node name="Sprite2D" type="Sprite2D" parent="5"]
+position = Vector2(5.02558, 3.52739e-06)
+rotation = -1.5708
+scale = Vector2(0.2, -0.00911477)
+texture = ExtResource("1_f4m88")
+
+[node name="6" type="RigidBody2D" parent="."]
+position = Vector2(45, 0)
+mass = 0.01
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="6"]
+position = Vector2(5, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ehx32")
+
+[node name="Sprite2D" type="Sprite2D" parent="6"]
+position = Vector2(5.02558, 3.52739e-06)
+rotation = -1.5708
+scale = Vector2(0.2, -0.00911477)
+texture = ExtResource("1_f4m88")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(18.3021, 0.0912075)
+node_a = NodePath("../2")
+node_b = NodePath("../3")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(27.2212, 0.0540466)
+node_a = NodePath("../3")
+node_b = NodePath("../4")
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(36.6605, -0.0202789)
+node_a = NodePath("../4")
+node_b = NodePath("../5")
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="."]
+position = Vector2(45.6167, 0.0168839)
+node_a = NodePath("../5")
+node_b = NodePath("../6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, -1.49012e-08)
+rotation = -1.5708
+scale = Vector2(0.2, -0.00885429)
+texture = ExtResource("1_f4m88")
+
+[node name="PinJoint2D6" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("../1")
