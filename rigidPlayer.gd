@@ -1,5 +1,5 @@
 extends RigidBody2D
-var maxSpeed = 240
+var maxSpeed = 320
 var jumpfactor=2;
 var umbrellaOpen=true;
 var onehandbroken=false;
@@ -29,7 +29,7 @@ func die():
 	$StaticBody2D/acenter.visible=false;
 	lock_rotation=false;
 	alive=false;
-	
+	$die.play()
 	$centerstring.visible=true;
 	pass;
 func breakTwoHand():
@@ -92,11 +92,8 @@ func _process(delta):
 	blocking=false;
 	if(!alive):
 		return;
-	if($Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame>1)and !twohandbroken and linear_velocity.y>10 :
-		print("im floating")
-		gravity_scale=0.2
-	else:
-		gravity_scale=1;
+	
+	gravity_scale=1;
 	
 	if(Input.is_action_just_pressed("activate_item")):
 		breakiteratively()
@@ -115,7 +112,8 @@ func _process(delta):
 		if( $Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame<2):
 			$AnimationPlayer2.play("attack")	
 		else:
-			$AnimationPlayer2.play("block")		
+			$AnimationPlayer2.play("block")	
+			gravity_scale=0.2
 			blocking=true;
 	if(Input.is_action_pressed("ui_right") and linear_velocity.x < maxSpeed):
 		apply_impulse(Vector2(200,0),Vector2(0,0))

@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://ctf502tckktb8"]
+[gd_scene load_steps=57 format=3 uid="uid://ctf502tckktb8"]
 
 [ext_resource type="Texture2D" uid="uid://c8qb36va0pefv" path="res://Assets/Player/Player.png" id="1_7uggp"]
 [ext_resource type="Script" path="res://rigidPlayer.gd" id="1_bv1m3"]
@@ -22,7 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://cty82udbgxsvv" path="res://string.tscn" id="20_pmvlw"]
 [ext_resource type="Texture2D" uid="uid://c2wxhw3i2o3m8" path="res://Assets/Player/kreuz2.png" id="20_y7itx"]
 [ext_resource type="AudioStream" uid="uid://cohhlw56wcvg7" path="res://Sounds/autsch.mp3" id="22_dqqg0"]
-[ext_resource type="AudioStream" path="res://Sounds/string.mp3" id="23_62m6n"]
+[ext_resource type="AudioStream" uid="uid://htn7vh8lxljf" path="res://Sounds/string.mp3" id="23_62m6n"]
+[ext_resource type="AudioStream" uid="uid://b4qbxomvyttgn" path="res://Sounds/break.mp3" id="24_mww5f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3i56f"]
 radius = 14.0
@@ -2752,6 +2753,10 @@ stream = ExtResource("23_62m6n")
 volume_db = 3.775
 
 [node name="openumbrella" type="AudioStreamPlayer2D" parent="."]
+
+[node name="die" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_mww5f")
+volume_db = 19.769
 
 [connection signal="area_entered" from="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

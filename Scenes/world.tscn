@@ -20,6 +20,12 @@ script = ExtResource("1_jw8lx")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 322)
 
+[node name="menu" parent="Camera2D" instance=ExtResource("10_rrxjj")]
+offset_left = -575.0
+offset_top = -322.0
+offset_right = -575.0
+offset_bottom = -322.0
+
 [node name="Wall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
@@ -80,5 +86,3 @@ centered = false
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_b2nqm")
 autoplay = true
-
-[node name="menu" parent="." instance=ExtResource("10_rrxjj")]
