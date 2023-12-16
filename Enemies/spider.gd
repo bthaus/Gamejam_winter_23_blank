@@ -5,6 +5,7 @@ var triggered = false
 var speed = 200
 var goDown = true
 var hit = false
+var sound_has_played = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +16,9 @@ func _ready():
 func _process(delta):
 	if abs(player.global_position.x - global_position.x) < 50:
 		triggered = true
+		if !sound_has_played:
+			sound_has_played = true
+			$spiderSound.play()
 		
 	if goDown and hit:
 		goDown = false
