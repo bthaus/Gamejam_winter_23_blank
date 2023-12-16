@@ -1,7 +1,7 @@
 extends Node2D
 
 var level1 = preload("res://Scenes/level2.tscn").instantiate()
-var levelSpeed = 10
+var levelSpeed = 200
 var levelPosX = 0
 var levels = []
 var rand = RandomNumberGenerator.new()
@@ -17,11 +17,11 @@ func _process(delta):
 		get_tree().reload_current_scene()
 	$Camera2D.position.x += levelSpeed * delta
 	$Wall.position.x += levelSpeed * delta
-	if $Camera2D.position.x - levelPosX > 550:
+	if $Camera2D.position.x - levelPosX > 600:
 		if levels.size() > 2:
 			remove_child(levels.pop_front())
-		var level = load("res://Scenes/level"+ str(rand.randi_range(1,1)) +".tscn").instantiate()
-		level.position.x = $Camera2D.position.x + 350
+		var level = load("res://Scenes/level"+ str(rand.randi_range(2,2)) +".tscn").instantiate()
+		level.position.x = levelPosX + 1150
 		levelPosX = level.position.x
 		levels.push_back(level)
 		add_child(level)
