@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cty82udbgxsvv" path="res://string.tscn" id="20_pmvlw"]
 [ext_resource type="Texture2D" uid="uid://c2wxhw3i2o3m8" path="res://Assets/Player/kreuz2.png" id="20_y7itx"]
 [ext_resource type="AudioStream" uid="uid://cohhlw56wcvg7" path="res://Sounds/autsch.mp3" id="22_dqqg0"]
-[ext_resource type="AudioStream" uid="uid://htn7vh8lxljf" path="res://Sounds/string.mp3" id="23_62m6n"]
+[ext_resource type="AudioStream" path="res://Sounds/string.mp3" id="23_62m6n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3i56f"]
 radius = 14.0

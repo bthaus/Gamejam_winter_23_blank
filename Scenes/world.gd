@@ -13,6 +13,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if(Input.is_action_just_pressed("menu")):
+		$menu.toggle()
+		get_tree().paused=true;
+		
+		
+	
 	if(Input.is_action_just_pressed("open_menu")):
 		get_tree().reload_current_scene()
 	$Camera2D.position.x += levelSpeed * delta

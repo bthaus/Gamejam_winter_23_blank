@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1geq8lptqefq"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_mclc3"]
+[ext_resource type="Texture2D" uid="uid://cum817bimwlnx" path="res://menu/Menu/LeaveSelected.png" id="2_m20ft"]
+[ext_resource type="Texture2D" uid="uid://bgh5a7thjodcw" path="res://menu/Menu/LeaveUnselected.png" id="3_n6m5e"]
+[ext_resource type="Texture2D" uid="uid://cs8w2xppp3doy" path="res://menu/Menu/OptionsSelected.png" id="4_rolsj"]
+[ext_resource type="Texture2D" uid="uid://bp3swi3muvpb0" path="res://menu/Menu/OptionsUnselected.png" id="5_fbruv"]
+[ext_resource type="Texture2D" uid="uid://b2vy2ydu0famt" path="res://menu/Menu/StartGameSelected.png" id="6_7gjuf"]
+[ext_resource type="Texture2D" uid="uid://buttyevum7pq0" path="res://menu/Menu/StartGameUnselected.png" id="7_evkyr"]
+
+[node name="Control" type="Control"]
+z_index = 6
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mclc3")
+
+[node name="leave" type="Node2D" parent="."]
+position = Vector2(13, 32)
+
+[node name="hightlighted" type="Sprite2D" parent="leave"]
+visible = false
+position = Vector2(548, 490)
+scale = Vector2(0.506, 0.506)
+texture = ExtResource("2_m20ft")
+
+[node name="unhighlighted" type="Sprite2D" parent="leave"]
+position = Vector2(548, 490)
+scale = Vector2(0.506, 0.506)
+texture = ExtResource("3_n6m5e")
+
+[node name="options2" type="Node2D" parent="."]
+position = Vector2(13, -148)
+
+[node name="highlighted" type="Sprite2D" parent="options2"]
+visible = false
+position = Vector2(548, 490)
+scale = Vector2(0.506, 0.506)
+texture = ExtResource("4_rolsj")
+
+[node name="unhighlighted" type="Sprite2D" parent="options2"]
+position = Vector2(548, 490)
+scale = Vector2(0.506, 0.506)
+texture = ExtResource("5_fbruv")
+
+[node name="stargame" type="Node2D" parent="."]
+position = Vector2(13, -323)
+
+[node name="highlighted" type="Sprite2D" parent="stargame"]
+visible = false
+position = Vector2(548, 490)
+scale = Vector2(0.506, 0.506)
+texture = ExtResource("6_7gjuf")
+
+[node name="unhighlighted" type="Sprite2D" parent="stargame"]
+position = Vector2(548, 490)
+scale = Vector2(0.506, 0.506)
+texture = ExtResource("7_evkyr")
