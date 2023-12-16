@@ -7,7 +7,7 @@
 size = Vector2(929.204, 500)
 
 [node name="Spider" type="Sprite2D"]
-modulate = Color(0.596078, 0.913725, 0.435294, 1)
+modulate = Color(0.807843, 0.470588, 0.0431373, 1)
 scale = Vector2(0.113, 0.2)
 texture = ExtResource("1_0s3xu")
 script = ExtResource("2_7dflx")
@@ -17,5 +17,8 @@ script = ExtResource("2_7dflx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(4.4248, 0)
 shape = SubResource("RectangleShape2D_kbwsh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0s3xu")
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

@@ -1,7 +1,7 @@
 extends Node2D
 
 var level1 = preload("res://Scenes/level1.tscn").instantiate()
-var levelSpeed = 150
+var levelSpeed = 10
 var levelPosX = 0
 var levels = []
 var rand = RandomNumberGenerator.new()
