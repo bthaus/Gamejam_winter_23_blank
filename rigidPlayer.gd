@@ -61,10 +61,10 @@ func _process(delta):
 		
 	if(Input.is_action_just_pressed("switch")):
 		print(umbrellaOpen)
-		if($Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame>1):
-			print("close")
-			umbrellaOpen=false;
-			$AnimationPlayer2.play("closeumbrella")	
+		if($Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame>1) :
+			if(!onehandbroken):
+				umbrellaOpen=false;
+				$AnimationPlayer2.play("closeumbrella")	
 		else:
 			$AnimationPlayer2.play("openumbrella")
 			umbrellaOpen=false;
