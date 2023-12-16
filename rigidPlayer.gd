@@ -1,5 +1,6 @@
 extends RigidBody2D
 var maxSpeed = 120
+var umbrellaOpen=false;
 var onehandbroken=false;
 var twohandbroken=false;
 var leftlegbroken=false;
@@ -15,17 +16,23 @@ func breakOneHand():
 	$StaticBody2D/alefthand.visible=false;
 	$DanglingParts/leftarm.visible=true;
 	
-	
-	
-	
 	pass;
 func breakTwoHand():
-	
+	$Skeleton2D/hips/shoulders/rightupperarm.visible=false;
+	$StaticBody2D/arighthand.visible=false;
+	$DanglingParts/rightarm.visible=true;
 	pass;
 	
 func breakleftLeg():
-	
+	$Skeleton2D/hips/LeftQuad.visible=false;
+	$StaticBody2D/aleftfoot.visible=false;
+	$DanglingParts/leftlef.visible=true;
 	pass;
+func breakrightleg():
+	$Skeleton2D/hips/LeftQuad.visible=false;
+	$DanglingParts/leftlef.visible=true;
+	$StaticBody2D/aleftfoot.visible=false;
+	pass;	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
