@@ -12,7 +12,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func hit():
+func hit(type):
 	$Area2D/CollisionShape2D.disabled=true;
 	collision_layer=0;
 	$RigidBody2D2.collision_layer=0;

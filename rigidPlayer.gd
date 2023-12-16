@@ -139,7 +139,8 @@ func breakiteratively():
 		
 var blocking=false;	
 func _process(delta):
-	
+	if(Input.is_action_just_pressed("activate_item")):
+		breakiteratively()
 	blocking=false;
 	if(!alive):
 		return;

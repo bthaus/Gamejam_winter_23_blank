@@ -18,11 +18,12 @@ func _process(delta):
 		dropped=true;
 		print("hello")
 		var pia=piano.instantiate()
-		pia.global_position=global_position;
+		
 		get_parent().add_child(pia)
+		pia.global_position=global_position;
 		
 	counter=counter+0.1;
-	if abs(player.global_position.x - global_position.x) < 1000:
+	if abs(player.global_position.x - global_position.x) < 500:
 		triggered = true
 		if !sound_has_played:
 			sound_has_played = true

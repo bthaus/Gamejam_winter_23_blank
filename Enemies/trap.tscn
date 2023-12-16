@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Enemies/trap.gd" id="1_ag5px"]
 [ext_resource type="Texture2D" uid="uid://d3aflmdilqg55" path="res://Pictures/Trap.png" id="1_n2b45"]
-[ext_resource type="AudioStream" uid="uid://csaklvoxj7eau" path="res://Sounds/trap.mp3" id="3_tmgb6"]
+[ext_resource type="AudioStream" uid="uid://bl0hnd5l0y67m" path="res://Sounds/trap.mp3" id="3_tmgb6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxvol"]
 size = Vector2(48, 47)

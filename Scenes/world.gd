@@ -18,7 +18,7 @@ func _process(delta):
 		get_tree().paused=true;
 		$Camera2D/menu.toggle($Player.alive)
 		
-		
+	
 		
 	
 	if(Input.is_action_just_pressed("open_menu")):
@@ -28,7 +28,7 @@ func _process(delta):
 	if $Camera2D.position.x - levelPosX > 600:
 		if levels.size() > 2:
 			remove_child(levels.pop_front())
-		var level = load("res://Scenes/level"+ str(rand.randi_range(2,2)) +".tscn").instantiate()
+		var level = load("res://Scenes/level"+ str(rand.randi_range(0,7)) +".tscn").instantiate()
 		level.position.x = levelPosX + 1150
 		levelPosX = level.position.x
 		levels.push_back(level)
@@ -38,10 +38,12 @@ func _process(delta):
 
 
 func _on_player_died():
+	$Camera2D/deathshower.play("show")
 	$dietimer.start()
 	pass # Replace with function body.
 
 
 func _on_dietimer_timeout():
+	$Camera2D/deathshower.play("hide")
 	$Camera2D/menu.toggle(false)
 	pass # Replace with function body.
