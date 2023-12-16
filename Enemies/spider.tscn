@@ -18,4 +18,4 @@ script = ExtResource("2_7dflx")
 position = Vector2(4.4248, 0)
 shape = SubResource("RectangleShape2D_kbwsh")
 
-[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

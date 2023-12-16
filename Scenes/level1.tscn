@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2rt836wty1st"]
+[gd_scene load_steps=4 format=3 uid="uid://b2rt836wty1st"]
 
 [ext_resource type="Texture2D" uid="uid://brci7rbthftrn" path="res://Assets/Inventory/Background.png" id="1_2i0ef"]
+[ext_resource type="PackedScene" uid="uid://bnw5fidg2djvy" path="res://Enemies/spider.tscn" id="2_xk45w"]
 
 [sub_resource type="GDScript" id="GDScript_w602b"]
 script/source = "extends Node2D
@@ -37,3 +38,6 @@ z_index = -1
 position = Vector2(576, 602.5)
 scale = Vector2(1.24056, 0.188797)
 texture = ExtResource("1_2i0ef")
+
+[node name="Spider" parent="." instance=ExtResource("2_xk45w")]
+position = Vector2(561, 5)
