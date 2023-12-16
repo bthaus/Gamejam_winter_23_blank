@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcfs348m62xho"]
+[gd_scene load_steps=4 format=3 uid="uid://be0rsn611ywle"]
 
 [ext_resource type="Script" path="res://Enemies/bat.gd" id="1_lg7y8"]
-[ext_resource type="Texture2D" uid="uid://cxw38xvytvkt4" path="res://Pictures/Bat.png" id="2_qicux"]
+[ext_resource type="Texture2D" uid="uid://cn228517vapgu" path="res://Pictures/Bat coloured.png" id="2_oppwr"]
+[ext_resource type="AudioStream" path="res://bat.mp3" id="3_rgejj"]
 
 [node name="Bat" type="Node2D"]
 script = ExtResource("1_lg7y8")
@@ -9,4 +10,7 @@ script = ExtResource("1_lg7y8")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, 4)
 scale = Vector2(0.06, 0.06)
-texture = ExtResource("2_qicux")
+texture = ExtResource("2_oppwr")
+
+[node name="batSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rgejj")
