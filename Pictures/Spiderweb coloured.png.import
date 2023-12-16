@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cum817bimwlnx"
-path="res://.godot/imported/LeaveSelected.png-7cd933a884154d9aa5670b20158c3366.ctex"
+uid="uid://clis2aycvn4qr"
+path="res://.godot/imported/Spiderweb coloured.png-f070c9b260299f51c063e0716429b034.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menu/LeaveSelected.png"
-dest_files=["res://.godot/imported/LeaveSelected.png-7cd933a884154d9aa5670b20158c3366.ctex"]
+source_file="res://Pictures/Spiderweb coloured.png"
+dest_files=["res://.godot/imported/Spiderweb coloured.png-f070c9b260299f51c063e0716429b034.ctex"]
 
 [params]
 

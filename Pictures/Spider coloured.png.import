@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgh5a7thjodcw"
-path="res://.godot/imported/LeaveUnselected.png-c9eca1370bea1378da41950431e9efe4.ctex"
+uid="uid://dvw4suxku0eti"
+path="res://.godot/imported/Spider coloured.png-3013975cec4b675013e0bb0deb2e215d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menu/LeaveUnselected.png"
-dest_files=["res://.godot/imported/LeaveUnselected.png-c9eca1370bea1378da41950431e9efe4.ctex"]
+source_file="res://Pictures/Spider coloured.png"
+dest_files=["res://.godot/imported/Spider coloured.png-3013975cec4b675013e0bb0deb2e215d.ctex"]
 
 [params]
 

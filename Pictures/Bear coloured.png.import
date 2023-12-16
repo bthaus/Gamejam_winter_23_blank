@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buttyevum7pq0"
-path="res://.godot/imported/StartGameUnselected.png-95ce1a56392c2c548273b5c21086d423.ctex"
+uid="uid://c36ok7negqsn1"
+path="res://.godot/imported/Bear coloured.png-0717ee3ed7baaead307be6a67e8324b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menu/StartGameUnselected.png"
-dest_files=["res://.godot/imported/StartGameUnselected.png-95ce1a56392c2c548273b5c21086d423.ctex"]
+source_file="res://Pictures/Bear coloured.png"
+dest_files=["res://.godot/imported/Bear coloured.png-0717ee3ed7baaead307be6a67e8324b6.ctex"]
 
 [params]
 

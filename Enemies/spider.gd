@@ -4,9 +4,8 @@ extends Node2D
 var triggered = false
 var speed = 200
 var goDown = true
-var hitSomething = false
+var hit = false
 var sound_has_played = false
-var dead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,20 +14,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if dead:
-		position.y += 500 * delta
-		return
-		
 	if abs(player.global_position.x - global_position.x) < 50:
 		triggered = true
 		if !sound_has_played:
 			sound_has_played = true
 			$spiderSound.play()
 		
-	if goDown and hitSomething:
+	if goDown and hit:
 		goDown = false
-		hit()
-		hitSomething = false
+		hit = false
 	elif !goDown and position.y < 10:
 		goDown = true
 		triggered = false
@@ -41,23 +35,9 @@ func _process(delta):
 		queue_redraw()
 	
 func _on_attack_area_body_entered(body):
-	hitSomething = true
-
-
+	print("hit")
+	hit = true
 
 func _draw():
-	if !dead:
-		draw_line(Vector2(0, position.y - global_position.y - 5000), Vector2(0, 0), Color.WHITE, 3)
+	draw_line(Vector2(0, position.y - global_position.y - 5000), Vector2(0, -50), Color.WHITE, 3)
 	
-func hit():
-	dead = true
-	
-func attack():
-	pass
-
-func _on_physic_area_body_entered(body):
-	hitSomething = true
-	pass
-	
-func _on_hitbox_body_entered(body):
-	player.hit()
