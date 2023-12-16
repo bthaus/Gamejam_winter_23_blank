@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnm82fn1026mr"]
+[gd_scene load_steps=5 format=3 uid="uid://bnm82fn1026mr"]
 
+[ext_resource type="Script" path="res://Enemies/trap.gd" id="1_ag5px"]
 [ext_resource type="Texture2D" uid="uid://d3aflmdilqg55" path="res://Pictures/Trap.png" id="1_n2b45"]
+[ext_resource type="AudioStream" uid="uid://csaklvoxj7eau" path="res://Sounds/trap.mp3" id="3_tmgb6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nxvol"]
 size = Vector2(48, 47)
 
 [node name="Trap" type="Node2D"]
+script = ExtResource("1_ag5px")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(5, 5)
@@ -17,3 +20,9 @@ texture = ExtResource("1_n2b45")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(1, -0.5)
 shape = SubResource("RectangleShape2D_nxvol")
+
+[node name="trapSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tmgb6")
+volume_db = 6.558
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
