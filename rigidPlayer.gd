@@ -1,6 +1,6 @@
 extends RigidBody2D
-var maxSpeed = 120
-var jumpfactor=1;
+var maxSpeed = 240
+var jumpfactor=2;
 var umbrellaOpen=true;
 var onehandbroken=false;
 var twohandbroken=false;
