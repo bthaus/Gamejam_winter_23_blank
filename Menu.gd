@@ -52,15 +52,30 @@ func execute():
 	pass;
 var tutcounter=0;
 func toggletut(bo):
-	
-	$test2/Publikummover.play("moveaway")
-	$tut/first.show()
+	tutcounter=(tutcounter+1)%5
+	if tutcounter==1:
+		$test2/Publikummover.play("moveaway")
+		$tut/first.show()
+	if tutcounter==2:
+		$tut/first.hide()
+		$tut/second.show()
+	if tutcounter==3:
+		$tut/second.hide()
+		$tut/third.show()
+	if tutcounter==4:
+		$tut/third.hide()
+		$tut/fourth.show()
+	if tutcounter==0:
+		$tut/fourth.hide()
+		togglemenu(true)
+		
 	pass;
 func togglemenu(bo):
 	$leave.visible=bo;
 	$options2.visible=bo;
 	$stargame.visible=bo;
 	$expl.visible=bo;
+	state="menu"
 	
 	pass;
 # Called every frame. 'delta' is the elapsed time since the previous frame.

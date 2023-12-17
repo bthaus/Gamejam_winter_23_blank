@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dvvel23pa04cm"]
+[gd_scene load_steps=27 format=3 uid="uid://dvvel23pa04cm"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_lf3f1"]
 [ext_resource type="Texture2D" uid="uid://f6g7afda1mih" path="res://Pictures/Curtain korrekt.png" id="2_y8547"]
@@ -12,6 +12,12 @@
 [ext_resource type="AudioStream" uid="uid://cg2bcfhypbn58" path="res://Sounds/audio_menu.wav" id="12_gq1k1"]
 [ext_resource type="Texture2D" uid="uid://cmn7r0jqeo5q4" path="res://Pictures/Y_key.png" id="12_jhksf"]
 [ext_resource type="Texture2D" uid="uid://dydyiflfbm2nd" path="res://Pictures/X_key.png" id="13_o2x74"]
+[ext_resource type="Texture2D" uid="uid://mpmnvsi2gf2s" path="res://Pictures/level/lv11.png" id="13_pyaka"]
+[ext_resource type="Texture2D" uid="uid://d3aflmdilqg55" path="res://Pictures/Trap.png" id="14_45fem"]
+[ext_resource type="Texture2D" uid="uid://cyuv0ckvop21g" path="res://Pictures/sticker/enemies_sticker.png" id="15_6hfo0"]
+[ext_resource type="Texture2D" uid="uid://pkvwkv608q6k" path="res://Pictures/sticker/ballerina sticker.png" id="16_7lqb4"]
+[ext_resource type="Texture2D" uid="uid://bwjj4b0ko2er7" path="res://Pictures/sticker/klavier_sticker.png" id="17_4gjt2"]
+[ext_resource type="Texture2D" uid="uid://dvw4suxku0eti" path="res://Pictures/Spider coloured.png" id="18_a435v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_344bk"]
 animations = [{
@@ -146,7 +152,6 @@ libraries = {
 }
 
 [node name="leave" type="Node2D" parent="."]
-visible = false
 position = Vector2(135, 125)
 scale = Vector2(0.745, 0.745)
 
@@ -168,7 +173,6 @@ scale = Vector2(0.0680848, 0.0680848)
 texture = ExtResource("8_tvun7")
 
 [node name="options2" type="Node2D" parent="."]
-visible = false
 position = Vector2(135, -55)
 scale = Vector2(0.745, 0.745)
 
@@ -189,7 +193,6 @@ label_settings = SubResource("LabelSettings_m88se")
 vertical_alignment = 1
 
 [node name="stargame" type="Node2D" parent="."]
-visible = false
 position = Vector2(135, -230)
 scale = Vector2(0.745, 0.745)
 
@@ -213,7 +216,6 @@ horizontal_alignment = 1
 stream = ExtResource("12_gq1k1")
 
 [node name="expl" type="Node2D" parent="."]
-visible = false
 
 [node name="X" type="Sprite2D" parent="expl"]
 position = Vector2(1123, 55)
@@ -272,7 +274,37 @@ offset_bottom = 580.0
 text = "can be used to hit enemies or to block them"
 label_settings = SubResource("LabelSettings_8c6n7")
 
-[node name="Label4" type="Label" parent="tut/first"]
+[node name="second" type="Node2D" parent="tut"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="tut/second"]
+position = Vector2(760, 24)
+scale = Vector2(0.523077, 0.523077)
+texture = ExtResource("13_pyaka")
+
+[node name="Label" type="Label" parent="tut/second"]
+offset_left = 54.0
+offset_top = 104.0
+offset_right = 609.0
+offset_bottom = 486.0
+text = "mind gaps 
+
+and avoid 
+
+and block enemies"
+label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="tut/second"]
+position = Vector2(589, 317)
+scale = Vector2(0.963919, 0.963919)
+texture = ExtResource("14_45fem")
+
+[node name="Sprite2D3" type="Sprite2D" parent="tut/second"]
+position = Vector2(938, 355)
+scale = Vector2(0.319481, 0.319481)
+texture = ExtResource("15_6hfo0")
+
+[node name="Label4" type="Label" parent="tut"]
 offset_left = 353.0
 offset_top = 545.0
 offset_right = 1036.0
@@ -280,8 +312,48 @@ offset_bottom = 734.0
 text = "x to continue"
 label_settings = SubResource("LabelSettings_8c6n7")
 
-[node name="second" type="Node2D" parent="tut"]
+[node name="third" type="Node2D" parent="tut"]
+visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="tut/second"]
+[node name="Sprite2D" type="Sprite2D" parent="tut/third"]
+position = Vector2(858, 255)
+scale = Vector2(0.285429, 0.285429)
+texture = ExtResource("16_7lqb4")
+
+[node name="Label" type="Label" parent="tut/third"]
+offset_left = 18.0
+offset_top = 93.0
+offset_right = 730.0
+offset_bottom = 475.0
+text = "Jumped to early?
+No worries – open the umbrella
+ and glide like Marry Poppins
+ "
+label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="fourth" type="Node2D" parent="tut"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="tut/fourth"]
+position = Vector2(762, 148)
+scale = Vector2(0.523077, 0.523077)
+texture = ExtResource("17_4gjt2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="tut/fourth"]
+position = Vector2(796, 278)
+scale = Vector2(0.316095, 0.316095)
+texture = ExtResource("18_a435v")
+
+[node name="Label" type="Label" parent="tut/fourth"]
+offset_left = 25.0
+offset_top = 100.0
+offset_right = 737.0
+offset_bottom = 482.0
+text = "hit spider/piano to gain silk
+and repair yourself 
+be cautious!
+if all your strings are ripped, 
+your escape failed"
+label_settings = SubResource("LabelSettings_8c6n7")
 
 [connection signal="animation_finished" from="test2/curtain" to="." method="_on_curtain_animation_finished"]
