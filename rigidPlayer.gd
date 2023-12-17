@@ -102,6 +102,9 @@ func repair():
 		
 	pass;
 func hit(type):
+	print($AnimationPlayer2.current_animation)
+	if$AnimationPlayer2.current_animation=="attack":
+		return;
 	if(type=="trap"):
 		if(!leftlegbroken):
 			breakleftLeg();
@@ -109,6 +112,8 @@ func hit(type):
 			breakrightleg()
 		else:
 			die()
+	if type=="bear":
+		breakiteratively()
 	if(type=="spider"):
 		breakiteratively();
 			
@@ -163,11 +168,12 @@ func _process(delta):
 		else:
 			$AnimationPlayer2.play("openumbrella")
 			umbrellaOpen=false;
-				
+	$shieldbox/CollisionShape2D.disabled=true			
 	if(Input.is_action_pressed("attack") ):
 		if( $Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame<2):
 			$AnimationPlayer2.play("attack")	
 		else:
+			$shieldbox/CollisionShape2D.disabled=false
 			$AnimationPlayer2.play("block")	
 			gravity_scale=0.2
 			blocking=true;
@@ -230,7 +236,7 @@ func _on_hitbox_area_entered(area):
 
 func _on_feet_area_entered(area):
 	if area.get_parent().has_method("hit") and linear_velocity.y>150:
-		print(linear_velocity)
+		$die.play()
 		area.get_parent().hit("feet");
 	pass # Replace with function body.
 

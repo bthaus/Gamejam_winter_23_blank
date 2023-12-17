@@ -2193,7 +2193,7 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7lylw"]
 radius = 18.0
-height = 182.0
+height = 144.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_36a3p"]
 radius = 36.6762
@@ -2764,7 +2764,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(0, -98)
+position = Vector2(1, -117)
 shape = SubResource("CapsuleShape2D_7lylw")
 
 [node name="centerstring" parent="." instance=ExtResource("20_pmvlw")]

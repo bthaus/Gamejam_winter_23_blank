@@ -65,3 +65,9 @@ func hit(type):
 	
 func _on_physics_area_body_entered(body):
 	hitSomething = true
+
+
+func _on_area_2d_area_entered(area):
+	if(area.get_parent().has_method("hit")):
+		area.get_parent().hit("spider")
+	pass # Replace with function body.
