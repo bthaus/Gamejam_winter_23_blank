@@ -3,7 +3,7 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group("player")
 var triggered = false
 var rand = RandomNumberGenerator.new() 
-var base = 20
+var base = 40
 var meter = 0
 
 # Called when the node enters the scene tree for the first time.
