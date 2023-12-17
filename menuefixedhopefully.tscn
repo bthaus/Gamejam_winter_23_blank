@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dvvel23pa04cm"]
+[gd_scene load_steps=28 format=3 uid="uid://dvvel23pa04cm"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_lf3f1"]
 [ext_resource type="Texture2D" uid="uid://f6g7afda1mih" path="res://Pictures/Curtain korrekt.png" id="2_y8547"]
@@ -6,14 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://j7757uxd5mnw" path="res://Pictures/Curtain Open 1.png" id="4_ufmi5"]
 [ext_resource type="Texture2D" uid="uid://du5f8v3n6u148" path="res://Pictures/Curtain closed.png" id="5_f1fo8"]
 [ext_resource type="Texture2D" uid="uid://cb5kmq0va4fo3" path="res://Pictures/Publikum.png" id="6_pd6b5"]
+[ext_resource type="Texture2D" uid="uid://d2kr2gmxa7l22" path="res://Pictures/sticker/empty.png" id="7_18yto"]
 [ext_resource type="Texture2D" uid="uid://cnnbhyr4a45g4" path="res://Assets/Menu/arrow.png" id="8_tvun7"]
 [ext_resource type="Texture2D" uid="uid://ds7u0me1v7ajj" path="res://Pictures/pfeiltasten.png" id="11_0clqo"]
 [ext_resource type="FontFile" uid="uid://cxy035a7tyb4c" path="res://Assets/font/flanella/Flanella.ttf" id="11_bivc3"]
 [ext_resource type="AudioStream" uid="uid://cg2bcfhypbn58" path="res://Sounds/audio_menu.wav" id="12_gq1k1"]
 [ext_resource type="Texture2D" uid="uid://cmn7r0jqeo5q4" path="res://Pictures/Y_key.png" id="12_jhksf"]
+[ext_resource type="Texture2D" uid="uid://pkdwn3bhyv86" path="res://Pictures/sticker/fall.png" id="13_5wno6"]
 [ext_resource type="Texture2D" uid="uid://dydyiflfbm2nd" path="res://Pictures/X_key.png" id="13_o2x74"]
-[ext_resource type="Texture2D" uid="uid://mpmnvsi2gf2s" path="res://Pictures/level/lv11.png" id="13_pyaka"]
-[ext_resource type="Texture2D" uid="uid://d3aflmdilqg55" path="res://Pictures/Trap.png" id="14_45fem"]
+[ext_resource type="Texture2D" uid="uid://cox0jui154umv" path="res://Pictures/sticker/Falle.png" id="14_mcyv0"]
 [ext_resource type="Texture2D" uid="uid://cyuv0ckvop21g" path="res://Pictures/sticker/enemies_sticker.png" id="15_6hfo0"]
 [ext_resource type="Texture2D" uid="uid://pkvwkv608q6k" path="res://Pictures/sticker/ballerina sticker.png" id="16_7lqb4"]
 [ext_resource type="Texture2D" uid="uid://bwjj4b0ko2er7" path="res://Pictures/sticker/klavier_sticker.png" id="17_4gjt2"]
@@ -113,6 +114,7 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_m88se"]
 font = ExtResource("11_bivc3")
 font_size = 125
+font_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 0.45098)
 
 [sub_resource type="LabelSettings" id="LabelSettings_l2ayo"]
@@ -152,8 +154,14 @@ libraries = {
 }
 
 [node name="leave" type="Node2D" parent="."]
+visible = false
 position = Vector2(135, 125)
 scale = Vector2(0.745, 0.745)
+
+[node name="Sprite2D" type="Sprite2D" parent="leave"]
+position = Vector2(508.725, 351.678)
+scale = Vector2(1.17651, 0.229744)
+texture = ExtResource("7_18yto")
 
 [node name="unhighlighted" type="Label" parent="leave"]
 offset_left = 284.564
@@ -167,14 +175,20 @@ vertical_alignment = 1
 
 [node name="hightlighted" type="Sprite2D" parent="leave"]
 visible = false
-position = Vector2(275.168, 354.362)
+position = Vector2(130.201, 355.705)
 rotation = 1.57079
 scale = Vector2(0.0680848, 0.0680848)
 texture = ExtResource("8_tvun7")
 
 [node name="options2" type="Node2D" parent="."]
+visible = false
 position = Vector2(135, -55)
 scale = Vector2(0.745, 0.745)
+
+[node name="Sprite2D" type="Sprite2D" parent="options2"]
+position = Vector2(507.383, 446.98)
+scale = Vector2(1.17651, 0.240569)
+texture = ExtResource("7_18yto")
 
 [node name="highlighted" type="Sprite2D" parent="options2"]
 visible = false
@@ -193,12 +207,18 @@ label_settings = SubResource("LabelSettings_m88se")
 vertical_alignment = 1
 
 [node name="stargame" type="Node2D" parent="."]
+visible = false
 position = Vector2(135, -230)
 scale = Vector2(0.745, 0.745)
 
+[node name="Sprite2D" type="Sprite2D" parent="stargame"]
+position = Vector2(514.094, 527.517)
+scale = Vector2(1.17651, 0.260311)
+texture = ExtResource("7_18yto")
+
 [node name="highlighted" type="Sprite2D" parent="stargame"]
 visible = false
-position = Vector2(225.503, 528.859)
+position = Vector2(135.57, 530.201)
 rotation = 1.57079
 scale = Vector2(0.0680848, 0.0680848)
 texture = ExtResource("8_tvun7")
@@ -216,6 +236,7 @@ horizontal_alignment = 1
 stream = ExtResource("12_gq1k1")
 
 [node name="expl" type="Node2D" parent="."]
+visible = false
 
 [node name="X" type="Sprite2D" parent="expl"]
 position = Vector2(1123, 55)
@@ -233,7 +254,21 @@ label_settings = SubResource("LabelSettings_l2ayo")
 [node name="tut" type="Node2D" parent="."]
 
 [node name="first" type="Node2D" parent="tut"]
-visible = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="tut/first"]
+position = Vector2(689.7, 142)
+scale = Vector2(1.41044, 0.178542)
+texture = ExtResource("7_18yto")
+
+[node name="Sprite2D6" type="Sprite2D" parent="tut/first"]
+position = Vector2(666, 429)
+scale = Vector2(1.79772, 0.209677)
+texture = ExtResource("7_18yto")
+
+[node name="Sprite2D5" type="Sprite2D" parent="tut/first"]
+position = Vector2(662.5, 296.348)
+scale = Vector2(1.8124, 0.194671)
+texture = ExtResource("7_18yto")
 
 [node name="Sprite2D" type="Sprite2D" parent="tut/first"]
 position = Vector2(138, 126)
@@ -278,15 +313,15 @@ label_settings = SubResource("LabelSettings_8c6n7")
 visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="tut/second"]
-position = Vector2(760, 24)
-scale = Vector2(0.523077, 0.523077)
-texture = ExtResource("13_pyaka")
+position = Vector2(839, 152)
+scale = Vector2(0.396938, 0.396938)
+texture = ExtResource("13_5wno6")
 
 [node name="Label" type="Label" parent="tut/second"]
-offset_left = 54.0
-offset_top = 104.0
-offset_right = 609.0
-offset_bottom = 486.0
+offset_left = 177.0
+offset_top = 111.0
+offset_right = 732.0
+offset_bottom = 493.0
 text = "mind gaps 
 
 and avoid 
@@ -295,9 +330,9 @@ and block enemies"
 label_settings = SubResource("LabelSettings_8c6n7")
 
 [node name="Sprite2D2" type="Sprite2D" parent="tut/second"]
-position = Vector2(589, 317)
+position = Vector2(522, 315)
 scale = Vector2(0.963919, 0.963919)
-texture = ExtResource("14_45fem")
+texture = ExtResource("14_mcyv0")
 
 [node name="Sprite2D3" type="Sprite2D" parent="tut/second"]
 position = Vector2(938, 355)
