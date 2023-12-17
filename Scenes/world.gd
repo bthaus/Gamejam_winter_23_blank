@@ -78,3 +78,17 @@ func _on_deathzone_body_entered(body):
 		
 		
 	pass # Replace with function body.
+
+
+
+
+func _on_area_2d_body_entered(body):
+	print("entered")
+	if body.has_method("breakiteratively"):
+		body.breakiteratively();
+		if !body.alive:
+			return
+		body.position.y=300
+		body.position.x=body.position.x+500
+		
+	pass # Replace with function body.

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ng55is70tnei" path="res://Pictures/Curtain  Open 2.png" id="3_82vhh"]
 [ext_resource type="Texture2D" uid="uid://j7757uxd5mnw" path="res://Pictures/Curtain Open 1.png" id="4_ufmi5"]
 [ext_resource type="Texture2D" uid="uid://du5f8v3n6u148" path="res://Pictures/Curtain closed.png" id="5_f1fo8"]
-[ext_resource type="Texture2D" uid="uid://04qw20wrhxm7" path="res://Pictures/Publikum.png" id="6_pd6b5"]
+[ext_resource type="Texture2D" uid="uid://cb5kmq0va4fo3" path="res://Pictures/Publikum.png" id="6_pd6b5"]
 [ext_resource type="Texture2D" uid="uid://d2kr2gmxa7l22" path="res://Pictures/sticker/empty.png" id="7_18yto"]
 [ext_resource type="Texture2D" uid="uid://cnnbhyr4a45g4" path="res://Assets/Menu/arrow.png" id="8_tvun7"]
 [ext_resource type="Texture2D" uid="uid://ds7u0me1v7ajj" path="res://Pictures/pfeiltasten.png" id="11_0clqo"]
@@ -140,7 +140,7 @@ texture = ExtResource("2_y8547")
 [node name="test2" type="Node2D" parent="."]
 
 [node name="curtain" type="AnimatedSprite2D" parent="test2"]
-position = Vector2(527, 303)
+position = Vector2(577, 303)
 scale = Vector2(0.561162, 0.568945)
 sprite_frames = SubResource("SpriteFrames_344bk")
 animation = &"open"
@@ -166,11 +166,11 @@ scale = Vector2(1.17651, 0.229744)
 texture = ExtResource("7_18yto")
 
 [node name="unhighlighted" type="Label" parent="leave"]
-offset_left = 281.879
-offset_top = 279.195
-offset_right = 766.879
-offset_bottom = 442.195
-text = "Leave "
+offset_left = 284.564
+offset_top = 265.772
+offset_right = 769.564
+offset_bottom = 428.772
+text = "leave "
 label_settings = SubResource("LabelSettings_m88se")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -200,9 +200,9 @@ texture = ExtResource("8_tvun7")
 
 [node name="unhighlighted" type="Label" parent="options2"]
 offset_left = 245.638
-offset_top = 363.759
+offset_top = 374.497
 offset_right = 872.638
-offset_bottom = 526.759
+offset_bottom = 537.497
 text = "How to Play"
 label_settings = SubResource("LabelSettings_m88se")
 vertical_alignment = 1
@@ -228,7 +228,7 @@ offset_left = 283.221
 offset_top = 459.06
 offset_right = 768.221
 offset_bottom = 622.06
-text = "Start Game"
+text = "Start game"
 label_settings = SubResource("LabelSettings_m88se")
 horizontal_alignment = 1
 
@@ -240,25 +240,23 @@ position = Vector2(26, -236)
 rotation = 0.261799
 
 [node name="Sprite2D" type="Sprite2D" parent="expl"]
-position = Vector2(898.912, 63.2186)
-scale = Vector2(0.590895, 0.159968)
+position = Vector2(938.328, 67.3272)
+scale = Vector2(0.79817, 0.223106)
 texture = ExtResource("7_18yto")
 
 [node name="X" type="Sprite2D" parent="expl"]
-position = Vector2(1031.43, 59.0589)
-scale = Vector2(0.0771043, 0.0771043)
+position = Vector2(1054.56, 64.2489)
+scale = Vector2(0.0970052, 0.0970052)
 texture = ExtResource("13_o2x74")
-metadata/_edit_lock_ = true
 
 [node name="xexpl" type="Label" parent="expl"]
-offset_left = 774.124
-offset_top = 33.7937
-offset_right = 1085.13
-offset_bottom = 140.794
+offset_left = 758.979
+offset_top = 27.4991
+offset_right = 1069.98
+offset_bottom = 134.499
 text = "select with"
 label_settings = SubResource("LabelSettings_l2ayo")
 metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
 
 [node name="tut" type="Node2D" parent="."]
 
