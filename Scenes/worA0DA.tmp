@@ -98,12 +98,11 @@ libraries = {
 }
 
 [node name="deathzone" type="Area2D" parent="Camera2D"]
-position = Vector2(-439.9, 504.076)
 collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/deathzone"]
-position = Vector2(427.9, -73.0758)
+position = Vector2(8, 245)
 shape = SubResource("RectangleShape2D_5iohx")
 
 [node name="Wall" type="StaticBody2D" parent="."]

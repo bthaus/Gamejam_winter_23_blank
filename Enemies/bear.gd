@@ -31,7 +31,13 @@ func _process(delta):
 func _draw():
 	draw_line(Vector2(0, position.y - global_position.y + 5000), Vector2(0, 0), Color.SANDY_BROWN, 25)
 func hit(type):
-	print("beasr hit")
+	
 	alive=false;
 	$bearSound.play()
 	pass;
+
+
+func _on_area_2d_area_entered(area):
+	if area.get_parent().has_method("hit") and alive:
+		area.get_parent().hit("bear");
+	pass # Replace with function body.

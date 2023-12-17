@@ -98,12 +98,11 @@ libraries = {
 }
 
 [node name="deathzone" type="Area2D" parent="Camera2D"]
-position = Vector2(-439.9, 504.076)
 collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/deathzone"]
-position = Vector2(427.9, -73.0758)
+position = Vector2(29, 421.174)
 shape = SubResource("RectangleShape2D_5iohx")
 
 [node name="Wall" type="StaticBody2D" parent="."]
@@ -182,6 +181,5 @@ camera_attributes = SubResource("CameraAttributesPractical_7gybj")
 
 [connection signal="startgame" from="Camera2D/menu" to="." method="_on_menu_startgame"]
 [connection signal="area_entered" from="Camera2D/deathzone" to="." method="_on_deathzone_area_entered"]
-[connection signal="body_entered" from="Camera2D/deathzone" to="." method="_on_deathzone_body_entered"]
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="timeout" from="dietimer" to="." method="_on_dietimer_timeout"]

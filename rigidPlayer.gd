@@ -10,7 +10,35 @@ var alive=true;
 signal died;
 var damages=[]
 var direction="right";
+var buffcounter=0;
+var nerfcounter=0;
 
+func showLabels(label,isbuff):
+	if isbuff:
+		buffcounter=(buffcounter+1)%3;
+		if buffcounter==0:
+			$buffs.text=label;
+			$buffs.show()
+		if buffcounter==1:
+			$buffs2.text=label;
+			$buffs2.show()
+		if buffcounter==2:
+			$buffs3.text=label;
+			$buffs3.show()
+	else:
+		nerfcounter=(nerfcounter+1)%3;
+		if nerfcounter==0:
+			$nerfs.text=label;
+			$nerfs.show()
+		if nerfcounter==1:
+			$nerfs2.text=label;
+			$nerfs2.show()
+		if nerfcounter==2:
+			$nerfs3.text=label;
+			$nerfs3.show()
+	$labeltimer.start();
+	
+	pass;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("idle")
@@ -26,6 +54,8 @@ func breakOneHand():
 	$StaticBody2D/alefthand.visible=false;
 	$DanglingParts/leftarm.visible=true;
 	onehandbroken=true;
+	showLabels("you cant close your umbrella anymore!",false)
+	
 	
 	pass;
 func die():
@@ -45,6 +75,8 @@ func breakTwoHand():
 	$DanglingParts/rightarm.visible=true;
 	$DanglingParts/rightarm/sword/danglingumbrellasprite.frame=$Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame
 	twohandbroken=true;
+	showLabels("you cant attack or block!",false)
+	
 	pass;
 	
 func breakleftLeg():
@@ -56,6 +88,10 @@ func breakleftLeg():
 	leftlegbroken=true;
 	maxSpeed=maxSpeed*0.7;
 	jumpfactor=jumpfactor*0.8;
+	showLabels("Slowed",false)
+	showLabels("reduced jump-height",false)
+	
+	
 	pass;
 func breakrightleg():
 	damages.append("rightleg")
@@ -67,6 +103,8 @@ func breakrightleg():
 	rightlegbroken=true;
 	maxSpeed=maxSpeed*0.5;
 	jumpfactor=jumpfactor*0.8;
+	showLabels("Slowed",false)
+	showLabels("reduced jump-height",false)
 	pass;
 func repair():
 	var repair=damages.pop_back()
@@ -74,6 +112,8 @@ func repair():
 		$Skeleton2D/hips/shoulders/LeftUpperArm.visible=true;
 		$StaticBody2D/alefthand.visible=true;
 		$DanglingParts/leftarm.visible=false;
+		showLabels("you can open your umbrella again!",true)
+	
 		onehandbroken=false;
 		return;
 	if(repair=="righthand"):
@@ -82,6 +122,7 @@ func repair():
 		$DanglingParts/rightarm.visible=false;
 		$DanglingParts/rightarm/sword/danglingumbrellasprite.frame=$Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame
 		twohandbroken=false;
+		showLabels("you can attack again!",true)
 		return;
 	if(repair=="leftleg"):
 		$Skeleton2D/hips/LeftQuad.visible=true;
@@ -90,6 +131,8 @@ func repair():
 		leftlegbroken=false;
 		maxSpeed=maxSpeed*1.4;
 		jumpfactor=jumpfactor*1.2;
+		showLabels("sped up!",true)
+		showLabels("increased jump-height",true)
 		return;
 	if(repair=="rightleg"):
 		$Skeleton2D/hips/RightQuad.visible=true;
@@ -98,10 +141,13 @@ func repair():
 		rightlegbroken=false;
 		maxSpeed=maxSpeed*2;
 		jumpfactor=jumpfactor*1.2;
+		showLabels("sped up!",true)
+		showLabels("increased jump-height",true)
 		return;
 		
 	pass;
 func hit(type):
+
 	if(type=="trap"):
 		if(!leftlegbroken):
 			breakleftLeg();
@@ -109,18 +155,22 @@ func hit(type):
 			breakrightleg()
 		else:
 			die()
+	if$AnimationPlayer2.current_animation=="attack":
+		return;
+	if type=="bear":
+		breakiteratively()
 	if(type=="spider"):
 		breakiteratively();
 			
-	if(blocking):
+	if(blocking and type!="trap"):
 		print("quickclose")
 		$Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame=0
-		#$AnimationPlayer2.play("quickclose")
+		
 		return;
 	$gettinghit.play()
 	if(type=="piano"):
 		breakiteratively();
-	print("ive been hit")
+	
 	pass;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func breakiteratively():
@@ -163,11 +213,12 @@ func _process(delta):
 		else:
 			$AnimationPlayer2.play("openumbrella")
 			umbrellaOpen=false;
-				
+	$shieldbox/CollisionShape2D.disabled=true			
 	if(Input.is_action_pressed("attack") ):
 		if( $Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame<2):
 			$AnimationPlayer2.play("attack")	
 		else:
+			$shieldbox/CollisionShape2D.disabled=false
 			$AnimationPlayer2.play("block")	
 			gravity_scale=0.2
 			blocking=true;
@@ -230,7 +281,7 @@ func _on_hitbox_area_entered(area):
 
 func _on_feet_area_entered(area):
 	if area.get_parent().has_method("hit") and linear_velocity.y>150:
-		print(linear_velocity)
+		$die.play()
 		area.get_parent().hit("feet");
 	pass # Replace with function body.
 
@@ -240,4 +291,14 @@ func _on_feet_area_entered(area):
 
 func _on_shieldbox_area_entered(area):
 	$Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame=0
+	pass # Replace with function body.
+
+
+func _on_labeltimer_timeout():
+	$buffs.hide()
+	$buffs2.hide()
+	$buffs3.hide()
+	$nerfs.hide()
+	$nerfs2.hide()
+	$nerfs3.hide()
 	pass # Replace with function body.
