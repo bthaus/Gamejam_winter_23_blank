@@ -1,19 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://nt6yl5j7b1og"]
+[gd_scene load_steps=6 format=3 uid="uid://dq4gng03u6lhj"]
 
 [ext_resource type="Script" path="res://infolabel.gd" id="1_f8jnb"]
-[ext_resource type="Texture2D" uid="uid://cmc57yb0haabo" path="res://Pictures/InfoLabel.png" id="1_rdos1"]
+[ext_resource type="Texture2D" uid="uid://cley0c3xs0ufv" path="res://Pictures/InfoLabel.png" id="1_rdos1"]
 [ext_resource type="Texture2D" uid="uid://dppc5ejf6yd1g" path="res://Assets/Menu/plank.png" id="2_7cf8v"]
-
-[sub_resource type="FontFile" id="FontFile_xubag"]
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+[ext_resource type="FontFile" uid="uid://cxy035a7tyb4c" path="res://Assets/font/flanella/Flanella.ttf" id="4_24jl8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5kj4q"]
-font = SubResource("FontFile_xubag")
+font = ExtResource("4_24jl8")
+font_size = 40
 font_color = Color(0.00784314, 0.00392157, 0, 1)
 
 [node name="InfoLabel" type="Node2D"]
@@ -30,10 +24,10 @@ scale = Vector2(0.15, 0.0873698)
 texture = ExtResource("1_rdos1")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -88.0
-offset_top = -12.0
-offset_right = 102.0
-offset_bottom = 21.0
+offset_left = -86.0
+offset_top = -20.0
+offset_right = 104.0
+offset_bottom = 25.0
 text = "some text"
 label_settings = SubResource("LabelSettings_5kj4q")
 horizontal_alignment = 1
