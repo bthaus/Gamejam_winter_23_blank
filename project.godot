@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Preperations/icon.svg"
 
+[autoload]
+
+Permanent="*res://permanent.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"

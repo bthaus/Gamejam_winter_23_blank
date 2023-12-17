@@ -69,7 +69,7 @@ func breakleftLeg():
 	leftlegbroken=true;
 	maxSpeed=maxSpeed*0.7;
 	jumpfactor=jumpfactor*0.8;
-	showLabels("Left leg broken!",false)
+	showLabels("Leg broken!",false)
 	
 	
 	pass;
@@ -83,7 +83,7 @@ func breakrightleg():
 	rightlegbroken=true;
 	maxSpeed=maxSpeed*0.5;
 	jumpfactor=jumpfactor*0.8;
-	showLabels("Right leg broken!",false)
+	showLabels("Leg broken!",false)
 	
 	pass;
 func repair():
@@ -111,7 +111,7 @@ func repair():
 		leftlegbroken=false;
 		maxSpeed=maxSpeed*1.4;
 		jumpfactor=jumpfactor*1.2;
-		showLabels("Left leg repaired!",true)
+		showLabels("Leg repaired!",true)
 		
 		return;
 	if(repair=="rightleg"):
@@ -121,7 +121,7 @@ func repair():
 		rightlegbroken=false;
 		maxSpeed=maxSpeed*2;
 		jumpfactor=jumpfactor*1.2;
-		showLabels("Right Leg repaired!",true)
+		showLabels("Leg repaired!",true)
 		
 		return;
 		

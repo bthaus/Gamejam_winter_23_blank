@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddsnc7x8hu3bd"]
+[gd_scene load_steps=8 format=3 uid="uid://ddsnc7x8hu3bd"]
 
 [ext_resource type="Texture2D" uid="uid://bj21466pmcpsc" path="res://Pictures/Bear coloured.png" id="1_5pm2a"]
 [ext_resource type="Script" path="res://Enemies/bear.gd" id="1_60ec5"]
 [ext_resource type="AudioStream" uid="uid://bipr1ncxcyech" path="res://Sounds/bear.mp3" id="3_bsqpt"]
+[ext_resource type="AudioStream" uid="uid://bdpe42y2sex0d" path="res://Sounds/sadbear.mp3" id="4_ugend"]
+[ext_resource type="AudioStream" uid="uid://bgmi1xbyoomu5" path="res://Sounds/gamebert.mp3" id="5_2ixnb"]
+[ext_resource type="AudioStream" uid="uid://dyp3itqfim1h7" path="res://Sounds/gamebertsad.mp3" id="6_uhuy3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_om76f"]
 size = Vector2(81, 160)
@@ -25,5 +28,14 @@ shape = SubResource("RectangleShape2D_om76f")
 
 [node name="bearSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_bsqpt")
+
+[node name="sadbear" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ugend")
+
+[node name="gamebert" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2ixnb")
+
+[node name="sadgamebert" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_uhuy3")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
