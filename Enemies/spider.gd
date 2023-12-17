@@ -9,6 +9,7 @@ var hitSomething = false
 var sound_has_played = false
 var dead = false
 var stringMoveSteps = 50
+var skip = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,17 +19,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if skip:
+		return
+		
 	if dead:
 		position.y += deadSpeed * delta
 		if player.onehandbroken or player.twohandbroken or player.leftlegbroken or player.rightlegbroken:
 			if stringMoveSteps > 0:
-				print("item")
 				$String.show()
 				$String.global_position.y -= (deadSpeed * 1.10) * delta
 				stringMoveSteps = stringMoveSteps - 1
 			else:
 				$String.hide()
 				player.repair()
+				skip = true
 		return
 		
 	if abs(player.global_position.x - global_position.x) < 50:
@@ -57,17 +61,16 @@ func _draw():
 		draw_line(Vector2(0, position.y - global_position.y - 5000), Vector2(0, 0), Color.WHITE, 3)
 	
 func hit(type):
+	if dead:
+		return
 	dead = true
 	queue_redraw()
-	$String.show()
-	$String.call_deferred("set", "disabled", true)
-	$String.hide()
 	
 func _on_physics_area_body_entered(body):
 	hitSomething = true
 
 
 func _on_area_2d_area_entered(area):
-	if(area.get_parent().has_method("hit")):
+	if(area.get_parent().has_method("hit") and !dead):
 		area.get_parent().hit("spider")
 	pass # Replace with function body.

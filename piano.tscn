@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b10p8cmn5knos"]
+[gd_scene load_steps=9 format=3 uid="uid://b10p8cmn5knos"]
 
 [ext_resource type="Script" path="res://pianohit.gd" id="1_8tmdu"]
 [ext_resource type="Texture2D" uid="uid://bd66pqm17okjo" path="res://Assets/Piano/piano.png" id="1_72chi"]
 [ext_resource type="Texture2D" uid="uid://c0jhpg2sqovy6" path="res://Assets/Piano/pianotop.png" id="2_0c46o"]
-[ext_resource type="AudioStream" uid="uid://bvaio7kwhxjuu" path="res://Sounds/piano.mp3" id="4_pl2ix"]
+[ext_resource type="AudioStream" uid="uid://cn1uab6thdd1p" path="res://Sounds/piano.mp3" id="4_pl2ix"]
+[ext_resource type="Texture2D" uid="uid://ctw271kj1nsun" path="res://Pictures/String.png" id="5_f3sew"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8acn"]
 size = Vector2(201, 167)
@@ -56,6 +57,22 @@ texture = ExtResource("2_0c46o")
 
 [node name="crash" type="AudioStreamPlayer2D" parent="RigidBody2D"]
 stream = ExtResource("4_pl2ix")
+
+[node name="String" type="Node2D" parent="RigidBody2D"]
+position = Vector2(-1.0177, -97.7987)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D/String"]
+position = Vector2(2, 1.19209e-07)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_f3sew")
+
+[node name="Label" type="Label" parent="RigidBody2D/String"]
+offset_left = 14.0
+offset_top = -18.0
+offset_right = 54.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 25
+text = "+1"
 
 [connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody2D/Area2D" to="RigidBody2D" method="_on_area_2d_area_entered"]
