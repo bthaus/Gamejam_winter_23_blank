@@ -1561,6 +1561,7 @@ tracks/9/keys = {
 
 [sub_resource type="Animation" id="Animation_jvvm4"]
 resource_name = "attack"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1592,10 +1593,10 @@ tracks/2/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(10, 2), Vector2(10, 2), Vector2(10, 2), Vector2(10, 2), Vector2(10, 2)]
+"values": [Vector2(10, 2), Vector2(10, 2), Vector2(10, 2)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -1604,10 +1605,10 @@ tracks/3/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.261799, -0.523599, -0.785398, -0.523599, 0.261799]
+"values": [0.261799, -0.785398, 0.261799]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1640,7 +1641,7 @@ tracks/6/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm:
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6, 0.8),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [7.45058e-09, -0.523599, 0.523599, 1.0472]
@@ -1652,7 +1653,7 @@ tracks/7/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm:
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6, 0.8),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(17.2851, 18.1446), Vector2(17.2851, 18.1446), Vector2(17.2851, 18.1446), Vector2(17.2851, 18.1446)]
@@ -1664,7 +1665,7 @@ tracks/8/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.9),
+"times": PackedFloat32Array(0, 0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -2790,12 +2791,6 @@ volume_db = 3.775
 stream = ExtResource("24_mww5f")
 volume_db = 19.769
 
-[node name="blocktimer" type="Timer" parent="."]
-wait_time = 2.0
-
-[node name="blockblocker" type="Timer" parent="blocktimer"]
-wait_time = 2.0
-
 [node name="shieldbox" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
@@ -2803,6 +2798,45 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shieldbox"]
 position = Vector2(56, -162)
 shape = SubResource("CircleShape2D_36a3p")
+
+[node name="buffs" type="Label" parent="."]
+offset_left = -38.2189
+offset_top = -175.473
+offset_right = 1.78111
+offset_bottom = -152.473
+
+[node name="buffs2" type="Label" parent="."]
+offset_left = -47.0
+offset_top = -132.0
+offset_right = -7.0
+offset_bottom = -109.0
+
+[node name="buffs3" type="Label" parent="."]
+offset_left = -44.0
+offset_top = -157.0
+offset_right = -4.0
+offset_bottom = -134.0
+
+[node name="nerfs" type="Label" parent="."]
+offset_left = -38.2189
+offset_top = -175.473
+offset_right = 1.78111
+offset_bottom = -152.473
+
+[node name="nerfs2" type="Label" parent="."]
+offset_left = -47.0
+offset_top = -132.0
+offset_right = -7.0
+offset_bottom = -109.0
+
+[node name="nerfs3" type="Label" parent="."]
+offset_left = -44.0
+offset_top = -157.0
+offset_right = -4.0
+offset_bottom = -134.0
+
+[node name="labeltimer" type="Timer" parent="."]
+wait_time = 3.0
 
 [connection signal="area_entered" from="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
@@ -2815,6 +2849,5 @@ shape = SubResource("CircleShape2D_36a3p")
 [connection signal="body_shape_entered" from="feet" to="." method="_on_feet_body_shape_entered"]
 [connection signal="body_shape_exited" from="feet" to="." method="_on_feet_body_shape_exited"]
 [connection signal="animation_finished" from="StaticBody2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="timeout" from="blocktimer" to="." method="_on_blocktimer_timeout"]
-[connection signal="timeout" from="blocktimer/blockblocker" to="." method="_on_blockblocker_timeout"]
 [connection signal="area_entered" from="shieldbox" to="." method="_on_shieldbox_area_entered"]
+[connection signal="timeout" from="labeltimer" to="." method="_on_labeltimer_timeout"]
