@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://nt6yl5j7b1og"]
+
+[ext_resource type="Script" path="res://infolabel.gd" id="1_f8jnb"]
+[ext_resource type="Texture2D" uid="uid://bar7pt25834th" path="res://Pictures/InfoLabel.png" id="1_rdos1"]
+[ext_resource type="Texture2D" uid="uid://dppc5ejf6yd1g" path="res://Assets/Menu/plank.png" id="2_7cf8v"]
+
+[sub_resource type="FontFile" id="FontFile_xubag"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5kj4q"]
+font = SubResource("FontFile_xubag")
+font_color = Color(0.00784314, 0.00392157, 0, 1)
+
+[node name="InfoLabel" type="Node2D"]
+script = ExtResource("1_f8jnb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-392, 16)
+scale = Vector2(1.50968, 0.0840131)
+texture = ExtResource("2_7cf8v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 15)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_rdos1")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -158.0
+offset_top = -83.0
+offset_right = 176.0
+offset_bottom = 84.0
+text = "some text"
+label_settings = SubResource("LabelSettings_5kj4q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="ShowTimer" to="." method="_on_show_timer_timeout"]
