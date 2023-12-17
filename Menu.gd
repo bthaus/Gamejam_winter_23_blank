@@ -86,7 +86,7 @@ func togglemenu(bo):
 	pass;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if world.distance>float($expl/highscore.text):
+	if world.distance>float($expl/highscore.text) and trackscore:
 		$expl/highscore.text=str(world.distance)
 		Permanent.highscore=world.distance;
 	if(!open):
@@ -128,4 +128,9 @@ func _process(delta):
 func _on_curtain_animation_finished():
 	if(!alives):
 		get_tree().reload_current_scene();
+	pass # Replace with function body.
+
+var trackscore=true;
+func _on_player_died():
+	trackscore=false;
 	pass # Replace with function body.

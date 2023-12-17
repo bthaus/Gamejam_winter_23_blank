@@ -276,4 +276,5 @@ camera_attributes = SubResource("CameraAttributesPractical_7gybj")
 [connection signal="area_entered" from="Camera2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Camera2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="died" from="Player" to="." method="_on_player_died"]
+[connection signal="died" from="Player" to="Camera2D/menu" method="_on_player_died"]
 [connection signal="timeout" from="dietimer" to="." method="_on_dietimer_timeout"]
