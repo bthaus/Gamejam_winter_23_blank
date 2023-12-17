@@ -33,7 +33,7 @@ func breakOneHand():
 	$StaticBody2D/alefthand.visible=false;
 	$DanglingParts/leftarm.visible=true;
 	onehandbroken=true;
-	showLabels("you cant close your umbrella anymore!",false)
+	showLabels("Offense down!",false)
 	
 	
 	pass;
@@ -56,7 +56,7 @@ func breakTwoHand():
 	$DanglingParts/rightarm.visible=true;
 	$DanglingParts/rightarm/sword/danglingumbrellasprite.frame=$Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame
 	twohandbroken=true;
-	showLabels("you cant attack or block!",false)
+	showLabels("Defense down!",false)
 	
 	pass;
 	
@@ -69,8 +69,7 @@ func breakleftLeg():
 	leftlegbroken=true;
 	maxSpeed=maxSpeed*0.7;
 	jumpfactor=jumpfactor*0.8;
-	showLabels("Slowed",false)
-	showLabels("reduced jump-height",false)
+	showLabels("Left leg broken!",false)
 	
 	
 	pass;
@@ -84,8 +83,8 @@ func breakrightleg():
 	rightlegbroken=true;
 	maxSpeed=maxSpeed*0.5;
 	jumpfactor=jumpfactor*0.8;
-	showLabels("Slowed",false)
-	showLabels("reduced jump-height",false)
+	showLabels("Right leg broken!",false)
+	
 	pass;
 func repair():
 	var repair=damages.pop_back()
@@ -93,7 +92,7 @@ func repair():
 		$Skeleton2D/hips/shoulders/LeftUpperArm.visible=true;
 		$StaticBody2D/alefthand.visible=true;
 		$DanglingParts/leftarm.visible=false;
-		showLabels("you can open your umbrella again!",true)
+		showLabels("Offense up!",true)
 	
 		onehandbroken=false;
 		return;
@@ -103,7 +102,7 @@ func repair():
 		$DanglingParts/rightarm.visible=false;
 		$DanglingParts/rightarm/sword/danglingumbrellasprite.frame=$Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame
 		twohandbroken=false;
-		showLabels("you can attack again!",true)
+		showLabels("Defense up!",true)
 		return;
 	if(repair=="leftleg"):
 		$Skeleton2D/hips/LeftQuad.visible=true;
@@ -112,8 +111,8 @@ func repair():
 		leftlegbroken=false;
 		maxSpeed=maxSpeed*1.4;
 		jumpfactor=jumpfactor*1.2;
-		showLabels("sped up!",true)
-		showLabels("increased jump-height",true)
+		showLabels("Left leg repaired!",true)
+		
 		return;
 	if(repair=="rightleg"):
 		$Skeleton2D/hips/RightQuad.visible=true;
@@ -122,8 +121,8 @@ func repair():
 		rightlegbroken=false;
 		maxSpeed=maxSpeed*2;
 		jumpfactor=jumpfactor*1.2;
-		showLabels("sped up!",true)
-		showLabels("increased jump-height",true)
+		showLabels("Right Leg repaired!",true)
+		
 		return;
 		
 	pass;
