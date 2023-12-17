@@ -12,7 +12,7 @@ var stringMoveSteps = 50
 var skip = false
 var meter = 0
 var rand = RandomNumberGenerator.new() 
-var base = 20
+var base = 40
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$String.hide()

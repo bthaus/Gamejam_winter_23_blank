@@ -6,7 +6,7 @@ var starty
 var soundTriggered = false
 var alive=true;
 var rand = RandomNumberGenerator.new() 
-var base = 20
+var base = 40
 var meter = 0
 var gamebert = false
 # Called when the node enters the scene tree for the first time.

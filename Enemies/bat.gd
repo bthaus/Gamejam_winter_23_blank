@@ -6,7 +6,7 @@ var piano=preload("res://piano.tscn")
 var triggered = false
 var sound_has_played = false
 var rand = RandomNumberGenerator.new() 
-var base = 20
+var base = 40
 var meter = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
