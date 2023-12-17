@@ -157,7 +157,7 @@ libraries = {
 }
 
 [node name="leave" type="Node2D" parent="."]
-position = Vector2(135, 125)
+position = Vector2(137, 140)
 scale = Vector2(0.745, 0.745)
 
 [node name="Sprite2D" type="Sprite2D" parent="leave"]
@@ -183,11 +183,11 @@ scale = Vector2(0.0680848, 0.0680848)
 texture = ExtResource("8_tvun7")
 
 [node name="options2" type="Node2D" parent="."]
-position = Vector2(135, -55)
+position = Vector2(135, -43)
 scale = Vector2(0.745, 0.745)
 
 [node name="Sprite2D" type="Sprite2D" parent="options2"]
-position = Vector2(507.383, 446.98)
+position = Vector2(512.752, 446.98)
 scale = Vector2(1.17651, 0.240569)
 texture = ExtResource("7_18yto")
 
@@ -199,9 +199,9 @@ scale = Vector2(0.0680848, 0.0680848)
 texture = ExtResource("8_tvun7")
 
 [node name="unhighlighted" type="Label" parent="options2"]
-offset_left = 245.638
+offset_left = 251.007
 offset_top = 363.759
-offset_right = 872.638
+offset_right = 878.007
 offset_bottom = 526.759
 text = "How to Play"
 label_settings = SubResource("LabelSettings_m88se")
@@ -212,7 +212,7 @@ position = Vector2(135, -230)
 scale = Vector2(0.745, 0.745)
 
 [node name="Sprite2D" type="Sprite2D" parent="stargame"]
-position = Vector2(514.094, 527.517)
+position = Vector2(514.094, 546.309)
 scale = Vector2(1.17651, 0.260311)
 texture = ExtResource("7_18yto")
 
@@ -225,9 +225,9 @@ texture = ExtResource("8_tvun7")
 
 [node name="unhighlighted" type="Label" parent="stargame"]
 offset_left = 283.221
-offset_top = 459.06
+offset_top = 477.852
 offset_right = 768.221
-offset_bottom = 622.06
+offset_bottom = 640.852
 text = "Start Game"
 label_settings = SubResource("LabelSettings_m88se")
 horizontal_alignment = 1
@@ -236,25 +236,24 @@ horizontal_alignment = 1
 stream = ExtResource("12_gq1k1")
 
 [node name="expl" type="Node2D" parent="."]
-position = Vector2(26, -236)
+position = Vector2(36, -218)
 rotation = 0.261799
 
 [node name="Sprite2D" type="Sprite2D" parent="expl"]
-position = Vector2(898.912, 63.2186)
+position = Vector2(910.533, 80.7043)
 scale = Vector2(0.590895, 0.159968)
 texture = ExtResource("7_18yto")
 
 [node name="X" type="Sprite2D" parent="expl"]
-position = Vector2(1031.43, 59.0589)
+position = Vector2(1036.35, 77.4115)
 scale = Vector2(0.0771043, 0.0771043)
 texture = ExtResource("13_o2x74")
-metadata/_edit_lock_ = true
 
 [node name="xexpl" type="Label" parent="expl"]
-offset_left = 774.124
-offset_top = 33.7937
-offset_right = 1085.13
-offset_bottom = 140.794
+offset_left = 781.801
+offset_top = 43.1248
+offset_right = 1092.8
+offset_bottom = 150.125
 text = "select with"
 label_settings = SubResource("LabelSettings_l2ayo")
 metadata/_edit_use_anchors_ = true
@@ -271,17 +270,17 @@ scale = Vector2(1.44911, 0.835237)
 texture = ExtResource("7_18yto")
 
 [node name="Sprite2D" type="Sprite2D" parent="tut/first"]
-position = Vector2(138, 126)
+position = Vector2(141, 153)
 scale = Vector2(0.149414, 0.149414)
 texture = ExtResource("11_0clqo")
 
 [node name="Sprite2D2" type="Sprite2D" parent="tut/first"]
-position = Vector2(134, 442)
+position = Vector2(137, 469)
 scale = Vector2(0.132161, 0.132162)
 texture = ExtResource("13_o2x74")
 
 [node name="Sprite2D3" type="Sprite2D" parent="tut/first"]
-position = Vector2(144, 295)
+position = Vector2(147, 322)
 scale = Vector2(0.132161, 0.132162)
 texture = ExtResource("12_jhksf")
 
@@ -312,22 +311,22 @@ or to block them"
 label_settings = SubResource("LabelSettings_8c6n7")
 
 [node name="Sprite2D6" type="Sprite2D" parent="tut/first"]
-position = Vector2(966.217, 365.587)
+position = Vector2(1018.3, 363.763)
 rotation = 0.261799
-scale = Vector2(0.534258, 0.2)
+scale = Vector2(0.480335, 0.125766)
 texture = ExtResource("7_18yto")
 
 [node name="Sprite2D5" type="Sprite2D" parent="tut/first"]
-position = Vector2(993.33, 245.7)
+position = Vector2(1001, 263)
 rotation = 0.261799
 scale = Vector2(0.455954, 0.455954)
 texture = ExtResource("14_uu1ei")
 
 [node name="Label4" type="Label" parent="tut/first"]
-offset_left = 881.0
-offset_top = 296.0
-offset_right = 1996.0
-offset_bottom = 532.0
+offset_left = 930.078
+offset_top = 303.516
+offset_right = 2045.08
+offset_bottom = 539.516
 rotation = 0.261799
 text = "or use me!"
 label_settings = SubResource("LabelSettings_8c6n7")
@@ -367,16 +366,9 @@ position = Vector2(938, 355)
 scale = Vector2(0.319481, 0.319481)
 texture = ExtResource("15_6hfo0")
 
-[node name="Label4" type="Label" parent="tut"]
-offset_left = 353.0
-offset_top = 545.0
-offset_right = 1036.0
-offset_bottom = 734.0
-text = "x to continue"
-label_settings = SubResource("LabelSettings_8c6n7")
-
 [node name="third" type="Node2D" parent="tut"]
 visible = false
+position = Vector2(45, 5)
 
 [node name="Sprite2D2" type="Sprite2D" parent="tut/third"]
 position = Vector2(398.5, 282)
@@ -401,6 +393,7 @@ label_settings = SubResource("LabelSettings_8c6n7")
 
 [node name="fourth" type="Node2D" parent="tut"]
 visible = false
+position = Vector2(104, 5)
 
 [node name="Sprite2D3" type="Sprite2D" parent="tut/fourth"]
 position = Vector2(391.464, 284.023)
@@ -427,6 +420,14 @@ and repair yourself
 be cautious!
 if all your strings are ripped, 
 your escape failed"
+label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="Label4" type="Label" parent="tut"]
+offset_left = 837.0
+offset_top = 548.0
+offset_right = 1125.0
+offset_bottom = 737.0
+text = "x to continue"
 label_settings = SubResource("LabelSettings_8c6n7")
 
 [connection signal="animation_finished" from="test2/curtain" to="." method="_on_curtain_animation_finished"]
