@@ -8,12 +8,17 @@ var alive=true;
 var rand = RandomNumberGenerator.new() 
 var base = 20
 var meter = 0
+var gamebert = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rand.randomize()
 	meter = get_parent().get_parent().distance
 	if  rand.randi_range(0, 100) > base + meter/4:
 		queue_free()
+	rand.randomize()
+	if  rand.randi_range(0, 100) < 15:
+		gamebert =true
+		$Sprite2D.texture = load("res://Pictures/Unbenanntes_Projekt.png")
 	starty = position.y
 	pass # Replace with function body.
 
@@ -26,7 +31,10 @@ func _process(delta):
 			queue_free();
 	
 	if abs(player.global_position.x - global_position.x) < 200 and !soundTriggered:
-		$bearSound.play()
+		if gamebert:
+			$gamebert.play()
+		else:
+			$bearSound.play()
 		soundTriggered = true
 	counter=counter+0.1
 	if alive:
@@ -38,7 +46,10 @@ func _draw():
 func hit(type):
 	
 	alive=false;
-	$bearSound.play()
+	if gamebert:
+		$sadgamebert.play()
+	else: 
+		$sadbear.play()
 	pass;
 
 
