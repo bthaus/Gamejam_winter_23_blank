@@ -5,6 +5,7 @@ var counter=2;
 var open=true;
 signal closegame;
 signal startgame;
+var state="menu"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$music.play()
@@ -22,17 +23,22 @@ func toggle(alive):
 	$music.play()
 	alives=alive;
 	open=!open;
+	togglemenu(true)
 	if(open):
 		$test2/curtain.play("open")
 		$test2/curtain.play("close")
 	pass;
 func execute():
+	
 	if(counter==0):
 		closegame.emit()
 		$leave/hightlighted.visible=true
 	
 	if(counter==1):
 		$options2/highlighted.visible=true
+		togglemenu(false)
+		state="tut"
+		toggletut(true)
 		
 	if(counter==2):
 		startgame.emit()
@@ -44,40 +50,51 @@ func execute():
 		open=false;
 	
 	pass;
+var tutcounter=0;
+func toggletut(bo):
+	
+	$test2/Publikummover.play("moveaway")
+	$tut/first.show()
+	pass;
+func togglemenu(bo):
+	$leave.visible=bo;
+	$options2.visible=bo;
+	$stargame.visible=bo;
+	$expl.visible=bo;
+	
+	pass;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(!open):
-		$leave.visible=false;
-		$options2.visible=false;
-		$stargame.visible=false;
+		togglemenu(false)
 		return;#
 		
-	$leave.visible=true;
-	$options2.visible=true;
-	$stargame.visible=true;
-
-	if(Input.is_action_just_pressed("ui_up")):
-		counter=counter+1;
-		counter=counter%3;
-	if(Input.is_action_just_pressed("ui_down")):
-		counter=counter-1;
-		counter=counter%3;
-	if(Input.is_action_just_pressed("attack")):
-		execute();
-	if(counter<0):
-		counter=2
-	if(counter==0):
-		$leave/hightlighted.visible=true
-	else:
-		$leave/hightlighted.visible=false
-	if(counter==1):
-		$options2/highlighted.visible=true
-	else:
-		$options2/highlighted.visible=false
-	if(counter==2):
-		$stargame/highlighted.visible=true
-	else:
-		$stargame/highlighted.visible=false
+	if state=="tut":
+		if Input.is_action_just_pressed("attack"):
+			toggletut(true)
+	if state=="menu":
+		if(Input.is_action_just_pressed("ui_up")):
+			counter=counter+1;
+			counter=counter%3;
+		if(Input.is_action_just_pressed("ui_down")):
+			counter=counter-1;
+			counter=counter%3;
+		if(Input.is_action_just_pressed("attack")):
+			execute();
+		if(counter<0):
+			counter=2
+		if(counter==0):
+			$leave/hightlighted.visible=true
+		else:
+			$leave/hightlighted.visible=false
+		if(counter==1):
+			$options2/highlighted.visible=true
+		else:
+			$options2/highlighted.visible=false
+		if(counter==2):
+			$stargame/highlighted.visible=true
+		else:
+			$stargame/highlighted.visible=false
 
 	
 	pass

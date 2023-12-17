@@ -1,18 +1,17 @@
-[gd_scene load_steps=19 format=3 uid="uid://dvvel23pa04cm"]
+[gd_scene load_steps=21 format=3 uid="uid://dvvel23pa04cm"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_lf3f1"]
 [ext_resource type="Texture2D" uid="uid://f6g7afda1mih" path="res://Pictures/Curtain korrekt.png" id="2_y8547"]
 [ext_resource type="Texture2D" uid="uid://ng55is70tnei" path="res://Pictures/Curtain  Open 2.png" id="3_82vhh"]
 [ext_resource type="Texture2D" uid="uid://j7757uxd5mnw" path="res://Pictures/Curtain Open 1.png" id="4_ufmi5"]
 [ext_resource type="Texture2D" uid="uid://du5f8v3n6u148" path="res://Pictures/Curtain closed.png" id="5_f1fo8"]
-[ext_resource type="Texture2D" uid="uid://cum817bimwlnx" path="res://menu/Menu/LeaveSelected.png" id="6_mmd73"]
 [ext_resource type="Texture2D" uid="uid://cb5kmq0va4fo3" path="res://Pictures/Publikum.png" id="6_pd6b5"]
-[ext_resource type="Texture2D" uid="uid://bgh5a7thjodcw" path="res://menu/Menu/LeaveUnselected.png" id="7_dt7vw"]
-[ext_resource type="Texture2D" uid="uid://cs8w2xppp3doy" path="res://menu/Menu/OptionsSelected.png" id="8_yniuf"]
-[ext_resource type="Texture2D" uid="uid://bp3swi3muvpb0" path="res://menu/Menu/OptionsUnselected.png" id="9_tcd8g"]
-[ext_resource type="Texture2D" uid="uid://b2vy2ydu0famt" path="res://menu/Menu/StartGameSelected.png" id="10_qofjq"]
-[ext_resource type="Texture2D" uid="uid://buttyevum7pq0" path="res://menu/Menu/StartGameUnselected.png" id="11_cf2lt"]
+[ext_resource type="Texture2D" uid="uid://cnnbhyr4a45g4" path="res://Assets/Menu/arrow.png" id="8_tvun7"]
+[ext_resource type="Texture2D" uid="uid://ds7u0me1v7ajj" path="res://Pictures/pfeiltasten.png" id="11_0clqo"]
+[ext_resource type="FontFile" uid="uid://cxy035a7tyb4c" path="res://Assets/font/flanella/Flanella.ttf" id="11_bivc3"]
 [ext_resource type="AudioStream" uid="uid://cg2bcfhypbn58" path="res://Sounds/audio_menu.wav" id="12_gq1k1"]
+[ext_resource type="Texture2D" uid="uid://cmn7r0jqeo5q4" path="res://Pictures/Y_key.png" id="12_jhksf"]
+[ext_resource type="Texture2D" uid="uid://dydyiflfbm2nd" path="res://Pictures/X_key.png" id="13_o2x74"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_344bk"]
 animations = [{
@@ -105,6 +104,21 @@ _data = {
 "movein": SubResource("Animation_ugr54")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_m88se"]
+font = ExtResource("11_bivc3")
+font_size = 125
+shadow_color = Color(0, 0, 0, 0.45098)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l2ayo"]
+font = ExtResource("11_bivc3")
+font_size = 98
+
+[sub_resource type="LabelSettings" id="LabelSettings_8c6n7"]
+font = ExtResource("11_bivc3")
+font_size = 68
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_lf3f1")
 
@@ -115,7 +129,7 @@ texture = ExtResource("2_y8547")
 [node name="test2" type="Node2D" parent="."]
 
 [node name="curtain" type="AnimatedSprite2D" parent="test2"]
-position = Vector2(575, 303)
+position = Vector2(527, 303)
 scale = Vector2(0.561162, 0.568945)
 sprite_frames = SubResource("SpriteFrames_344bk")
 animation = &"open"
@@ -132,51 +146,142 @@ libraries = {
 }
 
 [node name="leave" type="Node2D" parent="."]
+visible = false
 position = Vector2(135, 125)
 scale = Vector2(0.745, 0.745)
 
+[node name="unhighlighted" type="Label" parent="leave"]
+offset_left = 284.564
+offset_top = 265.772
+offset_right = 769.564
+offset_bottom = 428.772
+text = "leave "
+label_settings = SubResource("LabelSettings_m88se")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="hightlighted" type="Sprite2D" parent="leave"]
 visible = false
-position = Vector2(548, 490)
-scale = Vector2(0.506, 0.506)
-texture = ExtResource("6_mmd73")
-
-[node name="unhighlighted" type="Sprite2D" parent="leave"]
-position = Vector2(548, 490)
-scale = Vector2(0.506, 0.506)
-texture = ExtResource("7_dt7vw")
+position = Vector2(275.168, 354.362)
+rotation = 1.57079
+scale = Vector2(0.0680848, 0.0680848)
+texture = ExtResource("8_tvun7")
 
 [node name="options2" type="Node2D" parent="."]
+visible = false
 position = Vector2(135, -55)
 scale = Vector2(0.745, 0.745)
 
 [node name="highlighted" type="Sprite2D" parent="options2"]
 visible = false
-position = Vector2(548, 490)
-scale = Vector2(0.506, 0.506)
-texture = ExtResource("8_yniuf")
+position = Vector2(140.94, 451.007)
+rotation = 1.57079
+scale = Vector2(0.0680848, 0.0680848)
+texture = ExtResource("8_tvun7")
 
-[node name="unhighlighted" type="Sprite2D" parent="options2"]
-position = Vector2(548, 490)
-scale = Vector2(0.506, 0.506)
-texture = ExtResource("9_tcd8g")
+[node name="unhighlighted" type="Label" parent="options2"]
+offset_left = 245.638
+offset_top = 374.497
+offset_right = 872.638
+offset_bottom = 537.497
+text = "How to Play"
+label_settings = SubResource("LabelSettings_m88se")
+vertical_alignment = 1
 
 [node name="stargame" type="Node2D" parent="."]
+visible = false
 position = Vector2(135, -230)
 scale = Vector2(0.745, 0.745)
 
 [node name="highlighted" type="Sprite2D" parent="stargame"]
 visible = false
-position = Vector2(548, 490)
-scale = Vector2(0.506, 0.506)
-texture = ExtResource("10_qofjq")
+position = Vector2(225.503, 528.859)
+rotation = 1.57079
+scale = Vector2(0.0680848, 0.0680848)
+texture = ExtResource("8_tvun7")
 
-[node name="unhighlighted" type="Sprite2D" parent="stargame"]
-position = Vector2(548, 490)
-scale = Vector2(0.506, 0.506)
-texture = ExtResource("11_cf2lt")
+[node name="unhighlighted" type="Label" parent="stargame"]
+offset_left = 283.221
+offset_top = 459.06
+offset_right = 768.221
+offset_bottom = 622.06
+text = "Start game"
+label_settings = SubResource("LabelSettings_m88se")
+horizontal_alignment = 1
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_gq1k1")
+
+[node name="expl" type="Node2D" parent="."]
+visible = false
+
+[node name="X" type="Sprite2D" parent="expl"]
+position = Vector2(1123, 55)
+scale = Vector2(0.0970052, 0.0970052)
+texture = ExtResource("13_o2x74")
+
+[node name="xexpl" type="Label" parent="expl"]
+offset_left = 737.0
+offset_top = 2.0
+offset_right = 1048.0
+offset_bottom = 109.0
+text = "select with"
+label_settings = SubResource("LabelSettings_l2ayo")
+
+[node name="tut" type="Node2D" parent="."]
+
+[node name="first" type="Node2D" parent="tut"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="tut/first"]
+position = Vector2(138, 126)
+scale = Vector2(0.149414, 0.149414)
+texture = ExtResource("11_0clqo")
+
+[node name="Sprite2D2" type="Sprite2D" parent="tut/first"]
+position = Vector2(134, 442)
+scale = Vector2(0.132161, 0.132162)
+texture = ExtResource("13_o2x74")
+
+[node name="Sprite2D3" type="Sprite2D" parent="tut/first"]
+position = Vector2(144, 295)
+scale = Vector2(0.132161, 0.132162)
+texture = ExtResource("12_jhksf")
+
+[node name="Label" type="Label" parent="tut/first"]
+offset_left = 339.0
+offset_top = 94.0
+offset_right = 1022.0
+offset_bottom = 283.0
+text = " use the keys to move and jump"
+label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="Label2" type="Label" parent="tut/first"]
+offset_left = 232.0
+offset_top = 255.0
+offset_right = 1125.0
+offset_bottom = 444.0
+text = "can be used to open or close the umbrella"
+label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="Label3" type="Label" parent="tut/first"]
+offset_left = 201.0
+offset_top = 391.0
+offset_right = 1141.0
+offset_bottom = 580.0
+text = "can be used to hit enemies or to block them"
+label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="Label4" type="Label" parent="tut/first"]
+offset_left = 353.0
+offset_top = 545.0
+offset_right = 1036.0
+offset_bottom = 734.0
+text = "x to continue"
+label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="second" type="Node2D" parent="tut"]
+
+[node name="Sprite2D" type="Sprite2D" parent="tut/second"]
 
 [connection signal="animation_finished" from="test2/curtain" to="." method="_on_curtain_animation_finished"]

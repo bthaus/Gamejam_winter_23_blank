@@ -2,6 +2,7 @@ extends RigidBody2D
 var maxSpeed = 320
 var jumpfactor=2;
 @export var camera:Camera2D;
+@export var world:Node2D;
 var umbrellaOpen=true;
 var onehandbroken=false;
 var twohandbroken=false;
@@ -175,6 +176,7 @@ func breakiteratively():
 var blocking=false;	
 var canblock=true;
 func _process(delta):
+	
 	if(Input.is_action_just_pressed("activate_item")):
 		breakiteratively()
 	blocking=false;
