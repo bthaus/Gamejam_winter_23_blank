@@ -3,8 +3,8 @@ extends Node2D
 
 var moveIn = true
 var labelText = ""
-var moveSpeed = 100
-var moveDistance = 400
+var moveSpeed = 150
+var moveDistance = 300
 var startx
 var starty
 var counter = 0

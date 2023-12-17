@@ -6,36 +6,26 @@ var shaking=false;
 var camera_shake_intensity=1;
 var dropoff=1;
 var baseoffset;
+@onready var sign=preload("res://infolabel.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	baseoffset=self.offset;
 	pass # Replace with function body.
 var buffcounter=0;
-var nerfcounter=0;
 func showLabels(label,isbuff):
-	if isbuff:
-		buffcounter=(buffcounter+1)%3;
-		if buffcounter==0:
-			$buffs.text=label;
-			$buffs.show()
-		if buffcounter==1:
-			$buffs2.text=label;
-			$buffs2.show()
-		if buffcounter==2:
-			$buffs3.text=label;
-			$buffs3.show()
-	else:
-		nerfcounter=(nerfcounter+1)%3;
-		if nerfcounter==0:
-			$nerfs.text=label;
-			$nerfs.show()
-		if nerfcounter==1:
-			$nerfs2.text=label;
-			$nerfs2.show()
-		if nerfcounter==2:
-			$nerfs3.text=label;
-			$nerfs3.show()
-	$labeltimer.start();
+	var done=false;
+	for n in $points.get_children():
+		if !done:
+			if n.get_child_count()==0:
+				showSign(label,isbuff,n)
+				done=true;
+			
+	pass;
+func showSign(label,isbuff,node):
+	var s=sign.instantiate();
+	s.labelText=label;
+	node.add_child(s);
+	s.global_position=node.global_position;
 	
 	pass;
 # Called every frame. 'delta' is the elapsed time since the previous frame.

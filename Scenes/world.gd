@@ -10,8 +10,6 @@ var rand = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	
 	get_tree().paused=true;
 	rand.randomize()
 	add_child(level1)

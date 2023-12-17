@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://distancelabel.gd" id="1_cejs7"]
 [ext_resource type="Texture2D" uid="uid://dppc5ejf6yd1g" path="res://Assets/Menu/plank.png" id="2_1w5gw"]
-[ext_resource type="Texture2D" uid="uid://qja7qyuqy5ll" path="res://Pictures/DistanceLabel.png" id="2_061v5"]
+[ext_resource type="Texture2D" uid="uid://bic4ke1uoyjvr" path="res://Pictures/DistanceLabel.png" id="2_061v5"]
 [ext_resource type="FontFile" uid="uid://cxy035a7tyb4c" path="res://Assets/font/flanella/Flanella.ttf" id="4_ruq1s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8t3ag"]
