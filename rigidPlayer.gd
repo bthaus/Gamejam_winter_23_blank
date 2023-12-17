@@ -15,30 +15,7 @@ var buffcounter=0;
 var nerfcounter=0;
 
 func showLabels(label,isbuff):
-	if isbuff:
-		buffcounter=(buffcounter+1)%3;
-		if buffcounter==0:
-			$buffs.text=label;
-			$buffs.show()
-		if buffcounter==1:
-			$buffs2.text=label;
-			$buffs2.show()
-		if buffcounter==2:
-			$buffs3.text=label;
-			$buffs3.show()
-	else:
-		nerfcounter=(nerfcounter+1)%3;
-		if nerfcounter==0:
-			$nerfs.text=label;
-			$nerfs.show()
-		if nerfcounter==1:
-			$nerfs2.text=label;
-			$nerfs2.show()
-		if nerfcounter==2:
-			$nerfs3.text=label;
-			$nerfs3.show()
-	$labeltimer.start();
-	
+	camera.showLabels(label,isbuff)
 	pass;
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -300,10 +277,5 @@ func _on_shieldbox_area_entered(area):
 
 
 func _on_labeltimer_timeout():
-	$buffs.hide()
-	$buffs2.hide()
-	$buffs3.hide()
-	$nerfs.hide()
-	$nerfs2.hide()
-	$nerfs3.hide()
+	
 	pass # Replace with function body.

@@ -2715,11 +2715,10 @@ position = Vector2(3.09286, -17.2519)
 shape = SubResource("CapsuleShape2D_ktpiy")
 metadata/_edit_lock_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." node_paths=PackedStringArray("player")]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("19_vl1pw")
-player = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-1, -378)
@@ -2730,6 +2729,11 @@ position = Vector2(9, -385)
 scale = Vector2(0.45, 0.45)
 sprite_frames = SubResource("SpriteFrames_n7g3c")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_0t0e8")
+}
+
 [node name="alefthand" type="Node2D" parent="StaticBody2D" node_paths=PackedStringArray("attachment")]
 position = Vector2(-55.8736, -399.171)
 script = ExtResource("10_ybvur")
@@ -2739,9 +2743,6 @@ attachment = NodePath("../../Skeleton2D/hips/shoulders/LeftUpperArm/LeftLowerArm
 position = Vector2(59.7399, -393.278)
 script = ExtResource("10_ybvur")
 attachment = NodePath("../../Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly")
-
-[node name="free" type="Timer" parent="StaticBody2D"]
-wait_time = 3.0
 
 [node name="aleftfoot" type="Node2D" parent="StaticBody2D" node_paths=PackedStringArray("attachment")]
 position = Vector2(-52.7869, -359.323)
@@ -2758,11 +2759,6 @@ z_index = -1
 position = Vector2(2.53485, -376.589)
 script = ExtResource("10_ybvur")
 attachment = NodePath("../../Skeleton2D/hips")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D"]
-libraries = {
-"": SubResource("AnimationLibrary_0t0e8")
-}
 
 [node name="hurtbox" type="Area2D" parent="."]
 collision_layer = 2
@@ -2805,31 +2801,27 @@ shape = SubResource("CircleShape2D_36a3p")
 
 [node name="buffs" type="Label" parent="."]
 modulate = Color(0, 1, 0, 1)
-z_index = 7
-offset_left = -54.2189
-offset_top = -8.0
-offset_right = -14.2189
-offset_bottom = 15.0
+offset_left = -57.2189
+offset_top = -247.0
+offset_right = -17.2189
+offset_bottom = -224.0
 
 [node name="buffs2" type="Label" parent="."]
 modulate = Color(0, 1, 0, 1)
-z_index = 7
-offset_left = -63.0
-offset_top = 35.4727
-offset_right = -23.0
-offset_bottom = 58.4727
+offset_left = -66.0
+offset_top = -203.527
+offset_right = -26.0
+offset_bottom = -180.527
 
 [node name="buffs3" type="Label" parent="."]
 modulate = Color(0, 1, 0, 1)
-z_index = 7
-offset_left = -60.0
-offset_top = 10.4727
-offset_right = -20.0
-offset_bottom = 33.4727
+offset_left = -63.0
+offset_top = -228.527
+offset_right = -23.0
+offset_bottom = -205.527
 
 [node name="nerfs" type="Label" parent="."]
 modulate = Color(1, 0, 0, 1)
-z_index = 7
 offset_left = -81.2189
 offset_top = -238.0
 offset_right = -41.2189
@@ -2837,7 +2829,6 @@ offset_bottom = -215.0
 
 [node name="nerfs2" type="Label" parent="."]
 modulate = Color(1, 0, 0, 1)
-z_index = 7
 offset_left = -90.0
 offset_top = -194.527
 offset_right = -50.0
@@ -2845,11 +2836,13 @@ offset_bottom = -171.527
 
 [node name="nerfs3" type="Label" parent="."]
 modulate = Color(1, 0, 0, 1)
-z_index = 7
 offset_left = -87.0
 offset_top = -219.527
 offset_right = -47.0
 offset_bottom = -196.527
+
+[node name="labeltimer" type="Timer" parent="."]
+wait_time = 3.0
 
 [connection signal="died" from="." to="StaticBody2D" method="_on_body_died"]
 [connection signal="area_entered" from="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/hitbox" to="." method="_on_hitbox_area_entered"]
@@ -2862,6 +2855,6 @@ offset_bottom = -196.527
 [connection signal="body_exited" from="feet" to="." method="_on_feet_body_exited"]
 [connection signal="body_shape_entered" from="feet" to="." method="_on_feet_body_shape_entered"]
 [connection signal="body_shape_exited" from="feet" to="." method="_on_feet_body_shape_exited"]
-[connection signal="timeout" from="StaticBody2D/free" to="StaticBody2D" method="_on_free_timeout"]
 [connection signal="animation_finished" from="StaticBody2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="shieldbox" to="." method="_on_shieldbox_area_entered"]
+[connection signal="timeout" from="labeltimer" to="." method="_on_labeltimer_timeout"]
