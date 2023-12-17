@@ -6,6 +6,7 @@ var levelPosX = 0
 var distance = 0
 var levels = []
 var rand = RandomNumberGenerator.new()
+var count = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,14 +22,11 @@ func _ready():
 func _process(delta):
 	if(!$Camera2D/AudioStreamPlayer2D.playing):
 		$Camera2D/AudioStreamPlayer2D.play()
-	distance = $Camera2D.position.x/100
+	distance = roundi($Camera2D.position.x/100)
 	if(Input.is_action_just_pressed("menu")):
 		get_tree().paused=true;
 		$Camera2D/menu.toggle($Player.alive)
 		
-	
-		
-	
 	if(Input.is_action_just_pressed("open_menu")):
 		get_tree().reload_current_scene()
 	$Camera2D.position.x += levelSpeed * delta
@@ -36,14 +34,18 @@ func _process(delta):
 	if $Camera2D.position.x - levelPosX > 600:
 		if levels.size() > 2:
 			remove_child(levels.pop_front())
-		var level = load("res://Scenes/level"+ str(rand.randi_range(0,7)) +".tscn").instantiate()
+		var level
+		if count > 2:
+			level = load("res://Scenes/level0.tscn").instantiate()
+			$Camera2D.showDistance(str(distance, "cm"), $Camera2D/distance)
+			count = 0
+		else:
+			level = load("res://Scenes/level"+ str(rand.randi_range(0,7)) +".tscn").instantiate()
+			count = count + 1
 		level.position.x = levelPosX + 1150
 		levelPosX = level.position.x
 		levels.push_back(level)
 		add_child(level)
-
-
-
 
 func _on_player_died():
 	$Camera2D/deathshower.play("show")

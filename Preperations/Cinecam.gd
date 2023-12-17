@@ -7,6 +7,8 @@ var camera_shake_intensity=1;
 var dropoff=1;
 var baseoffset;
 @onready var sign=preload("res://infolabel.tscn")
+@onready var distancelabel=preload("res://distancelabel.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	baseoffset=self.offset;
@@ -28,6 +30,13 @@ func showSign(label,isbuff,node):
 	s.global_position=node.global_position;
 	
 	pass;
+	
+func showDistance(label, node):
+	var l = distancelabel.instantiate();
+	l.labelText = label
+	node.add_child(l)
+	l.global_position = node.global_position
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
@@ -39,8 +48,7 @@ func _process(delta):
 		camera_shake_intensity=camera_shake_intensity-delta*dropoff
 		self.offset=offset;
 	else:
-		offset=baseoffset	
-	
+		offset=baseoffset
 
 	pass
 
