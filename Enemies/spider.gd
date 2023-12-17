@@ -20,13 +20,15 @@ func _ready():
 func _process(delta):
 	if dead:
 		position.y += deadSpeed * delta
-		if stringMoveSteps > 0:
-			print("item")
-			$String.show()
-			$String.global_position.y -= (deadSpeed * 1.10) * delta
-			stringMoveSteps = stringMoveSteps - 1
-		else:
-			$String.hide()
+		if player.onehandbroken or player.twohandbroken or player.leftlegbroken or player.rightlegbroken:
+			if stringMoveSteps > 0:
+				print("item")
+				$String.show()
+				$String.global_position.y -= (deadSpeed * 1.10) * delta
+				stringMoveSteps = stringMoveSteps - 1
+			else:
+				$String.hide()
+				player.repair()
 		return
 		
 	if abs(player.global_position.x - global_position.x) < 50:
@@ -60,7 +62,6 @@ func hit(type):
 	$String.show()
 	$String.call_deferred("set", "disabled", true)
 	$String.hide()
-	player.repair()
 	
 func _on_physics_area_body_entered(body):
 	hitSomething = true
