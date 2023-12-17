@@ -176,8 +176,7 @@ var blocking=false;
 var canblock=true;
 func _process(delta):
 	
-	if(Input.is_action_just_pressed("activate_item")):
-		breakiteratively()
+	
 	blocking=false;
 	if(!alive):
 		return;
@@ -185,8 +184,7 @@ func _process(delta):
 	gravity_scale=1;
 	
 	
-	if(Input.is_action_just_pressed("pick_up_item")):
-		repair();
+	
 	if(Input.is_action_just_pressed("switch")):
 		print(umbrellaOpen)
 		if($Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame>1) :
