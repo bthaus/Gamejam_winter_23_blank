@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dq4gng03u6lhj"]
 
 [ext_resource type="Script" path="res://infolabel.gd" id="1_f8jnb"]
-[ext_resource type="Texture2D" uid="uid://cley0c3xs0ufv" path="res://Pictures/InfoLabel.png" id="1_rdos1"]
+[ext_resource type="Texture2D" uid="uid://cmc57yb0haabo" path="res://Pictures/InfoLabel.png" id="1_rdos1"]
 [ext_resource type="Texture2D" uid="uid://dppc5ejf6yd1g" path="res://Assets/Menu/plank.png" id="2_7cf8v"]
 [ext_resource type="FontFile" uid="uid://cxy035a7tyb4c" path="res://Assets/font/flanella/Flanella.ttf" id="4_24jl8"]
 
@@ -25,9 +25,9 @@ texture = ExtResource("1_rdos1")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -86.0
-offset_top = -20.0
+offset_top = -15.0
 offset_right = 104.0
-offset_bottom = 25.0
+offset_bottom = 30.0
 text = "some text"
 label_settings = SubResource("LabelSettings_5kj4q")
 horizontal_alignment = 1
