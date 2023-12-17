@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dvvel23pa04cm"]
+[gd_scene load_steps=32 format=3 uid="uid://dvvel23pa04cm"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_lf3f1"]
 [ext_resource type="Texture2D" uid="uid://f6g7afda1mih" path="res://Pictures/Curtain korrekt.png" id="2_y8547"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://ds7u0me1v7ajj" path="res://Pictures/pfeiltasten.png" id="11_0clqo"]
 [ext_resource type="FontFile" uid="uid://cxy035a7tyb4c" path="res://Assets/font/flanella/Flanella.ttf" id="11_bivc3"]
 [ext_resource type="AudioStream" uid="uid://cg2bcfhypbn58" path="res://Sounds/audio_menu.wav" id="12_gq1k1"]
+[ext_resource type="Texture2D" uid="uid://dppc5ejf6yd1g" path="res://Assets/Menu/plank.png" id="12_it60t"]
 [ext_resource type="Texture2D" uid="uid://cmn7r0jqeo5q4" path="res://Pictures/Y_key.png" id="12_jhksf"]
+[ext_resource type="Texture2D" uid="uid://cley0c3xs0ufv" path="res://Pictures/InfoLabel.png" id="12_o1nkd"]
 [ext_resource type="Texture2D" uid="uid://pkdwn3bhyv86" path="res://Pictures/sticker/fall.png" id="13_5wno6"]
 [ext_resource type="Texture2D" uid="uid://dydyiflfbm2nd" path="res://Pictures/X_key.png" id="13_o2x74"]
 [ext_resource type="Texture2D" uid="uid://cox0jui154umv" path="res://Pictures/sticker/Falle.png" id="14_mcyv0"]
@@ -123,6 +125,10 @@ font = ExtResource("11_bivc3")
 font_size = 60
 font_color = Color(0.164706, 0.168627, 0.164706, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_qymnf"]
+font = ExtResource("11_bivc3")
+font_size = 86
+
 [sub_resource type="LabelSettings" id="LabelSettings_8c6n7"]
 font = ExtResource("11_bivc3")
 font_size = 68
@@ -157,7 +163,7 @@ libraries = {
 }
 
 [node name="leave" type="Node2D" parent="."]
-position = Vector2(135, 125)
+position = Vector2(207, 125)
 scale = Vector2(0.745, 0.745)
 
 [node name="Sprite2D" type="Sprite2D" parent="leave"]
@@ -183,7 +189,7 @@ scale = Vector2(0.0680848, 0.0680848)
 texture = ExtResource("8_tvun7")
 
 [node name="options2" type="Node2D" parent="."]
-position = Vector2(135, -55)
+position = Vector2(207, -55)
 scale = Vector2(0.745, 0.745)
 
 [node name="Sprite2D" type="Sprite2D" parent="options2"]
@@ -208,7 +214,7 @@ label_settings = SubResource("LabelSettings_m88se")
 vertical_alignment = 1
 
 [node name="stargame" type="Node2D" parent="."]
-position = Vector2(135, -230)
+position = Vector2(207, -230)
 scale = Vector2(0.745, 0.745)
 
 [node name="Sprite2D" type="Sprite2D" parent="stargame"]
@@ -232,11 +238,8 @@ text = "Start game"
 label_settings = SubResource("LabelSettings_m88se")
 horizontal_alignment = 1
 
-[node name="music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_gq1k1")
-
 [node name="expl" type="Node2D" parent="."]
-position = Vector2(26, -236)
+position = Vector2(42, -243)
 rotation = 0.261799
 
 [node name="Sprite2D" type="Sprite2D" parent="expl"]
@@ -257,6 +260,31 @@ offset_bottom = 134.499
 text = "select with"
 label_settings = SubResource("LabelSettings_l2ayo")
 metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="expl"]
+z_index = 1
+position = Vector2(260.206, 240.861)
+rotation = -0.523598
+scale = Vector2(0.20407, 0.163981)
+texture = ExtResource("12_o1nkd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="expl"]
+position = Vector2(4.9015, 435.573)
+rotation = -0.689464
+scale = Vector2(1, 0.0347055)
+texture = ExtResource("12_it60t")
+
+[node name="highscore" type="Label" parent="expl"]
+modulate = Color(0.00392157, 0, 0, 1)
+z_index = 4
+offset_left = 126.0
+offset_top = 269.0
+offset_right = 384.0
+offset_bottom = 363.0
+rotation = -0.523598
+text = "0"
+label_settings = SubResource("LabelSettings_qymnf")
+horizontal_alignment = 1
 
 [node name="tut" type="Node2D" parent="."]
 
@@ -426,5 +454,8 @@ be cautious!
 if all your strings are ripped, 
 your escape failed"
 label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_gq1k1")
 
 [connection signal="animation_finished" from="test2/curtain" to="." method="_on_curtain_animation_finished"]

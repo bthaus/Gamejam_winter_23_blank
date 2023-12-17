@@ -1,6 +1,6 @@
 extends Node2D
 @export var curtain:AnimatedSprite2D;
-
+@export var world:Node2D;
 var counter=2;
 var open=true;
 signal closegame;
@@ -85,6 +85,8 @@ func togglemenu(bo):
 	pass;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if world.distance>float($expl/highscore.text):
+		$expl/highscore.text=str(world.distance)
 	if(!open):
 		togglemenu(false)
 		return;#
