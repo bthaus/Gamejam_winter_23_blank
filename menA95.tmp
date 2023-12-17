@@ -1,0 +1,461 @@
+[gd_scene load_steps=32 format=3 uid="uid://dvvel23pa04cm"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_lf3f1"]
+[ext_resource type="Texture2D" uid="uid://f6g7afda1mih" path="res://Pictures/Curtain korrekt.png" id="2_y8547"]
+[ext_resource type="Texture2D" uid="uid://ng55is70tnei" path="res://Pictures/Curtain  Open 2.png" id="3_82vhh"]
+[ext_resource type="Texture2D" uid="uid://j7757uxd5mnw" path="res://Pictures/Curtain Open 1.png" id="4_ufmi5"]
+[ext_resource type="Texture2D" uid="uid://du5f8v3n6u148" path="res://Pictures/Curtain closed.png" id="5_f1fo8"]
+[ext_resource type="Texture2D" uid="uid://cb5kmq0va4fo3" path="res://Pictures/Publikum.png" id="6_pd6b5"]
+[ext_resource type="Texture2D" uid="uid://d2kr2gmxa7l22" path="res://Pictures/sticker/empty.png" id="7_18yto"]
+[ext_resource type="Texture2D" uid="uid://cnnbhyr4a45g4" path="res://Assets/Menu/arrow.png" id="8_tvun7"]
+[ext_resource type="Texture2D" uid="uid://ds7u0me1v7ajj" path="res://Pictures/pfeiltasten.png" id="11_0clqo"]
+[ext_resource type="FontFile" uid="uid://cxy035a7tyb4c" path="res://Assets/font/flanella/Flanella.ttf" id="11_bivc3"]
+[ext_resource type="AudioStream" uid="uid://cg2bcfhypbn58" path="res://Sounds/audio_menu.wav" id="12_gq1k1"]
+[ext_resource type="Texture2D" uid="uid://dppc5ejf6yd1g" path="res://Assets/Menu/plank.png" id="12_it60t"]
+[ext_resource type="Texture2D" uid="uid://cmn7r0jqeo5q4" path="res://Pictures/Y_key.png" id="12_jhksf"]
+[ext_resource type="Texture2D" uid="uid://cley0c3xs0ufv" path="res://Pictures/InfoLabel.png" id="12_o1nkd"]
+[ext_resource type="Texture2D" uid="uid://pkdwn3bhyv86" path="res://Pictures/sticker/fall.png" id="13_5wno6"]
+[ext_resource type="Texture2D" uid="uid://dydyiflfbm2nd" path="res://Pictures/X_key.png" id="13_o2x74"]
+[ext_resource type="Texture2D" uid="uid://cox0jui154umv" path="res://Pictures/sticker/Falle.png" id="14_mcyv0"]
+[ext_resource type="Texture2D" uid="uid://b4jwq5fyfyp61" path="res://Pictures/sticker/contr.png" id="14_uu1ei"]
+[ext_resource type="Texture2D" uid="uid://cyuv0ckvop21g" path="res://Pictures/sticker/enemies_sticker.png" id="15_6hfo0"]
+[ext_resource type="Texture2D" uid="uid://pkvwkv608q6k" path="res://Pictures/sticker/ballerina sticker.png" id="16_7lqb4"]
+[ext_resource type="Texture2D" uid="uid://bwjj4b0ko2er7" path="res://Pictures/sticker/klavier_sticker.png" id="17_4gjt2"]
+[ext_resource type="Texture2D" uid="uid://dvw4suxku0eti" path="res://Pictures/Spider coloured.png" id="18_a435v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_344bk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y8547")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_82vhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ufmi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f1fo8")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_f1fo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ufmi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_82vhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y8547")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_amjw0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pubnlikum:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(583, 598)]
+}
+
+[sub_resource type="Animation" id="Animation_d0jn2"]
+resource_name = "moveaway"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pubnlikum:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(583, 598), Vector2(586, 725)]
+}
+
+[sub_resource type="Animation" id="Animation_ugr54"]
+resource_name = "movein"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pubnlikum:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(586, 725), Vector2(583, 598)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0jsxy"]
+_data = {
+"RESET": SubResource("Animation_amjw0"),
+"moveaway": SubResource("Animation_d0jn2"),
+"movein": SubResource("Animation_ugr54")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_m88se"]
+font = ExtResource("11_bivc3")
+font_size = 125
+font_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.45098)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l2ayo"]
+font = ExtResource("11_bivc3")
+font_size = 60
+font_color = Color(0.164706, 0.168627, 0.164706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qymnf"]
+font = ExtResource("11_bivc3")
+font_size = 86
+
+[sub_resource type="LabelSettings" id="LabelSettings_8c6n7"]
+font = ExtResource("11_bivc3")
+font_size = 68
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_lf3f1")
+
+[node name="test" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_y8547")
+
+[node name="test2" type="Node2D" parent="."]
+
+[node name="curtain" type="AnimatedSprite2D" parent="test2"]
+position = Vector2(577, 303)
+scale = Vector2(0.561162, 0.568945)
+sprite_frames = SubResource("SpriteFrames_344bk")
+animation = &"open"
+
+[node name="pubnlikum" type="Sprite2D" parent="test2"]
+z_index = 2
+position = Vector2(583, 598)
+scale = Vector2(1.03968, 1.03968)
+texture = ExtResource("6_pd6b5")
+
+[node name="Publikummover" type="AnimationPlayer" parent="test2"]
+libraries = {
+"": SubResource("AnimationLibrary_0jsxy")
+}
+
+[node name="leave" type="Node2D" parent="."]
+position = Vector2(207, 125)
+scale = Vector2(0.745, 0.745)
+
+[node name="Sprite2D" type="Sprite2D" parent="leave"]
+position = Vector2(508.725, 351.678)
+scale = Vector2(1.17651, 0.229744)
+texture = ExtResource("7_18yto")
+
+[node name="unhighlighted" type="Label" parent="leave"]
+offset_left = 284.564
+offset_top = 265.772
+offset_right = 769.564
+offset_bottom = 428.772
+text = "leave "
+label_settings = SubResource("LabelSettings_m88se")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hightlighted" type="Sprite2D" parent="leave"]
+visible = false
+position = Vector2(130.201, 355.705)
+rotation = 1.57079
+scale = Vector2(0.0680848, 0.0680848)
+texture = ExtResource("8_tvun7")
+
+[node name="options2" type="Node2D" parent="."]
+position = Vector2(207, -55)
+scale = Vector2(0.745, 0.745)
+
+[node name="Sprite2D" type="Sprite2D" parent="options2"]
+position = Vector2(507.383, 446.98)
+scale = Vector2(1.17651, 0.240569)
+texture = ExtResource("7_18yto")
+
+[node name="highlighted" type="Sprite2D" parent="options2"]
+visible = false
+position = Vector2(140.94, 451.007)
+rotation = 1.57079
+scale = Vector2(0.0680848, 0.0680848)
+texture = ExtResource("8_tvun7")
+
+[node name="unhighlighted" type="Label" parent="options2"]
+offset_left = 245.638
+offset_top = 374.497
+offset_right = 872.638
+offset_bottom = 537.497
+text = "How to Play"
+label_settings = SubResource("LabelSettings_m88se")
+vertical_alignment = 1
+
+[node name="stargame" type="Node2D" parent="."]
+position = Vector2(207, -230)
+scale = Vector2(0.745, 0.745)
+
+[node name="Sprite2D" type="Sprite2D" parent="stargame"]
+position = Vector2(514.094, 527.517)
+scale = Vector2(1.17651, 0.260311)
+texture = ExtResource("7_18yto")
+
+[node name="highlighted" type="Sprite2D" parent="stargame"]
+visible = false
+position = Vector2(135.57, 530.201)
+rotation = 1.57079
+scale = Vector2(0.0680848, 0.0680848)
+texture = ExtResource("8_tvun7")
+
+[node name="unhighlighted" type="Label" parent="stargame"]
+offset_left = 283.221
+offset_top = 459.06
+offset_right = 768.221
+offset_bottom = 622.06
+text = "Start game"
+label_settings = SubResource("LabelSettings_m88se")
+horizontal_alignment = 1
+
+[node name="expl" type="Node2D" parent="."]
+position = Vector2(42, -243)
+rotation = 0.261799
+
+[node name="Sprite2D" type="Sprite2D" parent="expl"]
+position = Vector2(938.328, 67.3272)
+scale = Vector2(0.79817, 0.223106)
+texture = ExtResource("7_18yto")
+
+[node name="X" type="Sprite2D" parent="expl"]
+position = Vector2(1054.56, 64.2489)
+scale = Vector2(0.0970052, 0.0970052)
+texture = ExtResource("13_o2x74")
+
+[node name="xexpl" type="Label" parent="expl"]
+offset_left = 758.979
+offset_top = 27.4991
+offset_right = 1069.98
+offset_bottom = 134.499
+text = "select with"
+label_settings = SubResource("LabelSettings_l2ayo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="expl"]
+z_index = 1
+position = Vector2(260.206, 240.861)
+rotation = -0.523598
+scale = Vector2(0.20407, 0.163981)
+texture = ExtResource("12_o1nkd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="expl"]
+position = Vector2(4.9015, 435.573)
+rotation = -0.689464
+scale = Vector2(1, 0.0347055)
+texture = ExtResource("12_it60t")
+
+[node name="highscore" type="Label" parent="expl"]
+modulate = Color(0.00392157, 0, 0, 1)
+z_index = 4
+offset_left = 126.0
+offset_top = 269.0
+offset_right = 384.0
+offset_bottom = 363.0
+rotation = -0.523598
+text = "0"
+label_settings = SubResource("LabelSettings_qymnf")
+horizontal_alignment = 1
+
+[node name="tut" type="Node2D" parent="."]
+
+[node name="first" type="Node2D" parent="tut"]
+visible = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="tut/first"]
+position = Vector2(661.152, 315)
+scale = Vector2(1.44911, 0.835237)
+texture = ExtResource("7_18yto")
+
+[node name="Sprite2D" type="Sprite2D" parent="tut/first"]
+position = Vector2(138, 126)
+scale = Vector2(0.149414, 0.149414)
+texture = ExtResource("11_0clqo")
+
+[node name="Sprite2D2" type="Sprite2D" parent="tut/first"]
+position = Vector2(134, 442)
+scale = Vector2(0.132161, 0.132162)
+texture = ExtResource("13_o2x74")
+
+[node name="Sprite2D3" type="Sprite2D" parent="tut/first"]
+position = Vector2(144, 295)
+scale = Vector2(0.132161, 0.132162)
+texture = ExtResource("12_jhksf")
+
+[node name="Label" type="Label" parent="tut/first"]
+offset_left = 300.0
+offset_top = 100.0
+offset_right = 983.0
+offset_bottom = 289.0
+text = " use the keys to move and jump"
+label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="Label2" type="Label" parent="tut/first"]
+offset_left = 335.0
+offset_top = 223.0
+offset_right = 1228.0
+offset_bottom = 412.0
+text = "can be used to open or
+close the umbrella"
+label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="Label3" type="Label" parent="tut/first"]
+offset_left = 333.0
+offset_top = 374.0
+offset_right = 1273.0
+offset_bottom = 563.0
+text = "can be used to hit enemies
+or to block them"
+label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="Sprite2D6" type="Sprite2D" parent="tut/first"]
+position = Vector2(966.217, 365.587)
+rotation = 0.261799
+scale = Vector2(0.534258, 0.2)
+texture = ExtResource("7_18yto")
+
+[node name="Sprite2D5" type="Sprite2D" parent="tut/first"]
+position = Vector2(993.33, 245.7)
+rotation = 0.261799
+scale = Vector2(0.455954, 0.455954)
+texture = ExtResource("14_uu1ei")
+
+[node name="Label4" type="Label" parent="tut/first"]
+offset_left = 881.0
+offset_top = 296.0
+offset_right = 1996.0
+offset_bottom = 532.0
+rotation = 0.261799
+text = "or use me!"
+label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="second" type="Node2D" parent="tut"]
+visible = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="tut/second"]
+position = Vector2(484, 311)
+scale = Vector2(1.30506, 0.806452)
+texture = ExtResource("7_18yto")
+
+[node name="Sprite2D" type="Sprite2D" parent="tut/second"]
+position = Vector2(839, 152)
+scale = Vector2(0.396938, 0.396938)
+texture = ExtResource("13_5wno6")
+
+[node name="Label" type="Label" parent="tut/second"]
+offset_left = 266.0
+offset_top = 125.0
+offset_right = 821.0
+offset_bottom = 507.0
+text = "mind gaps 
+
+and avoid 
+
+and block enemies"
+label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="tut/second"]
+position = Vector2(618, 306)
+scale = Vector2(0.963919, 0.963919)
+texture = ExtResource("14_mcyv0")
+
+[node name="Sprite2D3" type="Sprite2D" parent="tut/second"]
+position = Vector2(938, 355)
+scale = Vector2(0.319481, 0.319481)
+texture = ExtResource("15_6hfo0")
+
+[node name="Label4" type="Label" parent="tut"]
+offset_left = 353.0
+offset_top = 545.0
+offset_right = 1036.0
+offset_bottom = 734.0
+text = "x to continue"
+label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="third" type="Node2D" parent="tut"]
+visible = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="tut/third"]
+position = Vector2(398.5, 282)
+scale = Vector2(1.48613, 0.574194)
+texture = ExtResource("7_18yto")
+
+[node name="Sprite2D" type="Sprite2D" parent="tut/third"]
+position = Vector2(935, 279)
+scale = Vector2(0.285429, 0.285429)
+texture = ExtResource("16_7lqb4")
+
+[node name="Label" type="Label" parent="tut/third"]
+offset_left = 70.0
+offset_top = 150.0
+offset_right = 782.0
+offset_bottom = 532.0
+text = "Jumped to early?
+No worries – open the umbrella
+ and glide like Marry Poppins
+ "
+label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="fourth" type="Node2D" parent="tut"]
+visible = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="tut/fourth"]
+position = Vector2(391.464, 284.023)
+scale = Vector2(1.52843, 0.803299)
+texture = ExtResource("7_18yto")
+
+[node name="Sprite2D" type="Sprite2D" parent="tut/fourth"]
+position = Vector2(762, 148)
+scale = Vector2(0.523077, 0.523077)
+texture = ExtResource("17_4gjt2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="tut/fourth"]
+position = Vector2(796, 278)
+scale = Vector2(0.316095, 0.316095)
+texture = ExtResource("18_a435v")
+
+[node name="Label" type="Label" parent="tut/fourth"]
+offset_left = 67.0
+offset_top = 93.0
+offset_right = 779.0
+offset_bottom = 475.0
+text = "hit spider/piano to gain silk
+and repair yourself 
+be cautious!
+if all your strings are ripped, 
+your escape failed"
+label_settings = SubResource("LabelSettings_8c6n7")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_gq1k1")
+
+[connection signal="animation_finished" from="test2/curtain" to="." method="_on_curtain_animation_finished"]

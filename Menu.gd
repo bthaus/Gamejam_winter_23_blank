@@ -9,6 +9,7 @@ var state="menu"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$music.play()
+	$expl/highscore.text=str(Permanent.highscore)
 	for n in get_children():
 		print(n)
 	print($test2/curtain)
@@ -87,6 +88,7 @@ func togglemenu(bo):
 func _process(delta):
 	if world.distance>float($expl/highscore.text):
 		$expl/highscore.text=str(world.distance)
+		Permanent.highscore=world.distance;
 	if(!open):
 		togglemenu(false)
 		return;#
