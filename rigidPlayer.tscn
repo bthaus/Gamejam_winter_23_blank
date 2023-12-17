@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://ctf502tckktb8"]
+[gd_scene load_steps=59 format=3 uid="uid://ctf502tckktb8"]
 
 [ext_resource type="Texture2D" uid="uid://c8qb36va0pefv" path="res://Assets/Player/Player.png" id="1_7uggp"]
 [ext_resource type="Script" path="res://rigidPlayer.gd" id="1_bv1m3"]
@@ -1546,6 +1546,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [-1.309]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite:frame")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
 
 [sub_resource type="Animation" id="Animation_jvvm4"]
 resource_name = "attack"
@@ -1971,13 +1983,30 @@ tracks/0/keys = {
 "values": [1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_emrmc"]
+resource_name = "quickclose"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 1, 0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qar5k"]
 _data = {
 "RESET": SubResource("Animation_y7032"),
 "attack": SubResource("Animation_jvvm4"),
 "block": SubResource("Animation_ysy60"),
 "closeumbrella": SubResource("Animation_5j2qw"),
-"openumbrella": SubResource("Animation_6rptm")
+"openumbrella": SubResource("Animation_6rptm"),
+"quickclose": SubResource("Animation_emrmc")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ctm2j"]
@@ -2165,6 +2194,9 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7lylw"]
 radius = 18.0
 height = 182.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_36a3p"]
+radius = 36.6762
 
 [node name="body" type="RigidBody2D" groups=["player"]]
 collision_layer = 9
@@ -2727,11 +2759,11 @@ position = Vector2(2.53485, -376.589)
 script = ExtResource("10_ybvur")
 attachment = NodePath("../../Skeleton2D/hips")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="hurtbox" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
 position = Vector2(0, -98)
 shape = SubResource("CapsuleShape2D_7lylw")
 
@@ -2758,6 +2790,20 @@ volume_db = 3.775
 stream = ExtResource("24_mww5f")
 volume_db = 19.769
 
+[node name="blocktimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="blockblocker" type="Timer" parent="blocktimer"]
+wait_time = 2.0
+
+[node name="shieldbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shieldbox"]
+position = Vector2(56, -162)
+shape = SubResource("CircleShape2D_36a3p")
+
 [connection signal="area_entered" from="Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="feet" to="." method="_on_feet_area_entered"]
@@ -2769,3 +2815,6 @@ volume_db = 19.769
 [connection signal="body_shape_entered" from="feet" to="." method="_on_feet_body_shape_entered"]
 [connection signal="body_shape_exited" from="feet" to="." method="_on_feet_body_shape_exited"]
 [connection signal="animation_finished" from="StaticBody2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="blocktimer" to="." method="_on_blocktimer_timeout"]
+[connection signal="timeout" from="blocktimer/blockblocker" to="." method="_on_blockblocker_timeout"]
+[connection signal="area_entered" from="shieldbox" to="." method="_on_shieldbox_area_entered"]

@@ -54,7 +54,7 @@ func breakleftLeg():
 	$StaticBody2D/aleftfoot.visible=false;
 	$DanglingParts/leftlef.visible=true;
 	leftlegbroken=true;
-	maxSpeed=maxSpeed*0.5;
+	maxSpeed=maxSpeed*0.7;
 	jumpfactor=jumpfactor*0.8;
 	pass;
 func breakrightleg():
@@ -88,7 +88,7 @@ func repair():
 		$StaticBody2D/aleftfoot.visible=true;
 		$DanglingParts/leftlef.visible=false;
 		leftlegbroken=false;
-		maxSpeed=maxSpeed*2;
+		maxSpeed=maxSpeed*1.4;
 		jumpfactor=jumpfactor*1.2;
 		return;
 	if(repair=="rightleg"):
@@ -113,6 +113,9 @@ func hit(type):
 		breakiteratively();
 			
 	if(blocking):
+		print("quickclose")
+		$Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame=0
+		#$AnimationPlayer2.play("quickclose")
 		return;
 	$gettinghit.play()
 	if(type=="piano"):
@@ -138,6 +141,7 @@ func breakiteratively():
 		return;
 		
 var blocking=false;	
+var canblock=true;
 func _process(delta):
 	if(Input.is_action_just_pressed("activate_item")):
 		breakiteratively()
@@ -196,7 +200,7 @@ var floorcontacts=0;
 var jumping=false;
 func _on_feet_body_entered(body):
 	jumping=false;
-	print("touching tralala" +str(floorcontacts))
+	
 	if(body==self):
 		return;
 	computecontact(1)
@@ -218,7 +222,22 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_hitbox_area_entered(area):
 	print("area entered")
-	if(area.get_parent().has_method("hit")):
+	if(area.get_parent().has_method("hit")) :
 		print("call hit")
-		area.get_parent().hit("spider");
+		area.get_parent().hit("player");
+	pass # Replace with function body.
+
+
+func _on_feet_area_entered(area):
+	if area.get_parent().has_method("hit") and linear_velocity.y>150:
+		print(linear_velocity)
+		area.get_parent().hit("feet");
+	pass # Replace with function body.
+
+
+
+
+
+func _on_shieldbox_area_entered(area):
+	$Skeleton2D/hips/shoulders/rightupperarm/rightLowerArm/swordskelly/swordsprite.frame=0
 	pass # Replace with function body.

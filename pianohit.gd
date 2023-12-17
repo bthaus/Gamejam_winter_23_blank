@@ -24,15 +24,15 @@ func _on_area_2d_area_entered(area):
 	$crash.play()
 	if(hitted):
 		return
-	
+	hitted=true;
 	if(area.get_parent().has_method("hit")):
-		hitted=true;
+		
 		area.get_parent().hit("piano")
 	pass # Replace with function body.
 
 
 func _on_body_entered(body):
-	
+	hitted=true;
 	pass # Replace with function body.
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://eywsjsi8bmic"]
+[gd_scene load_steps=19 format=3 uid="uid://eywsjsi8bmic"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_jw8lx"]
 [ext_resource type="Texture2D" uid="uid://f6g7afda1mih" path="res://Pictures/Curtain korrekt.png" id="2_at5a5"]
@@ -11,21 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://roel6qtbnby7" path="res://Pictures/Background/ebene3.png" id="7_8cyal"]
 [ext_resource type="Texture2D" uid="uid://dend2am16po7n" path="res://Pictures/Background/ebene4.png" id="8_8x8fg"]
 [ext_resource type="AudioStream" uid="uid://dguh4sho8gsl1" path="res://Sounds/audio_gameplay.wav" id="9_b2nqm"]
-
-[sub_resource type="Animation" id="Animation_xkt7a"]
-resource_name = "show"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("deathscreen:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_2ho22"]
 length = 0.001
@@ -57,6 +42,21 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_xkt7a"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("deathscreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_626mf"]
 _data = {
 "RESET": SubResource("Animation_2ho22"),
@@ -66,6 +66,13 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8a11"]
 size = Vector2(97, 652.5)
+
+[sub_resource type="Environment" id="Environment_chfbf"]
+glow_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7gybj"]
+auto_exposure_enabled = true
+dof_blur_far_enabled = true
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_jw8lx")
@@ -156,6 +163,10 @@ autoplay = true
 
 [node name="dietimer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_chfbf")
+camera_attributes = SubResource("CameraAttributesPractical_7gybj")
 
 [connection signal="startgame" from="Camera2D/menu" to="." method="_on_menu_startgame"]
 [connection signal="died" from="Player" to="." method="_on_player_died"]

@@ -78,7 +78,7 @@ func _process(delta):
 		$stargame/highlighted.visible=true
 	else:
 		$stargame/highlighted.visible=false
-	print(counter)
+
 	
 	pass
 
