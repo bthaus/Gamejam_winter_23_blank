@@ -47,3 +47,24 @@ func _on_dietimer_timeout():
 	$Camera2D/deathshower.play("hide")
 	$Camera2D/menu.toggle(false)
 	pass # Replace with function body.
+
+
+func _on_deathzone_area_entered(area):
+	
+	pass # Replace with function body.
+
+
+func _on_deathzone_body_entered(body):
+	print("entered")
+	if body.has_method("breakiteratively"):
+		body.breakiteratively();
+		body.breakiteratively();
+		if !body.alive:
+			return
+		body.position.y=300
+		body.position.x=body.position.x+200
+		
+		
+		
+		
+	pass # Replace with function body.
