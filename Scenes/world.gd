@@ -11,6 +11,8 @@ func _ready():
 	rand.randomize()
 	add_child(level1)
 	levels.push_front(level1)
+	pass;
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
