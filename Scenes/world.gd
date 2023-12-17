@@ -3,6 +3,7 @@ extends Node2D
 var level1 = preload("res://Scenes/level0.tscn").instantiate()
 var levelSpeed = 200
 var levelPosX = 0
+
 var levels = []
 var rand = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
