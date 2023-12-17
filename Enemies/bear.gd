@@ -5,10 +5,15 @@ var counter = 0
 var starty
 var soundTriggered = false
 var alive=true;
-
+var rand = RandomNumberGenerator.new() 
+var base = 20
+var meter = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	rand.randomize()
+	meter = get_parent().get_parent().distance
+	if  rand.randi_range(0, 100) > base + meter/10:
+		queue_free()
 	starty = position.y
 	pass # Replace with function body.
 

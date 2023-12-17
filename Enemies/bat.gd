@@ -5,8 +5,16 @@ extends Node2D
 var piano=preload("res://piano.tscn")
 var triggered = false
 var sound_has_played = false
+var rand = RandomNumberGenerator.new() 
+var base = 20
+var meter = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rand.randomize()
+	meter = get_parent().get_parent().distance
+	if  rand.randi_range(0, 100) > base + meter/10:
+		queue_free()
+
 	starty=global_position.y
 	pass # Replace with function body.
 var starty=0;

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://chi5vtkvo75ih"]
 
 [ext_resource type="Script" path="res://Enemies/bat.gd" id="1_lg7y8"]
-[ext_resource type="Texture2D" uid="uid://dh5k0hr4lhuay" path="res://Pictures/Bat coloured.png" id="2_oppwr"]
+[ext_resource type="Texture2D" uid="uid://cn228517vapgu" path="res://Pictures/Bat coloured.png" id="2_oppwr"]
 [ext_resource type="AudioStream" uid="uid://b0pv5ygq1s7k2" path="res://bat.mp3" id="3_rgejj"]
 
 [node name="Bat" type="Node2D"]

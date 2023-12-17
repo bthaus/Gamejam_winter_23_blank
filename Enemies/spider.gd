@@ -10,10 +10,17 @@ var sound_has_played = false
 var dead = false
 var stringMoveSteps = 50
 var skip = false
-
+var meter = 0
+var rand = RandomNumberGenerator.new() 
+var base = 20
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$String.hide()
+	rand.randomize()
+	meter = get_parent().get_parent().distance
+	if  rand.randi_range(0, 100) > base + meter/10:
+		queue_free()
+		
 	pass # Replace with function body.
 
 
