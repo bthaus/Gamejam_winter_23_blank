@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cccevsgcfcp16"]
+
+[ext_resource type="Script" path="res://distancelabel.gd" id="1_cejs7"]
+[ext_resource type="Texture2D" uid="uid://dppc5ejf6yd1g" path="res://Assets/Menu/plank.png" id="2_1w5gw"]
+[ext_resource type="Texture2D" uid="uid://qja7qyuqy5ll" path="res://Pictures/DistanceLabel.png" id="2_061v5"]
+[ext_resource type="FontFile" uid="uid://cxy035a7tyb4c" path="res://Assets/font/flanella/Flanella.ttf" id="4_ruq1s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8t3ag"]
+font = ExtResource("4_ruq1s")
+font_size = 36
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DistanceLabel" type="Node2D"]
+position = Vector2(795.725, 205.88)
+script = ExtResource("1_cejs7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(216.5, 2.5)
+scale = Vector2(0.701613, 0.040783)
+texture = ExtResource("2_1w5gw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(31.1051, -31.5389)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_061v5")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -83.0
+offset_top = -18.0
+offset_right = 99.0
+offset_bottom = 23.0
+text = "9000cm"
+label_settings = SubResource("LabelSettings_8t3ag")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="ShowTimer" to="." method="_on_show_timer_timeout"]

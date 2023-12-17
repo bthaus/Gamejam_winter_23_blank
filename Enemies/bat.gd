@@ -12,7 +12,7 @@ var meter = 0
 func _ready():
 	rand.randomize()
 	meter = get_parent().get_parent().distance
-	if  rand.randi_range(0, 100) > base + meter/10:
+	if  rand.randi_range(0, 100) > base + meter/4:
 		queue_free()
 
 	starty=global_position.y
