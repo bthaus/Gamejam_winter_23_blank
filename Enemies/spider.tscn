@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bnw5fidg2djvy"]
 
 [ext_resource type="Script" path="res://Enemies/spider.gd" id="2_7dflx"]
-[ext_resource type="Texture2D" uid="uid://dvw4suxku0eti" path="res://Pictures/Spider coloured.png" id="2_boede"]
+[ext_resource type="Texture2D" uid="uid://ryjrkbycnqsu" path="res://Pictures/Spider coloured.png" id="2_boede"]
 [ext_resource type="AudioStream" uid="uid://b62wnj0u8qgto" path="res://Sounds/spider.mp3" id="3_weva0"]
-[ext_resource type="Texture2D" uid="uid://ctw271kj1nsun" path="res://Pictures/String.png" id="4_inpnu"]
+[ext_resource type="Texture2D" uid="uid://c8uv7imhdici2" path="res://Pictures/String.png" id="4_inpnu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mcke2"]
 radius = 29.0
