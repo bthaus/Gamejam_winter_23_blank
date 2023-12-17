@@ -25,10 +25,10 @@ texture = ExtResource("1_rdos1")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -86.0
-offset_top = -15.0
+offset_top = -16.0
 offset_right = 104.0
-offset_bottom = 30.0
-text = "some text"
+offset_bottom = 29.0
+text = "Some text"
 label_settings = SubResource("LabelSettings_5kj4q")
 horizontal_alignment = 1
 vertical_alignment = 1
