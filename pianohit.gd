@@ -31,7 +31,6 @@ func _on_area_2d_area_entered(area):
 		return
 	hitted=true;
 	if(area.get_parent().has_method("hit")):
-		
 		area.get_parent().hit("piano")
 	pass # Replace with function body.
 
