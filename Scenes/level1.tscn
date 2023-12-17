@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://3023gj35t2ds"]
+[gd_scene load_steps=5 format=3 uid="uid://3023gj35t2ds"]
 
 [ext_resource type="Texture2D" uid="uid://uyeggvyus42n" path="res://Pictures/level/lv04.png" id="1_nndn4"]
-[ext_resource type="PackedScene" uid="uid://be0rsn611ywle" path="res://Enemies/bat.tscn" id="2_ooutw"]
+[ext_resource type="PackedScene" uid="uid://chi5vtkvo75ih" path="res://Enemies/bat.tscn" id="2_ooutw"]
+[ext_resource type="PackedScene" uid="uid://bnm82fn1026mr" path="res://Enemies/trap.tscn" id="3_y5evf"]
+[ext_resource type="PackedScene" uid="uid://ddsnc7x8hu3bd" path="res://Enemies/bear.tscn" id="4_g1ui0"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -20,3 +22,9 @@ polygon = PackedVector2Array(678, 612, 1150, 609, 1152, 675, 677, 675)
 
 [node name="Bat" parent="." instance=ExtResource("2_ooutw")]
 position = Vector2(1273, 149)
+
+[node name="Trap" parent="." instance=ExtResource("3_y5evf")]
+position = Vector2(298, 608)
+
+[node name="Bear" parent="." instance=ExtResource("4_g1ui0")]
+position = Vector2(1107, 523)

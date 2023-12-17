@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://xdn7votwxuld"]
+[gd_scene load_steps=6 format=3 uid="uid://xdn7votwxuld"]
 
 [ext_resource type="Texture2D" uid="uid://bdvqum3f3bqno" path="res://Pictures/level/lv02.png" id="1_8g36s"]
 [ext_resource type="PackedScene" uid="uid://bnw5fidg2djvy" path="res://Enemies/spider.tscn" id="2_qmw8x"]
-[ext_resource type="PackedScene" path="res://Enemies/trap.tscn" id="3_884m7"]
+[ext_resource type="PackedScene" uid="uid://bnm82fn1026mr" path="res://Enemies/trap.tscn" id="3_884m7"]
 [ext_resource type="Texture2D" uid="uid://7qlojx6rxgmv" path="res://Pictures/Spiderweb coloured.png" id="4_0qa1t"]
+[ext_resource type="PackedScene" uid="uid://ddsnc7x8hu3bd" path="res://Enemies/bear.tscn" id="5_cogvs"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -27,3 +28,6 @@ z_index = -1
 position = Vector2(329, -16)
 scale = Vector2(0.165468, 0.165468)
 texture = ExtResource("4_0qa1t")
+
+[node name="Bear" parent="." instance=ExtResource("5_cogvs")]
+position = Vector2(787, 527)
