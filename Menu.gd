@@ -52,10 +52,12 @@ func execute():
 	pass;
 var tutcounter=0;
 func toggletut(bo):
+	
 	tutcounter=(tutcounter+1)%5
 	if tutcounter==1:
 		$test2/Publikummover.play("moveaway")
 		$tut/first.show()
+		$tut/Label4.show();
 	if tutcounter==2:
 		$tut/first.hide()
 		$tut/second.show()
@@ -68,6 +70,8 @@ func toggletut(bo):
 	if tutcounter==0:
 		$tut/fourth.hide()
 		togglemenu(true)
+		$tut/Label4.hide();
+		
 		
 	pass;
 func togglemenu(bo):
@@ -87,6 +91,7 @@ func _process(delta):
 	if state=="tut":
 		if Input.is_action_just_pressed("attack"):
 			toggletut(true)
+			return
 	if state=="menu":
 		if(Input.is_action_just_pressed("ui_up")):
 			counter=counter+1;
@@ -110,7 +115,7 @@ func _process(delta):
 			$stargame/highlighted.visible=true
 		else:
 			$stargame/highlighted.visible=false
-
+	
 	
 	pass
 
