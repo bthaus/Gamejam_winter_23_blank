@@ -46,6 +46,7 @@ func execute():
 		get_tree().paused=false;
 		$stargame/highlighted.visible=true
 		$test2/Publikummover.play("moveaway")
+		$tut/Label4.hide()
 		$music.stop()
 		open=false;
 	

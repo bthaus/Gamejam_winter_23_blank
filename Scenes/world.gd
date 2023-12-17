@@ -7,8 +7,10 @@ var distance = 0
 var levels = []
 var rand = RandomNumberGenerator.new()
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	
 	get_tree().paused=true;
 	rand.randomize()
@@ -19,6 +21,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if(!$Camera2D/AudioStreamPlayer2D.playing):
+		$Camera2D/AudioStreamPlayer2D.play()
 	distance = $Camera2D.position.x/100
 	if(Input.is_action_just_pressed("menu")):
 		get_tree().paused=true;

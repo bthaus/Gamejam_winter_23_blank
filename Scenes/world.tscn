@@ -161,6 +161,11 @@ offset_bottom = -196.527
 [node name="labeltimer" type="Timer" parent="Camera2D"]
 wait_time = 3.0
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D"]
+position = Vector2(-575, -322)
+stream = ExtResource("9_b2nqm")
+autoplay = true
+
 [node name="Wall" type="StaticBody2D" parent="."]
 collision_layer = 8
 collision_mask = 8
@@ -224,10 +229,6 @@ modulate = Color(0.533333, 0.533333, 0.533333, 1)
 position = Vector2(0, 35)
 texture = ExtResource("8_8x8fg")
 centered = false
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_b2nqm")
-autoplay = true
 
 [node name="dietimer" type="Timer" parent="."]
 wait_time = 2.0
