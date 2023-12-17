@@ -1,6 +1,7 @@
 extends RigidBody2D
 var maxSpeed = 320
 var jumpfactor=2;
+@export var camera:Camera2D;
 var umbrellaOpen=true;
 var onehandbroken=false;
 var twohandbroken=false;
@@ -59,6 +60,8 @@ func breakOneHand():
 	
 	pass;
 func die():
+	if !alive:
+		return;
 	playstringrip()
 	died.emit()
 	$StaticBody2D/acenter.visible=false;
@@ -149,6 +152,7 @@ func repair():
 func hit(type):
 
 	if(type=="trap"):
+		
 		if(!leftlegbroken):
 			breakleftLeg();
 		elif(!rightlegbroken):
@@ -169,6 +173,7 @@ func hit(type):
 		return;
 	$gettinghit.play()
 	if(type=="piano"):
+		camera.shake(15,0.2,2)
 		breakiteratively();
 	
 	pass;

@@ -59,6 +59,8 @@ func _on_deathzone_body_entered(body):
 	if body.has_method("breakiteratively"):
 		body.breakiteratively();
 		body.breakiteratively();
+		if !body.alive:
+			return
 		body.position.y=300
 		body.position.x=body.position.x+200
 		

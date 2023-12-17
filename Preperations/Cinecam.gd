@@ -1,5 +1,5 @@
 extends Camera2D
-var target;
+
 var locked=false;
 
 var shaking=false;
@@ -8,10 +8,7 @@ var dropoff=1;
 var baseoffset;
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	target= get_parent()
-	
 	baseoffset=self.offset;
-	
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,22 +24,7 @@ func _process(delta):
 	else:
 		offset=baseoffset	
 	
-	if Input.is_action_just_pressed("lock_camera"):
-		locked=!locked;
-	if(locked):
-		if Input.is_action_pressed("camera_down"):
-			position.y=position.y+500*delta;
-		if Input.is_action_pressed("camera_up"):
-			position.y=position.y-500*delta;
-		if Input.is_action_pressed("camera_left"):
-			position.x=position.x-500*delta;
-		if Input.is_action_pressed("camera_right"):
-			position.x=position.x+500*delta;
-		return;
-	
-	position.x=target.position.x
-	position.y=target.position.y
-	
+
 	pass
 
 #intensity around 2.5 ish, duration 0.2, dropoff ~2 (for a hit-shake eg.) 
@@ -51,11 +33,11 @@ func shake(intensity,duration,dropoff):
 	shaking=true;
 	camera_shake_intensity=intensity;
 	$shaketimer.start(duration);
-
-	
 	pass
 
 
-func _on_timer_timeout():
+
+
+func _on_shaketimer_timeout():
 	shaking=false;
 	pass # Replace with function body.
