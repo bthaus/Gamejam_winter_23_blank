@@ -6,9 +6,11 @@ var levelPosX = 0
 var distance = 0
 var levels = []
 var rand = RandomNumberGenerator.new()
-var count = 0
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	
 	get_tree().paused=true;
 	rand.randomize()
@@ -19,6 +21,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if(!$Camera2D/AudioStreamPlayer2D.playing):
+		$Camera2D/AudioStreamPlayer2D.play()
 	distance = $Camera2D.position.x/100
 	if(Input.is_action_just_pressed("menu")):
 		get_tree().paused=true;
@@ -32,20 +36,13 @@ func _process(delta):
 	$Camera2D.position.x += levelSpeed * delta
 	$Wall.position.x += levelSpeed * delta
 	if $Camera2D.position.x - levelPosX > 600:
-		var level
 		if levels.size() > 2:
 			remove_child(levels.pop_front())
-		if count == 3:
-			level = load("res://Scenes/level0.tscn").instantiate()
-			count = 0
-		else:
-			level = load("res://Scenes/level"+ str(rand.randi_range(1,7)) +".tscn").instantiate()
-			count = count + 1
+		var level = load("res://Scenes/level"+ str(rand.randi_range(0,7)) +".tscn").instantiate()
 		level.position.x = levelPosX + 1150
 		levelPosX = level.position.x
 		levels.push_back(level)
 		add_child(level)
-		
 
 
 
